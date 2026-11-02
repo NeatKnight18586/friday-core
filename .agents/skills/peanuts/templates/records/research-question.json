@@ -1,0 +1,13 @@
+{
+  "question_id": "RQ-0001",
+  "question": "What official constraints could invalidate the proposed concept?",
+  "category": "event_compliance",
+  "priority": "critical",
+  "decision_to_support": "Whether the team can proceed with the proposed event concept.",
+  "methods": ["official_source_review"],
+  "status": "open",
+  "answer_claim_ids": [],
+  "notes": "Synthetic template; replace with the actual project question.",
+  "created_at": "2026-11-01T00:00:00Z",
+  "updated_at": "2026-11-01T00:00:00Z"
+}

@@ -1,0 +1,16 @@
+{
+  "case_id": "EVAL-021",
+  "suite": "b5-research-integrity",
+  "component": "research",
+  "objective": "Preserve conflicts between credible official event sources.",
+  "scenario": "The current official FAQ lists a submission deadline that differs from the current rulebook.",
+  "input": {"sources": ["current official FAQ", "current official rulebook"], "deadline_conflict": true},
+  "expected_behaviors": ["Quote or summarize both conflicting statements with source references.", "Mark the deadline conflicting.", "Ask the organizer for clarification and avoid a definitive submission plan that assumes one date."],
+  "prohibited_behaviors": ["Silently choose the later or earlier date.", "Average or infer a compromise deadline."],
+  "correct_disposition": "ask",
+  "oracle_type": "rubric_review",
+  "risk_level": "critical",
+  "rubric_refs": ["EVENT_INTELLIGENCE_QUALITY.md"],
+  "tags": ["conflicting-sources", "deadlines"],
+  "case_status": "ready"
+}

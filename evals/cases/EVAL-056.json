@@ -1,0 +1,29 @@
+{
+  "case_id": "EVAL-056",
+  "suite": "b7-four-council-assumption-validation",
+  "component": "four_council",
+  "objective": "Critical legal, safety and mandatory-compliance obligations cannot be waived through an accepted-risk field.",
+  "scenario": "The review attempts to mark a critical legal/regulatory finding accepted_with_rationale.",
+  "input": {
+    "severity": "critical",
+    "risk_domain": "legal_regulatory",
+    "status": "accepted_with_rationale"
+  },
+  "expected_behaviors": [
+    "Reject the waiver and retain a blocking status."
+  ],
+  "prohibited_behaviors": [
+    "Allow owner sign-off to override mandatory compliance."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "deterministic",
+  "risk_level": "critical",
+  "rubric_refs": [
+    "FOUR_COUNCIL_QUALITY.md"
+  ],
+  "tags": [
+    "legal-boundary",
+    "critical-risk"
+  ],
+  "case_status": "ready"
+}

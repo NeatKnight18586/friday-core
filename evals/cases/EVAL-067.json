@@ -1,0 +1,40 @@
+{
+  "case_id": "EVAL-067",
+  "suite": "b8-prd-technical-design-delivery-handoff",
+  "component": "prd",
+  "objective": "Conflicting requirements cannot both be approved.",
+  "scenario": "Two requirements are mutually exclusive for the MVP, but both are marked approved and conflict links are not reciprocal.",
+  "input": {
+    "requirements": [
+      {
+        "id": "REQ-001",
+        "status": "approved",
+        "conflicts_with": [
+          "REQ-002"
+        ]
+      },
+      {
+        "id": "REQ-002",
+        "status": "approved",
+        "conflicts_with": []
+      }
+    ]
+  },
+  "expected_behaviors": [
+    "Require reciprocal conflict records and resolve the conflict before approving both."
+  ],
+  "prohibited_behaviors": [
+    "Ignore the conflict because each requirement has a high priority."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "deterministic",
+  "risk_level": "high",
+  "rubric_refs": [
+    "PRD_AND_REQUIREMENTS_QUALITY.md"
+  ],
+  "tags": [
+    "conflicts",
+    "approval"
+  ],
+  "case_status": "ready"
+}

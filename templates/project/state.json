@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "project_id": "sample-project",
+  "lifecycle_status": "draft",
+  "current_stage": "P1",
+  "stage_status": "not_started",
+  "completed_stages": [],
+  "pending_decision_ids": [],
+  "blockers": [],
+  "next_action": {
+    "action": "Clarify the decision this project needs to support.",
+    "owner": "user + assistant",
+    "reason": "The project needs a clear desired outcome before deeper research."
+  },
+  "handoff_summary": "New project. No research, decisions, or validation work has been completed yet.",
+  "updated_at": "2026-10-31T00:00:00Z"
+}

@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/source-record.schema.json",
+  "title": "Source Record",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "pattern": "^[A-Z]{2,6}-[0-9]{4,6}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 300
+    },
+    "source_kind": {
+      "enum": [
+        "official_event",
+        "primary_source",
+        "peer_reviewed",
+        "academic_secondary",
+        "standard",
+        "technical_docs",
+        "patent",
+        "industry_report",
+        "news",
+        "interview",
+        "observation",
+        "experiment",
+        "user_provided",
+        "other"
+      ]
+    },
+    "publisher": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "author": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
+    },
+    "doi": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "publication_date": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "accessed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "access_status": {
+      "enum": [
+        "accessed",
+        "paywalled",
+        "inaccessible",
+        "not_checked"
+      ]
+    },
+    "validity_status": {
+      "enum": [
+        "current",
+        "check_needed",
+        "superseded",
+        "stale",
+        "unknown"
+      ]
+    },
+    "assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "authority": {
+          "enum": [
+            "high",
+            "medium",
+            "low",
+            "not_assessed"
+          ]
+        },
+        "directness": {
+          "enum": [
+            "primary",
+            "secondary",
+            "tertiary",
+            "not_assessed"
+          ]
+        },
+        "recency": {
+          "enum": [
+            "current_for_claim",
+            "possibly_stale",
+            "historical_context",
+            "not_time_sensitive",
+            "not_assessed"
+          ]
+        },
+        "context_fit": {
+          "enum": [
+            "high",
+            "medium",
+            "low",
+            "not_assessed"
+          ]
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "authority",
+        "directness",
+        "recency",
+        "context_fit",
+        "limitations"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "source_id",
+    "title",
+    "source_kind",
+    "accessed_at",
+    "access_status",
+    "validity_status",
+    "assessment"
+  ]
+}

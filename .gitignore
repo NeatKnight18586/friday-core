@@ -1,0 +1,53 @@
+# Secrets and environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# Private/personal data and working projects (keep outside the repository)
+personal-memory/
+private-memory/
+private-data/
+private-projects/
+participant-data/
+research-recordings/
+local-workspace/
+
+# Python and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Node and build outputs
+node_modules/
+dist/
+build/
+coverage/
+
+# OS/editor/temporary files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.log
+*.tmp
+*.bak
+
+# Local tool state
+.claude/settings.local.json
+.codex/local/

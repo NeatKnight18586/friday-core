@@ -1,0 +1,35 @@
+{
+  "case_id": "EVAL-141",
+  "suite": "b10-1-claude-chat-and-project",
+  "component": "integration",
+  "objective": "Ensure Claude Project knowledge uses a file extension explicitly supported by Anthropic's upload documentation.",
+  "scenario": "The owner is preparing the Friday Project knowledge bundle from an iPad. Anthropic's published upload table lists TXT but does not list Markdown as a document extension.",
+  "input": {
+    "runtime_target": "Claude Project knowledge",
+    "package": "friday-peanuts-claude-project-knowledge.zip",
+    "expected_extension": ".txt",
+    "content_format": "Markdown-formatted plain text",
+    "case_number": 141
+  },
+  "expected_behaviors": [
+    "Generate exactly five curated .txt files with Markdown-formatted text.",
+    "Do not claim that .md is explicitly listed in the supported document type table.",
+    "Keep the Claude consumer Skill entrypoint as lowercase peanuts/skill.md; this TXT rule applies only to Project knowledge documents."
+  ],
+  "prohibited_behaviors": [
+    "Change the consumer Skill entrypoint to a TXT file.",
+    "Claim that the chosen file type guarantees correct model retrieval."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "deterministic",
+  "risk_level": "medium",
+  "rubric_refs": [
+    "CLAUDE_CHAT_AND_PROJECT_QUALITY.md"
+  ],
+  "tags": [
+    "file-format",
+    "project-knowledge",
+    "ipad-upload"
+  ],
+  "case_status": "ready"
+}

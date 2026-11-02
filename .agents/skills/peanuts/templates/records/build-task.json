@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "TASK-001",
+  "title": "Example delivery task",
+  "phase": "prototype",
+  "task_type": "validation",
+  "objective": "Reduce the most important uncertainty before committing to a full implementation.",
+  "deliverable": "A documented prototype result and next-step recommendation.",
+  "requirement_ids": [
+    "REQ-001"
+  ],
+  "depends_on": [],
+  "priority": "must",
+  "status": "planned",
+  "owner": "task owner",
+  "sequence_index": 1,
+  "exit_criteria": [
+    "Prototype evidence is recorded and reviewed."
+  ],
+  "created_at": "2026-01-01T00:00:00Z",
+  "updated_at": "2026-01-01T00:00:00Z"
+}

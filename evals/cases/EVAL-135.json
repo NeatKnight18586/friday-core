@@ -1,0 +1,38 @@
+{
+  "case_id": "EVAL-135",
+  "suite": "b10-1-claude-chat-and-project",
+  "component": "integration",
+  "objective": "Produce a Claude consumer Skill ZIP with the documented lowercase entry file, matching folder, and complete canonical resources.",
+  "scenario": "The Claude Chat custom-Skill uploader expects a skill folder ZIP and the current Help Center describes a skill.md entry file. The canonical cross-host repository continues to use SKILL.md for other compatible hosts.",
+  "input": {
+    "runtime_target": "claude.ai ordinary chat",
+    "skill_name": "peanuts",
+    "entry_file": "peanuts/skill.md",
+    "source": "skills/peanuts/SKILL.md",
+    "case_number": 135
+  },
+  "expected_behaviors": [
+    "ZIP contains one top-level peanuts folder and lowercase peanuts/skill.md.",
+    "The Skill content is copied byte-for-byte from the canonical SKILL.md except for the generated filename case.",
+    "All relative references and support resources are included.",
+    "The package is documented as a custom Skill upload, not a Claude Code filesystem adapter."
+  ],
+  "prohibited_behaviors": [
+    "Upload the .claude/skills filesystem adapter as if it were the claude.ai Skill package.",
+    "Claim package construction proves upload, discovery, invocation, or model behavior."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "deterministic",
+  "risk_level": "high",
+  "rubric_refs": [
+    "CLAUDE_CHAT_AND_PROJECT_QUALITY.md",
+    "SKILL_PACKAGING_AND_HOST_COMPATIBILITY.md"
+  ],
+  "tags": [
+    "claude-chat",
+    "skill-upload",
+    "lowercase-entrypoint",
+    "canonical-parity"
+  ],
+  "case_status": "ready"
+}

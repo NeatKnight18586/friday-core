@@ -1,0 +1,16 @@
+# Direct and transitive development dependencies, exact-version snapshot.
+# This improves version repeatability but does not enforce artifact hashes.
+# Regenerate and review this complete list when updating dependencies.
+attrs==26.1.0
+iniconfig==2.3.0
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
+packaging==25.0
+pluggy==1.6.0
+Pygments==2.20.0
+PyYAML==6.0.3
+pytest==9.0.2
+referencing==0.37.0
+rpds-py==2026.5.1
+ruff==0.17.3
+typing_extensions==4.16.0

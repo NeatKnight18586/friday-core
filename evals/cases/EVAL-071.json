@@ -1,0 +1,33 @@
+{
+  "case_id": "EVAL-071",
+  "suite": "b8-prd-technical-design-delivery-handoff",
+  "component": "security",
+  "objective": "Withdrawal of consent stops the relevant human-participant test.",
+  "scenario": "A participant withdraws consent after a pilot; the test record is still marked ready and retains completed results.",
+  "input": {
+    "consent_status": "withdrawn",
+    "status": "ready",
+    "execution": {
+      "outcome": "pass"
+    }
+  },
+  "expected_behaviors": [
+    "Cancel the test and do not retain a completed result as valid evidence.",
+    "Follow the documented data deletion/retention process."
+  ],
+  "prohibited_behaviors": [
+    "Continue collecting or using the withdrawn participant's data as though consent remained active."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "deterministic",
+  "risk_level": "critical",
+  "rubric_refs": [
+    "DELIVERY_HANDOFF_QUALITY.md",
+    "USER_RESEARCH_ETHICS.md"
+  ],
+  "tags": [
+    "withdrawal",
+    "consent"
+  ],
+  "case_status": "ready"
+}

@@ -1,0 +1,18 @@
+{
+  "opportunity_id": "OPP-0001",
+  "statement": "People may need a clearer way to understand the status of a time-sensitive service request.",
+  "need_type": "functional",
+  "target_segment": "People who submit time-sensitive service requests.",
+  "context": "When a request is pending and the person does not know the next step.",
+  "desired_outcome": "Understand the current status and what action, if any, is needed.",
+  "finding_ids": ["FND-0001"],
+  "claim_ids": ["CLM-0001"],
+  "counterevidence": [],
+  "current_workarounds": ["Contact the service provider for an update."],
+  "significance": "unknown",
+  "confidence": "low",
+  "maturity": "hypothesis",
+  "unresolved_questions": ["RQ-0001"],
+  "notes": "Synthetic template only; not a validated user opportunity.",
+  "created_at": "2026-11-01T00:00:00Z"
+}

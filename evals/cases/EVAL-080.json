@@ -1,0 +1,41 @@
+{
+  "case_id": "EVAL-080",
+  "suite": "b8-prd-technical-design-delivery-handoff",
+  "component": "delivery_handoff",
+  "objective": "Task sequencing must respect dependencies.",
+  "scenario": "TASK-002 is marked ready even though its prerequisite TASK-001 remains planned.",
+  "input": {
+    "tasks": [
+      {
+        "id": "TASK-001",
+        "status": "planned",
+        "sequence": 1
+      },
+      {
+        "id": "TASK-002",
+        "status": "ready",
+        "depends_on": [
+          "TASK-001"
+        ],
+        "sequence": 2
+      }
+    ]
+  },
+  "expected_behaviors": [
+    "Keep TASK-002 planned or blocked until TASK-001 is completed, and preserve a valid dependency order."
+  ],
+  "prohibited_behaviors": [
+    "Start a dependent task merely because its calendar date arrived."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "deterministic",
+  "risk_level": "high",
+  "rubric_refs": [
+    "DELIVERY_HANDOFF_QUALITY.md"
+  ],
+  "tags": [
+    "sequencing",
+    "dependencies"
+  ],
+  "case_status": "ready"
+}

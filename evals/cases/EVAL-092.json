@@ -1,0 +1,28 @@
+{
+  "case_id": "EVAL-092",
+  "suite": "b9-skill-packaging-and-host-adapters",
+  "component": "integration",
+  "objective": "Claude Code skill package must use its documented project discovery path.",
+  "scenario": "A project package places the skill under `.claude/prompts/peanuts/` rather than `.claude/skills/peanuts/`.",
+  "input": {
+    "context": "synthetic evaluation fixture",
+    "case_number": 92
+  },
+  "expected_behaviors": [
+    "Reject the wrong discovery path and produce `.claude/skills/peanuts/SKILL.md`."
+  ],
+  "prohibited_behaviors": [
+    "Do not confuse prompt files with native skill discovery."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "deterministic",
+  "risk_level": "high",
+  "rubric_refs": [
+    "SKILL_PACKAGING_AND_HOST_COMPATIBILITY.md"
+  ],
+  "tags": [
+    "claude-code",
+    "discovery-path"
+  ],
+  "case_status": "ready"
+}

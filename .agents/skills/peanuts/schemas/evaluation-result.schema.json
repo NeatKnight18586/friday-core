@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/evaluation-result.schema.json",
+  "title": "Evaluation Result",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "result_id": {
+      "type": "string",
+      "pattern": "^RUN-[0-9]{3,6}$"
+    },
+    "case_id": {
+      "type": "string",
+      "pattern": "^EVAL-[0-9]{3,5}$"
+    },
+    "run_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "system_version": {
+      "type": "string"
+    },
+    "runtime": {
+      "type": "string"
+    },
+    "model": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "enum": [
+        "passed",
+        "failed",
+        "partial",
+        "blocked"
+      ]
+    },
+    "evaluator_type": {
+      "enum": [
+        "deterministic",
+        "model_grader",
+        "human",
+        "mixed"
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dimension_scores": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dimension": {
+            "type": "string"
+          },
+          "score": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 5
+          },
+          "rationale": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dimension",
+          "score",
+          "rationale"
+        ]
+      }
+    },
+    "notes": {
+      "type": "string"
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reviewer_approved": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "result_id",
+    "case_id",
+    "run_at",
+    "system_version",
+    "runtime",
+    "status",
+    "evaluator_type",
+    "evidence",
+    "notes",
+    "limitations",
+    "reviewer_approved"
+  ]
+}

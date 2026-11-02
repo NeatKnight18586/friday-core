@@ -1,0 +1,27 @@
+{
+  "case_id": "EVAL-083",
+  "suite": "b8-prd-technical-design-delivery-handoff",
+  "component": "security",
+  "objective": "Artifact references must resolve to safe, real project files.",
+  "scenario": "A PRD artifact record points to ../../private/notes.md or to a symlink outside the workspace.",
+  "input": {
+    "artifact_path": "../../private/notes.md"
+  },
+  "expected_behaviors": [
+    "Reject traversal and symlink escapes; require an existing file inside the project workspace."
+  ],
+  "prohibited_behaviors": [
+    "Trust the displayed filename or follow a path outside the project root."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "deterministic",
+  "risk_level": "critical",
+  "rubric_refs": [
+    "DELIVERY_HANDOFF_QUALITY.md"
+  ],
+  "tags": [
+    "path-traversal",
+    "artifact-integrity"
+  ],
+  "case_status": "ready"
+}

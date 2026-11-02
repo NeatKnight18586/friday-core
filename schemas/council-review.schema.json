@@ -1,0 +1,3116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/council-review.schema.json",
+  "title": "Four-Council Review Record",
+  "type": "object",
+  "additionalProperties": false,
+  "$defs": {
+    "evidenceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "record_type": {
+          "enum": [
+            "source",
+            "claim",
+            "assumption",
+            "test",
+            "decision",
+            "research_finding",
+            "opportunity",
+            "analogy",
+            "nuts_run",
+            "artifact",
+            "external_requirement"
+          ]
+        },
+        "record_id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 500
+        }
+      },
+      "required": [
+        "record_type",
+        "record_id"
+      ]
+    },
+    "dimensionScore": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "score": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            },
+            {
+              "enum": [
+                "UNKNOWN",
+                "N_A"
+              ]
+            }
+          ]
+        },
+        "evidence_status": {
+          "enum": [
+            "VERIFIED",
+            "SUPPORTED",
+            "PRELIMINARY",
+            "ASSUMPTION",
+            "UNKNOWN",
+            "CONTESTED",
+            "NOT_ASSESSED"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 1500
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "record_type": {
+                "enum": [
+                  "source",
+                  "claim",
+                  "assumption",
+                  "test",
+                  "decision",
+                  "research_finding",
+                  "opportunity",
+                  "analogy",
+                  "nuts_run",
+                  "artifact",
+                  "external_requirement"
+                ]
+              },
+              "record_id": {
+                "type": "string",
+                "minLength": 3
+              },
+              "note": {
+                "type": "string",
+                "maxLength": 500
+              }
+            },
+            "required": [
+              "record_type",
+              "record_id"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "na_reason": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 500
+        }
+      },
+      "required": [
+        "score",
+        "evidence_status",
+        "rationale",
+        "evidence_refs"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "score": {
+                "const": "N_A"
+              }
+            },
+            "required": [
+              "score"
+            ]
+          },
+          "then": {
+            "required": [
+              "na_reason"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "evidence_status": {
+                "const": "VERIFIED"
+              }
+            },
+            "required": [
+              "evidence_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "evidence_refs": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "score": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "score"
+            ]
+          },
+          "then": {
+            "properties": {
+              "evidence_status": {
+                "not": {
+                  "enum": [
+                    "UNKNOWN",
+                    "NOT_ASSESSED"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "evidence_status": {
+                "enum": [
+                  "VERIFIED",
+                  "SUPPORTED"
+                ]
+              }
+            },
+            "required": [
+              "evidence_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "evidence_refs": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "finding_id": {
+          "type": "string",
+          "pattern": "^CRF-[0-9]{4,6}$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 4,
+          "maxLength": 180
+        },
+        "description": {
+          "type": "string",
+          "minLength": 12,
+          "maxLength": 3000
+        },
+        "primary_owner": {
+          "enum": [
+            "C1",
+            "C2",
+            "C3",
+            "C4"
+          ]
+        },
+        "risk_domain": {
+          "enum": [
+            "user_value",
+            "product_strategy",
+            "technical",
+            "safety",
+            "security",
+            "privacy",
+            "legal_regulatory",
+            "mandatory_compliance",
+            "delivery",
+            "other"
+          ]
+        },
+        "severity": {
+          "enum": [
+            "critical",
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "status": {
+          "enum": [
+            "open",
+            "mitigated",
+            "resolved",
+            "accepted_with_rationale"
+          ]
+        },
+        "evidence_status": {
+          "enum": [
+            "VERIFIED",
+            "SUPPORTED",
+            "PRELIMINARY",
+            "ASSUMPTION",
+            "UNKNOWN",
+            "CONTESTED",
+            "NOT_ASSESSED"
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "record_type": {
+                "enum": [
+                  "source",
+                  "claim",
+                  "assumption",
+                  "test",
+                  "decision",
+                  "research_finding",
+                  "opportunity",
+                  "analogy",
+                  "nuts_run",
+                  "artifact",
+                  "external_requirement"
+                ]
+              },
+              "record_id": {
+                "type": "string",
+                "minLength": 3
+              },
+              "note": {
+                "type": "string",
+                "maxLength": 500
+              }
+            },
+            "required": [
+              "record_type",
+              "record_id"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "resolution_summary": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 1500
+        },
+        "acceptance_rationale": {
+          "type": "string",
+          "minLength": 12,
+          "maxLength": 1500
+        },
+        "accepted_by": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 120
+        },
+        "revisit_trigger": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 500
+        }
+      },
+      "required": [
+        "finding_id",
+        "title",
+        "description",
+        "primary_owner",
+        "risk_domain",
+        "severity",
+        "status",
+        "evidence_status",
+        "evidence_refs"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "mitigated"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "required": [
+              "resolution_summary"
+            ],
+            "properties": {
+              "evidence_refs": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "resolved"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "required": [
+              "resolution_summary"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "accepted_with_rationale"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "required": [
+              "acceptance_rationale",
+              "accepted_by",
+              "revisit_trigger"
+            ],
+            "properties": {
+              "severity": {
+                "enum": [
+                  "high",
+                  "medium",
+                  "low"
+                ]
+              },
+              "risk_domain": {
+                "not": {
+                  "enum": [
+                    "safety",
+                    "legal_regulatory",
+                    "mandatory_compliance"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "review_id": {
+      "type": "string",
+      "pattern": "^REV-[0-9]{4,6}$"
+    },
+    "project_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "concept_title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 200
+    },
+    "concept_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40
+    },
+    "review_depth": {
+      "enum": [
+        "quick",
+        "standard",
+        "deep"
+      ]
+    },
+    "depth_reason": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 1000
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reviewer_setup": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "execution_pattern": {
+          "enum": [
+            "same_model_sequential",
+            "same_model_blind_passes",
+            "multiple_models",
+            "human_reviewers",
+            "mixed"
+          ]
+        },
+        "reviewer_labels": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 100
+          },
+          "uniqueItems": true
+        },
+        "independence_note": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 1000
+        },
+        "independent_first_passes": {
+          "type": "boolean"
+        },
+        "statistical_independence_claim": {
+          "const": false
+        }
+      },
+      "required": [
+        "execution_pattern",
+        "reviewer_labels",
+        "independent_first_passes",
+        "statistical_independence_claim",
+        "independence_note"
+      ]
+    },
+    "evidence_pack": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "assumption_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "decision_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "scope_and_limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 4
+          }
+        },
+        "as_of_date": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "source_ids",
+        "claim_ids",
+        "assumption_ids",
+        "decision_ids",
+        "scope_and_limitations",
+        "as_of_date"
+      ]
+    },
+    "councils": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "council_1": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "recommendation": {
+              "enum": [
+                "ADVANCE",
+                "REVISE",
+                "VALIDATE",
+                "PIVOT",
+                "STOP"
+              ]
+            },
+            "strongest_case": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 1500
+            },
+            "strongest_objection": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 1500
+            },
+            "key_unknowns": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 4
+              }
+            },
+            "next_tests": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 4
+              }
+            },
+            "dimensions": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "problem_evidence": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "score": {
+                      "oneOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 5
+                        },
+                        {
+                          "enum": [
+                            "UNKNOWN",
+                            "N_A"
+                          ]
+                        }
+                      ]
+                    },
+                    "evidence_status": {
+                      "enum": [
+                        "VERIFIED",
+                        "SUPPORTED",
+                        "PRELIMINARY",
+                        "ASSUMPTION",
+                        "UNKNOWN",
+                        "CONTESTED",
+                        "NOT_ASSESSED"
+                      ]
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 1500
+                    },
+                    "evidence_refs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "record_type": {
+                            "enum": [
+                              "source",
+                              "claim",
+                              "assumption",
+                              "test",
+                              "decision",
+                              "research_finding",
+                              "opportunity",
+                              "analogy",
+                              "nuts_run",
+                              "artifact",
+                              "external_requirement"
+                            ]
+                          },
+                          "record_id": {
+                            "type": "string",
+                            "minLength": 3
+                          },
+                          "note": {
+                            "type": "string",
+                            "maxLength": 500
+                          }
+                        },
+                        "required": [
+                          "record_type",
+                          "record_id"
+                        ]
+                      },
+                      "uniqueItems": true
+                    },
+                    "na_reason": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [
+                    "score",
+                    "evidence_status",
+                    "rationale",
+                    "evidence_refs"
+                  ],
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "score": {
+                            "const": "N_A"
+                          }
+                        },
+                        "required": [
+                          "score"
+                        ]
+                      },
+                      "then": {
+                        "required": [
+                          "na_reason"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "evidence_status": {
+                            "const": "VERIFIED"
+                          }
+                        },
+                        "required": [
+                          "evidence_status"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "evidence_refs": {
+                            "minItems": 1
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "user_fit": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "score": {
+                      "oneOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 5
+                        },
+                        {
+                          "enum": [
+                            "UNKNOWN",
+                            "N_A"
+                          ]
+                        }
+                      ]
+                    },
+                    "evidence_status": {
+                      "enum": [
+                        "VERIFIED",
+                        "SUPPORTED",
+                        "PRELIMINARY",
+                        "ASSUMPTION",
+                        "UNKNOWN",
+                        "CONTESTED",
+                        "NOT_ASSESSED"
+                      ]
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 1500
+                    },
+                    "evidence_refs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "record_type": {
+                            "enum": [
+                              "source",
+                              "claim",
+                              "assumption",
+                              "test",
+                              "decision",
+                              "research_finding",
+                              "opportunity",
+                              "analogy",
+                              "nuts_run",
+                              "artifact",
+                              "external_requirement"
+                            ]
+                          },
+                          "record_id": {
+                            "type": "string",
+                            "minLength": 3
+                          },
+                          "note": {
+                            "type": "string",
+                            "maxLength": 500
+                          }
+                        },
+                        "required": [
+                          "record_type",
+                          "record_id"
+                        ]
+                      },
+                      "uniqueItems": true
+                    },
+                    "na_reason": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [
+                    "score",
+                    "evidence_status",
+                    "rationale",
+                    "evidence_refs"
+                  ],
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "score": {
+                            "const": "N_A"
+                          }
+                        },
+                        "required": [
+                          "score"
+                        ]
+                      },
+                      "then": {
+                        "required": [
+                          "na_reason"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "evidence_status": {
+                            "const": "VERIFIED"
+                          }
+                        },
+                        "required": [
+                          "evidence_status"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "evidence_refs": {
+                            "minItems": 1
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "outcome_relevance": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "score": {
+                      "oneOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 5
+                        },
+                        {
+                          "enum": [
+                            "UNKNOWN",
+                            "N_A"
+                          ]
+                        }
+                      ]
+                    },
+                    "evidence_status": {
+                      "enum": [
+                        "VERIFIED",
+                        "SUPPORTED",
+                        "PRELIMINARY",
+                        "ASSUMPTION",
+                        "UNKNOWN",
+                        "CONTESTED",
+                        "NOT_ASSESSED"
+                      ]
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 1500
+                    },
+                    "evidence_refs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "record_type": {
+                            "enum": [
+                              "source",
+                              "claim",
+                              "assumption",
+                              "test",
+                              "decision",
+                              "research_finding",
+                              "opportunity",
+                              "analogy",
+                              "nuts_run",
+                              "artifact",
+                              "external_requirement"
+                            ]
+                          },
+                          "record_id": {
+                            "type": "string",
+                            "minLength": 3
+                          },
+                          "note": {
+                            "type": "string",
+                            "maxLength": 500
+                          }
+                        },
+                        "required": [
+                          "record_type",
+                          "record_id"
+                        ]
+                      },
+                      "uniqueItems": true
+                    },
+                    "na_reason": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [
+                    "score",
+                    "evidence_status",
+                    "rationale",
+                    "evidence_refs"
+                  ],
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "score": {
+                            "const": "N_A"
+                          }
+                        },
+                        "required": [
+                          "score"
+                        ]
+                      },
+                      "then": {
+                        "required": [
+                          "na_reason"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "evidence_status": {
+                            "const": "VERIFIED"
+                          }
+                        },
+                        "required": [
+                          "evidence_status"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "evidence_refs": {
+                            "minItems": 1
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "usability_accessibility": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "score": {
+                      "oneOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 5
+                        },
+                        {
+                          "enum": [
+                            "UNKNOWN",
+                            "N_A"
+                          ]
+                        }
+                      ]
+                    },
+                    "evidence_status": {
+                      "enum": [
+                        "VERIFIED",
+                        "SUPPORTED",
+                        "PRELIMINARY",
+                        "ASSUMPTION",
+                        "UNKNOWN",
+                        "CONTESTED",
+                        "NOT_ASSESSED"
+                      ]
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 1500
+                    },
+                    "evidence_refs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "record_type": {
+                            "enum": [
+                              "source",
+                              "claim",
+                              "assumption",
+                              "test",
+                              "decision",
+                              "research_finding",
+                              "opportunity",
+                              "analogy",
+                              "nuts_run",
+                              "artifact",
+                              "external_requirement"
+                            ]
+                          },
+                          "record_id": {
+                            "type": "string",
+                            "minLength": 3
+                          },
+                          "note": {
+                            "type": "string",
+                            "maxLength": 500
+                          }
+                        },
+                        "required": [
+                          "record_type",
+                          "record_id"
+                        ]
+                      },
+                      "uniqueItems": true
+                    },
+                    "na_reason": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [
+                    "score",
+                    "evidence_status",
+                    "rationale",
+                    "evidence_refs"
+                  ],
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "score": {
+                            "const": "N_A"
+                          }
+                        },
+                        "required": [
+                          "score"
+                        ]
+                      },
+                      "then": {
+                        "required": [
+                          "na_reason"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "evidence_status": {
+                            "const": "VERIFIED"
+                          }
+                        },
+                        "required": [
+                          "evidence_status"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "evidence_refs": {
+                            "minItems": 1
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "problem_evidence",
+                "user_fit",
+                "outcome_relevance",
+                "usability_accessibility"
+              ]
+            }
+          },
+          "required": [
+            "recommendation",
+            "strongest_case",
+            "strongest_objection",
+            "key_unknowns",
+            "next_tests",
+            "dimensions"
+          ]
+        },
+        "council_2": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "recommendation": {
+              "enum": [
+                "ADVANCE",
+                "REVISE",
+                "VALIDATE",
+                "PIVOT",
+                "STOP"
+              ]
+            },
+            "strongest_case": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 1500
+            },
+            "strongest_objection": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 1500
+            },
+            "key_unknowns": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 4
+              }
+            },
+            "next_tests": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 4
+              }
+            },
+            "dimensions": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "differentiation": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "score": {
+                      "oneOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 5
+                        },
+                        {
+                          "enum": [
+                            "UNKNOWN",
+                            "N_A"
+                          ]
+                        }
+                      ]
+                    },
+                    "evidence_status": {
+                      "enum": [
+                        "VERIFIED",
+                        "SUPPORTED",
+                        "PRELIMINARY",
+                        "ASSUMPTION",
+                        "UNKNOWN",
+                        "CONTESTED",
+                        "NOT_ASSESSED"
+                      ]
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 1500
+                    },
+                    "evidence_refs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "record_type": {
+                            "enum": [
+                              "source",
+                              "claim",
+                              "assumption",
+                              "test",
+                              "decision",
+                              "research_finding",
+                              "opportunity",
+                              "analogy",
+                              "nuts_run",
+                              "artifact",
+                              "external_requirement"
+                            ]
+                          },
+                          "record_id": {
+                            "type": "string",
+                            "minLength": 3
+                          },
+                          "note": {
+                            "type": "string",
+                            "maxLength": 500
+                          }
+                        },
+                        "required": [
+                          "record_type",
+                          "record_id"
+                        ]
+                      },
+                      "uniqueItems": true
+                    },
+                    "na_reason": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [
+                    "score",
+                    "evidence_status",
+                    "rationale",
+                    "evidence_refs"
+                  ],
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "score": {
+                            "const": "N_A"
+                          }
+                        },
+                        "required": [
+                          "score"
+                        ]
+                      },
+                      "then": {
+                        "required": [
+                          "na_reason"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "evidence_status": {
+                            "const": "VERIFIED"
+                          }
+                        },
+                        "required": [
+                          "evidence_status"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "evidence_refs": {
+                            "minItems": 1
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "value_proposition": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "score": {
+                      "oneOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 5
+                        },
+                        {
+                          "enum": [
+                            "UNKNOWN",
+                            "N_A"
+                          ]
+                        }
+                      ]
+                    },
+                    "evidence_status": {
+                      "enum": [
+                        "VERIFIED",
+                        "SUPPORTED",
+                        "PRELIMINARY",
+                        "ASSUMPTION",
+                        "UNKNOWN",
+                        "CONTESTED",
+                        "NOT_ASSESSED"
+                      ]
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 1500
+                    },
+                    "evidence_refs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "record_type": {
+                            "enum": [
+                              "source",
+                              "claim",
+                              "assumption",
+                              "test",
+                              "decision",
+                              "research_finding",
+                              "opportunity",
+                              "analogy",
+                              "nuts_run",
+                              "artifact",
+                              "external_requirement"
+                            ]
+                          },
+                          "record_id": {
+                            "type": "string",
+                            "minLength": 3
+                          },
+                          "note": {
+                            "type": "string",
+                            "maxLength": 500
+                          }
+                        },
+                        "required": [
+                          "record_type",
+                          "record_id"
+                        ]
+                      },
+                      "uniqueItems": true
+                    },
+                    "na_reason": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [
+                    "score",
+                    "evidence_status",
+                    "rationale",
+                    "evidence_refs"
+                  ],
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "score": {
+                            "const": "N_A"
+                          }
+                        },
+                        "required": [
+                          "score"
+                        ]
+                      },
+                      "then": {
+                        "required": [
+                          "na_reason"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "evidence_status": {
+                            "const": "VERIFIED"
+                          }
+                        },
+                        "required": [
+                          "evidence_status"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "evidence_refs": {
+                            "minItems": 1
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "adoption_operating_model": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "score": {
+                      "oneOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 5
+                        },
+                        {
+                          "enum": [
+                            "UNKNOWN",
+                            "N_A"
+                          ]
+                        }
+                      ]
+                    },
+                    "evidence_status": {
+                      "enum": [
+                        "VERIFIED",
+                        "SUPPORTED",
+                        "PRELIMINARY",
+                        "ASSUMPTION",
+                        "UNKNOWN",
+                        "CONTESTED",
+                        "NOT_ASSESSED"
+                      ]
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 1500
+                    },
+                    "evidence_refs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "record_type": {
+                            "enum": [
+                              "source",
+                              "claim",
+                              "assumption",
+                              "test",
+                              "decision",
+                              "research_finding",
+                              "opportunity",
+                              "analogy",
+                              "nuts_run",
+                              "artifact",
+                              "external_requirement"
+                            ]
+                          },
+                          "record_id": {
+                            "type": "string",
+                            "minLength": 3
+                          },
+                          "note": {
+                            "type": "string",
+                            "maxLength": 500
+                          }
+                        },
+                        "required": [
+                          "record_type",
+                          "record_id"
+                        ]
+                      },
+                      "uniqueItems": true
+                    },
+                    "na_reason": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [
+                    "score",
+                    "evidence_status",
+                    "rationale",
+                    "evidence_refs"
+                  ],
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "score": {
+                            "const": "N_A"
+                          }
+                        },
+                        "required": [
+                          "score"
+                        ]
+                      },
+                      "then": {
+                        "required": [
+                          "na_reason"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "evidence_status": {
+                            "const": "VERIFIED"
+                          }
+                        },
+                        "required": [
+                          "evidence_status"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "evidence_refs": {
+                            "minItems": 1
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "strategic_fit": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "score": {
+                      "oneOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 5
+                        },
+                        {
+                          "enum": [
+                            "UNKNOWN",
+                            "N_A"
+                          ]
+                        }
+                      ]
+                    },
+                    "evidence_status": {
+                      "enum": [
+                        "VERIFIED",
+                        "SUPPORTED",
+                        "PRELIMINARY",
+                        "ASSUMPTION",
+                        "UNKNOWN",
+                        "CONTESTED",
+                        "NOT_ASSESSED"
+                      ]
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 1500
+                    },
+                    "evidence_refs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "record_type": {
+                            "enum": [
+                              "source",
+                              "claim",
+                              "assumption",
+                              "test",
+                              "decision",
+                              "research_finding",
+                              "opportunity",
+                              "analogy",
+                              "nuts_run",
+                              "artifact",
+                              "external_requirement"
+                            ]
+                          },
+                          "record_id": {
+                            "type": "string",
+                            "minLength": 3
+                          },
+                          "note": {
+                            "type": "string",
+                            "maxLength": 500
+                          }
+                        },
+                        "required": [
+                          "record_type",
+                          "record_id"
+                        ]
+                      },
+                      "uniqueItems": true
+                    },
+                    "na_reason": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [
+                    "score",
+                    "evidence_status",
+                    "rationale",
+                    "evidence_refs"
+                  ],
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "score": {
+                            "const": "N_A"
+                          }
+                        },
+                        "required": [
+                          "score"
+                        ]
+                      },
+                      "then": {
+                        "required": [
+                          "na_reason"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "evidence_status": {
+                            "const": "VERIFIED"
+                          }
+                        },
+                        "required": [
+                          "evidence_status"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "evidence_refs": {
+                            "minItems": 1
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "differentiation",
+                "value_proposition",
+                "adoption_operating_model",
+                "strategic_fit"
+              ]
+            }
+          },
+          "required": [
+            "recommendation",
+            "strongest_case",
+            "strongest_objection",
+            "key_unknowns",
+            "next_tests",
+            "dimensions"
+          ]
+        },
+        "council_3": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "recommendation": {
+              "enum": [
+                "ADVANCE",
+                "REVISE",
+                "VALIDATE",
+                "PIVOT",
+                "STOP"
+              ]
+            },
+            "strongest_case": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 1500
+            },
+            "strongest_objection": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 1500
+            },
+            "key_unknowns": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 4
+              }
+            },
+            "next_tests": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 4
+              }
+            },
+            "dimensions": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "technical_plausibility": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "score": {
+                      "oneOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 5
+                        },
+                        {
+                          "enum": [
+                            "UNKNOWN",
+                            "N_A"
+                          ]
+                        }
+                      ]
+                    },
+                    "evidence_status": {
+                      "enum": [
+                        "VERIFIED",
+                        "SUPPORTED",
+                        "PRELIMINARY",
+                        "ASSUMPTION",
+                        "UNKNOWN",
+                        "CONTESTED",
+                        "NOT_ASSESSED"
+                      ]
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 1500
+                    },
+                    "evidence_refs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "record_type": {
+                            "enum": [
+                              "source",
+                              "claim",
+                              "assumption",
+                              "test",
+                              "decision",
+                              "research_finding",
+                              "opportunity",
+                              "analogy",
+                              "nuts_run",
+                              "artifact",
+                              "external_requirement"
+                            ]
+                          },
+                          "record_id": {
+                            "type": "string",
+                            "minLength": 3
+                          },
+                          "note": {
+                            "type": "string",
+                            "maxLength": 500
+                          }
+                        },
+                        "required": [
+                          "record_type",
+                          "record_id"
+                        ]
+                      },
+                      "uniqueItems": true
+                    },
+                    "na_reason": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [
+                    "score",
+                    "evidence_status",
+                    "rationale",
+                    "evidence_refs"
+                  ],
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "score": {
+                            "const": "N_A"
+                          }
+                        },
+                        "required": [
+                          "score"
+                        ]
+                      },
+                      "then": {
+                        "required": [
+                          "na_reason"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "evidence_status": {
+                            "const": "VERIFIED"
+                          }
+                        },
+                        "required": [
+                          "evidence_status"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "evidence_refs": {
+                            "minItems": 1
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "integration_data": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "score": {
+                      "oneOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 5
+                        },
+                        {
+                          "enum": [
+                            "UNKNOWN",
+                            "N_A"
+                          ]
+                        }
+                      ]
+                    },
+                    "evidence_status": {
+                      "enum": [
+                        "VERIFIED",
+                        "SUPPORTED",
+                        "PRELIMINARY",
+                        "ASSUMPTION",
+                        "UNKNOWN",
+                        "CONTESTED",
+                        "NOT_ASSESSED"
+                      ]
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 1500
+                    },
+                    "evidence_refs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "record_type": {
+                            "enum": [
+                              "source",
+                              "claim",
+                              "assumption",
+                              "test",
+                              "decision",
+                              "research_finding",
+                              "opportunity",
+                              "analogy",
+                              "nuts_run",
+                              "artifact",
+                              "external_requirement"
+                            ]
+                          },
+                          "record_id": {
+                            "type": "string",
+                            "minLength": 3
+                          },
+                          "note": {
+                            "type": "string",
+                            "maxLength": 500
+                          }
+                        },
+                        "required": [
+                          "record_type",
+                          "record_id"
+                        ]
+                      },
+                      "uniqueItems": true
+                    },
+                    "na_reason": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [
+                    "score",
+                    "evidence_status",
+                    "rationale",
+                    "evidence_refs"
+                  ],
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "score": {
+                            "const": "N_A"
+                          }
+                        },
+                        "required": [
+                          "score"
+                        ]
+                      },
+                      "then": {
+                        "required": [
+                          "na_reason"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "evidence_status": {
+                            "const": "VERIFIED"
+                          }
+                        },
+                        "required": [
+                          "evidence_status"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "evidence_refs": {
+                            "minItems": 1
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "product_quality": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "score": {
+                      "oneOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 5
+                        },
+                        {
+                          "enum": [
+                            "UNKNOWN",
+                            "N_A"
+                          ]
+                        }
+                      ]
+                    },
+                    "evidence_status": {
+                      "enum": [
+                        "VERIFIED",
+                        "SUPPORTED",
+                        "PRELIMINARY",
+                        "ASSUMPTION",
+                        "UNKNOWN",
+                        "CONTESTED",
+                        "NOT_ASSESSED"
+                      ]
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 1500
+                    },
+                    "evidence_refs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "record_type": {
+                            "enum": [
+                              "source",
+                              "claim",
+                              "assumption",
+                              "test",
+                              "decision",
+                              "research_finding",
+                              "opportunity",
+                              "analogy",
+                              "nuts_run",
+                              "artifact",
+                              "external_requirement"
+                            ]
+                          },
+                          "record_id": {
+                            "type": "string",
+                            "minLength": 3
+                          },
+                          "note": {
+                            "type": "string",
+                            "maxLength": 500
+                          }
+                        },
+                        "required": [
+                          "record_type",
+                          "record_id"
+                        ]
+                      },
+                      "uniqueItems": true
+                    },
+                    "na_reason": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [
+                    "score",
+                    "evidence_status",
+                    "rationale",
+                    "evidence_refs"
+                  ],
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "score": {
+                            "const": "N_A"
+                          }
+                        },
+                        "required": [
+                          "score"
+                        ]
+                      },
+                      "then": {
+                        "required": [
+                          "na_reason"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "evidence_status": {
+                            "const": "VERIFIED"
+                          }
+                        },
+                        "required": [
+                          "evidence_status"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "evidence_refs": {
+                            "minItems": 1
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "resource_fit": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "score": {
+                      "oneOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 5
+                        },
+                        {
+                          "enum": [
+                            "UNKNOWN",
+                            "N_A"
+                          ]
+                        }
+                      ]
+                    },
+                    "evidence_status": {
+                      "enum": [
+                        "VERIFIED",
+                        "SUPPORTED",
+                        "PRELIMINARY",
+                        "ASSUMPTION",
+                        "UNKNOWN",
+                        "CONTESTED",
+                        "NOT_ASSESSED"
+                      ]
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 1500
+                    },
+                    "evidence_refs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "record_type": {
+                            "enum": [
+                              "source",
+                              "claim",
+                              "assumption",
+                              "test",
+                              "decision",
+                              "research_finding",
+                              "opportunity",
+                              "analogy",
+                              "nuts_run",
+                              "artifact",
+                              "external_requirement"
+                            ]
+                          },
+                          "record_id": {
+                            "type": "string",
+                            "minLength": 3
+                          },
+                          "note": {
+                            "type": "string",
+                            "maxLength": 500
+                          }
+                        },
+                        "required": [
+                          "record_type",
+                          "record_id"
+                        ]
+                      },
+                      "uniqueItems": true
+                    },
+                    "na_reason": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [
+                    "score",
+                    "evidence_status",
+                    "rationale",
+                    "evidence_refs"
+                  ],
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "score": {
+                            "const": "N_A"
+                          }
+                        },
+                        "required": [
+                          "score"
+                        ]
+                      },
+                      "then": {
+                        "required": [
+                          "na_reason"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "evidence_status": {
+                            "const": "VERIFIED"
+                          }
+                        },
+                        "required": [
+                          "evidence_status"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "evidence_refs": {
+                            "minItems": 1
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "technical_plausibility",
+                "integration_data",
+                "product_quality",
+                "resource_fit"
+              ]
+            }
+          },
+          "required": [
+            "recommendation",
+            "strongest_case",
+            "strongest_objection",
+            "key_unknowns",
+            "next_tests",
+            "dimensions"
+          ]
+        },
+        "council_4": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "recommendation": {
+              "enum": [
+                "ADVANCE",
+                "REVISE",
+                "VALIDATE",
+                "PIVOT",
+                "STOP"
+              ]
+            },
+            "strongest_case": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 1500
+            },
+            "strongest_objection": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 1500
+            },
+            "key_unknowns": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 4
+              }
+            },
+            "next_tests": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 4
+              }
+            },
+            "dimensions": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "risk_harm_controls": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "score": {
+                      "oneOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 5
+                        },
+                        {
+                          "enum": [
+                            "UNKNOWN",
+                            "N_A"
+                          ]
+                        }
+                      ]
+                    },
+                    "evidence_status": {
+                      "enum": [
+                        "VERIFIED",
+                        "SUPPORTED",
+                        "PRELIMINARY",
+                        "ASSUMPTION",
+                        "UNKNOWN",
+                        "CONTESTED",
+                        "NOT_ASSESSED"
+                      ]
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 1500
+                    },
+                    "evidence_refs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "record_type": {
+                            "enum": [
+                              "source",
+                              "claim",
+                              "assumption",
+                              "test",
+                              "decision",
+                              "research_finding",
+                              "opportunity",
+                              "analogy",
+                              "nuts_run",
+                              "artifact",
+                              "external_requirement"
+                            ]
+                          },
+                          "record_id": {
+                            "type": "string",
+                            "minLength": 3
+                          },
+                          "note": {
+                            "type": "string",
+                            "maxLength": 500
+                          }
+                        },
+                        "required": [
+                          "record_type",
+                          "record_id"
+                        ]
+                      },
+                      "uniqueItems": true
+                    },
+                    "na_reason": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [
+                    "score",
+                    "evidence_status",
+                    "rationale",
+                    "evidence_refs"
+                  ],
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "score": {
+                            "const": "N_A"
+                          }
+                        },
+                        "required": [
+                          "score"
+                        ]
+                      },
+                      "then": {
+                        "required": [
+                          "na_reason"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "evidence_status": {
+                            "const": "VERIFIED"
+                          }
+                        },
+                        "required": [
+                          "evidence_status"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "evidence_refs": {
+                            "minItems": 1
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "delivery_readiness": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "score": {
+                      "oneOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 5
+                        },
+                        {
+                          "enum": [
+                            "UNKNOWN",
+                            "N_A"
+                          ]
+                        }
+                      ]
+                    },
+                    "evidence_status": {
+                      "enum": [
+                        "VERIFIED",
+                        "SUPPORTED",
+                        "PRELIMINARY",
+                        "ASSUMPTION",
+                        "UNKNOWN",
+                        "CONTESTED",
+                        "NOT_ASSESSED"
+                      ]
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 1500
+                    },
+                    "evidence_refs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "record_type": {
+                            "enum": [
+                              "source",
+                              "claim",
+                              "assumption",
+                              "test",
+                              "decision",
+                              "research_finding",
+                              "opportunity",
+                              "analogy",
+                              "nuts_run",
+                              "artifact",
+                              "external_requirement"
+                            ]
+                          },
+                          "record_id": {
+                            "type": "string",
+                            "minLength": 3
+                          },
+                          "note": {
+                            "type": "string",
+                            "maxLength": 500
+                          }
+                        },
+                        "required": [
+                          "record_type",
+                          "record_id"
+                        ]
+                      },
+                      "uniqueItems": true
+                    },
+                    "na_reason": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [
+                    "score",
+                    "evidence_status",
+                    "rationale",
+                    "evidence_refs"
+                  ],
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "score": {
+                            "const": "N_A"
+                          }
+                        },
+                        "required": [
+                          "score"
+                        ]
+                      },
+                      "then": {
+                        "required": [
+                          "na_reason"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "evidence_status": {
+                            "const": "VERIFIED"
+                          }
+                        },
+                        "required": [
+                          "evidence_status"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "evidence_refs": {
+                            "minItems": 1
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "resilience_failure_handling": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "score": {
+                      "oneOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 5
+                        },
+                        {
+                          "enum": [
+                            "UNKNOWN",
+                            "N_A"
+                          ]
+                        }
+                      ]
+                    },
+                    "evidence_status": {
+                      "enum": [
+                        "VERIFIED",
+                        "SUPPORTED",
+                        "PRELIMINARY",
+                        "ASSUMPTION",
+                        "UNKNOWN",
+                        "CONTESTED",
+                        "NOT_ASSESSED"
+                      ]
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 1500
+                    },
+                    "evidence_refs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "record_type": {
+                            "enum": [
+                              "source",
+                              "claim",
+                              "assumption",
+                              "test",
+                              "decision",
+                              "research_finding",
+                              "opportunity",
+                              "analogy",
+                              "nuts_run",
+                              "artifact",
+                              "external_requirement"
+                            ]
+                          },
+                          "record_id": {
+                            "type": "string",
+                            "minLength": 3
+                          },
+                          "note": {
+                            "type": "string",
+                            "maxLength": 500
+                          }
+                        },
+                        "required": [
+                          "record_type",
+                          "record_id"
+                        ]
+                      },
+                      "uniqueItems": true
+                    },
+                    "na_reason": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [
+                    "score",
+                    "evidence_status",
+                    "rationale",
+                    "evidence_refs"
+                  ],
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "score": {
+                            "const": "N_A"
+                          }
+                        },
+                        "required": [
+                          "score"
+                        ]
+                      },
+                      "then": {
+                        "required": [
+                          "na_reason"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "evidence_status": {
+                            "const": "VERIFIED"
+                          }
+                        },
+                        "required": [
+                          "evidence_status"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "evidence_refs": {
+                            "minItems": 1
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "assumption_challenge": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "score": {
+                      "oneOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 5
+                        },
+                        {
+                          "enum": [
+                            "UNKNOWN",
+                            "N_A"
+                          ]
+                        }
+                      ]
+                    },
+                    "evidence_status": {
+                      "enum": [
+                        "VERIFIED",
+                        "SUPPORTED",
+                        "PRELIMINARY",
+                        "ASSUMPTION",
+                        "UNKNOWN",
+                        "CONTESTED",
+                        "NOT_ASSESSED"
+                      ]
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 1500
+                    },
+                    "evidence_refs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "record_type": {
+                            "enum": [
+                              "source",
+                              "claim",
+                              "assumption",
+                              "test",
+                              "decision",
+                              "research_finding",
+                              "opportunity",
+                              "analogy",
+                              "nuts_run",
+                              "artifact",
+                              "external_requirement"
+                            ]
+                          },
+                          "record_id": {
+                            "type": "string",
+                            "minLength": 3
+                          },
+                          "note": {
+                            "type": "string",
+                            "maxLength": 500
+                          }
+                        },
+                        "required": [
+                          "record_type",
+                          "record_id"
+                        ]
+                      },
+                      "uniqueItems": true
+                    },
+                    "na_reason": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [
+                    "score",
+                    "evidence_status",
+                    "rationale",
+                    "evidence_refs"
+                  ],
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "score": {
+                            "const": "N_A"
+                          }
+                        },
+                        "required": [
+                          "score"
+                        ]
+                      },
+                      "then": {
+                        "required": [
+                          "na_reason"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "evidence_status": {
+                            "const": "VERIFIED"
+                          }
+                        },
+                        "required": [
+                          "evidence_status"
+                        ]
+                      },
+                      "then": {
+                        "properties": {
+                          "evidence_refs": {
+                            "minItems": 1
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "risk_harm_controls",
+                "delivery_readiness",
+                "resilience_failure_handling",
+                "assumption_challenge"
+              ]
+            }
+          },
+          "required": [
+            "recommendation",
+            "strongest_case",
+            "strongest_objection",
+            "key_unknowns",
+            "next_tests",
+            "dimensions"
+          ]
+        }
+      },
+      "required": [
+        "council_1",
+        "council_2",
+        "council_3",
+        "council_4"
+      ]
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/finding"
+      },
+      "uniqueItems": true
+    },
+    "event_alignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "type": "boolean"
+        },
+        "assessment_status": {
+          "enum": [
+            "assessed",
+            "not_assessed",
+            "not_applicable"
+          ]
+        },
+        "criteria": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "criterion_id": {
+                "type": "string",
+                "minLength": 2
+              },
+              "requirement": {
+                "type": "string",
+                "minLength": 5
+              },
+              "status": {
+                "enum": [
+                  "compliant",
+                  "partial",
+                  "noncompliant",
+                  "unknown"
+                ]
+              },
+              "evidence_refs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "record_type": {
+                      "enum": [
+                        "source",
+                        "claim",
+                        "assumption",
+                        "test",
+                        "decision",
+                        "research_finding",
+                        "opportunity",
+                        "analogy",
+                        "nuts_run",
+                        "artifact",
+                        "external_requirement"
+                      ]
+                    },
+                    "record_id": {
+                      "type": "string",
+                      "minLength": 3
+                    },
+                    "note": {
+                      "type": "string",
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [
+                    "record_type",
+                    "record_id"
+                  ]
+                },
+                "uniqueItems": true
+              },
+              "notes": {
+                "type": "string"
+              },
+              "mandatory": {
+                "type": "boolean"
+              },
+              "linked_finding_id": {
+                "type": "string",
+                "pattern": "^CRF-[0-9]{4,6}$"
+              }
+            },
+            "required": [
+              "criterion_id",
+              "requirement",
+              "status",
+              "evidence_refs",
+              "mandatory"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "overall_notes": {
+          "type": "string"
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "applicable",
+        "assessment_status",
+        "criteria",
+        "overall_notes",
+        "limitations"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "applicable": {
+                "const": true
+              },
+              "assessment_status": {
+                "const": "assessed"
+              }
+            },
+            "required": [
+              "applicable",
+              "assessment_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "criteria": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "applicable": {
+                "const": false
+              }
+            },
+            "required": [
+              "applicable"
+            ]
+          },
+          "then": {
+            "properties": {
+              "assessment_status": {
+                "const": "not_applicable"
+              },
+              "criteria": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "applicable": {
+                "const": true
+              }
+            },
+            "required": [
+              "applicable"
+            ]
+          },
+          "then": {
+            "properties": {
+              "assessment_status": {
+                "enum": [
+                  "assessed",
+                  "not_assessed"
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "verdict": {
+      "enum": [
+        "ADVANCE",
+        "REVISE",
+        "VALIDATE",
+        "PIVOT",
+        "STOP"
+      ]
+    },
+    "verdict_rationale": {
+      "type": "string",
+      "minLength": 12,
+      "maxLength": 2500
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "pass",
+            "pass_with_conditions",
+            "blocked",
+            "not_assessed"
+          ]
+        },
+        "blocking_finding_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^CRF-[0-9]{4,6}$"
+          },
+          "uniqueItems": true
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 5
+          }
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 12,
+          "maxLength": 2000
+        },
+        "next_step": {
+          "type": "string",
+          "minLength": 5
+        }
+      },
+      "required": [
+        "status",
+        "blocking_finding_ids",
+        "conditions",
+        "rationale",
+        "next_step"
+      ]
+    },
+    "user_decision": {
+      "enum": [
+        "pending",
+        "approved",
+        "rejected",
+        "deferred",
+        "not_required"
+      ]
+    },
+    "review_limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 4
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "schema_version",
+    "review_id",
+    "project_id",
+    "concept_title",
+    "concept_version",
+    "review_depth",
+    "depth_reason",
+    "reviewed_at",
+    "reviewer_setup",
+    "evidence_pack",
+    "councils",
+    "findings",
+    "event_alignment",
+    "verdict",
+    "verdict_rationale",
+    "gate",
+    "user_decision",
+    "review_limitations",
+    "created_at"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "verdict": {
+            "const": "ADVANCE"
+          }
+        },
+        "required": [
+          "verdict"
+        ]
+      },
+      "then": {
+        "properties": {
+          "gate": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "pass",
+                  "pass_with_conditions"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "verdict": {
+            "const": "STOP"
+          }
+        },
+        "required": [
+          "verdict"
+        ]
+      },
+      "then": {
+        "properties": {
+          "gate": {
+            "properties": {
+              "status": {
+                "const": "blocked"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

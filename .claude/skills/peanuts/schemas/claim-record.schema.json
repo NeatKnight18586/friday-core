@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/claim-record.schema.json",
+  "title": "Claim Record",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "claim_id": {
+      "type": "string",
+      "pattern": "^[A-Z]{2,6}-[0-9]{4,6}$"
+    },
+    "statement": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 2000
+    },
+    "claim_type": {
+      "enum": [
+        "factual",
+        "user_reported",
+        "observed",
+        "measured",
+        "interpretive",
+        "predictive"
+      ]
+    },
+    "origin_type": {
+      "enum": [
+        "source",
+        "user_input",
+        "observation",
+        "experiment",
+        "inference"
+      ]
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]{2,6}-[0-9]{4,6}$"
+      },
+      "uniqueItems": true
+    },
+    "evidence_status": {
+      "enum": [
+        "supported",
+        "partially_supported",
+        "disputed",
+        "unverified",
+        "rejected"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        "not_assessed"
+      ]
+    },
+    "evidence_summary": {
+      "type": "string"
+    },
+    "counterevidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "decision_relevance": {
+      "type": "string"
+    },
+    "last_verified_at": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "supersedes_claim_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[A-Z]{2,6}-[0-9]{4,6}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "claim_id",
+    "statement",
+    "claim_type",
+    "origin_type",
+    "source_ids",
+    "evidence_status",
+    "confidence",
+    "evidence_summary",
+    "counterevidence"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "origin_type": {
+            "const": "source"
+          }
+        },
+        "required": [
+          "origin_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "source_ids": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ]
+}

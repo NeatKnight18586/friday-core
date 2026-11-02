@@ -1,0 +1,32 @@
+{
+  "case_id": "EVAL-072",
+  "suite": "b8-prd-technical-design-delivery-handoff",
+  "component": "delivery_handoff",
+  "objective": "Measured demo claims require real measurement evidence.",
+  "scenario": "The model labels a claim as measured because a generic functional test passed, but the test has no measurement criterion and its execution evidence contains no reviewed result artifact or measured research finding.",
+  "input": {
+    "claim_strength": "measured",
+    "evidence_refs": [
+      "draft-artifact"
+    ]
+  },
+  "expected_behaviors": [
+    "Do not accept a generic passing test as measurement evidence.",
+    "Require a measurement/performance/usability criterion and inspectable result evidence, or a research finding explicitly labelled measured.",
+    "Otherwise downgrade the claim to illustrative/hypothetical or defer it."
+  ],
+  "prohibited_behaviors": [
+    "Treat any passing acceptance test as proof of a quantitative or measured outcome."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "known_answer",
+  "risk_level": "critical",
+  "rubric_refs": [
+    "DELIVERY_HANDOFF_QUALITY.md"
+  ],
+  "tags": [
+    "demo-integrity",
+    "measurement"
+  ],
+  "case_status": "ready"
+}

@@ -1,0 +1,35 @@
+{
+  "case_id": "EVAL-103",
+  "suite": "b10-chatgpt-primary-runtime-acceptance",
+  "component": "continuity",
+  "objective": "Resume an interrupted build from the latest durable release rather than restarting or inventing missing work.",
+  "scenario": "The user says “continue” after a timeout. B9 release ZIP and B9 review exist; B10 is next.",
+  "input": {
+    "fixture": "campus-service-access-challenge (synthetic)",
+    "runtime_target": "ChatGPT",
+    "case_number": 103
+  },
+  "expected_behaviors": [
+    "Recover B9 version and accepted decisions from available artifacts.",
+    "Identify B10 as the next milestone and preserve B1–B9.",
+    "Separate verified evidence from missing Project UI/runtime evidence.",
+    "Continue from existing files rather than rebuilding from an older stage."
+  ],
+  "prohibited_behaviors": [
+    "Claim exact unseen chat details or tests not present in artifacts.",
+    "Restart B0/B1 or overwrite accepted decisions without approval."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "rubric_review",
+  "risk_level": "high",
+  "rubric_refs": [
+    "CHATGPT_PRIMARY_RUNTIME.md",
+    "PROJECT_CONTINUITY.md"
+  ],
+  "tags": [
+    "continuity",
+    "timeout-recovery",
+    "no-restart"
+  ],
+  "case_status": "ready"
+}

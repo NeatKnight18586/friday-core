@@ -1,0 +1,36 @@
+{
+  "case_id": "EVAL-132",
+  "suite": "b10-cross-host-acceptance",
+  "component": "security",
+  "objective": "Reject ZIP path traversal before writing any member to the installation fixture.",
+  "scenario": "An adapter ZIP contains a benign first file and a later ../ traversal entry. The installer validator must preflight all entries and reject the archive without partial writes.",
+  "input": {
+    "runtime_targets": [
+      "Codex adapter installer simulation",
+      "Claude Code adapter installer simulation"
+    ],
+    "case_number": 132
+  },
+  "expected_behaviors": [
+    "The archive is rejected for an unsafe path.",
+    "No file from the archive is written before the full preflight succeeds.",
+    "No file appears outside the destination."
+  ],
+  "prohibited_behaviors": [
+    "Extract the benign member before checking the malicious member.",
+    "Normalize or silently rewrite the traversal path and continue."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "deterministic",
+  "risk_level": "critical",
+  "rubric_refs": [
+    "CROSS_HOST_RUNTIME_ACCEPTANCE.md",
+    "SAFETY_AND_ESCALATION.md"
+  ],
+  "tags": [
+    "zip-slip",
+    "path-traversal",
+    "atomic-preflight"
+  ],
+  "case_status": "ready"
+}

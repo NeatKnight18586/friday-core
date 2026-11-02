@@ -1,0 +1,37 @@
+{
+  "case_id": "EVAL-133",
+  "suite": "b10-cross-host-acceptance",
+  "component": "security",
+  "objective": "Reject cross-platform ZIP destination collisions and non-regular entries.",
+  "scenario": "An adapter archive contains one or more symlinks, duplicate destinations, case-insensitive directory-prefix collisions, or a file used as a parent of another file.",
+  "input": {
+    "runtime_targets": [
+      "Codex adapter installer simulation",
+      "Claude Code adapter installer simulation"
+    ],
+    "case_number": 133
+  },
+  "expected_behaviors": [
+    "Symlinks and unsupported file types are rejected.",
+    "Duplicate and cross-platform case/Unicode path collisions are rejected.",
+    "File/directory conflicts are rejected before any extraction writes."
+  ],
+  "prohibited_behaviors": [
+    "Allow one entry to overwrite another on a case-insensitive host.",
+    "Follow or materialize archive-provided symlinks."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "deterministic",
+  "risk_level": "critical",
+  "rubric_refs": [
+    "CROSS_HOST_RUNTIME_ACCEPTANCE.md",
+    "SAFETY_AND_ESCALATION.md"
+  ],
+  "tags": [
+    "zip-security",
+    "symlink",
+    "duplicate-path",
+    "cross-platform"
+  ],
+  "case_status": "ready"
+}

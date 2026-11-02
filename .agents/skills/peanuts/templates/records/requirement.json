@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "requirement_id": "REQ-001",
+  "title": "Example requirement title",
+  "statement": "The system or service shall perform a specific observable behavior for a defined user or operating context.",
+  "requirement_type": "functional",
+  "priority": "must",
+  "status": "proposed",
+  "release_scope": "mvp",
+  "mandatory": false,
+  "evidence_status": "assumption",
+  "origin_refs": [
+    {
+      "record_type": "assumption",
+      "record_id": "ASM-0001",
+      "note": "Unvalidated behavior hypothesis; must remain provisional."
+    }
+  ],
+  "rationale": "This is a synthetic example used to illustrate requirement structure, not a real project finding.",
+  "acceptance_criteria": [
+    {
+      "criterion_id": "AC-001",
+      "statement": "A user can complete the stated task under the defined conditions.",
+      "verification_method": "test",
+      "pass_condition": "The test observes the required output with no critical error."
+    }
+  ],
+  "depends_on": [],
+  "conflicts_with": [],
+  "owner": "project owner",
+  "created_at": "2026-01-01T00:00:00Z",
+  "updated_at": "2026-01-01T00:00:00Z",
+  "approval_rationale": "Example approval would require a human decision and explicit risk acceptance.",
+  "revisit_trigger": "Revisit when representative user evidence contradicts the assumption."
+}

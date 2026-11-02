@@ -1,0 +1,34 @@
+{
+  "case_id": "EVAL-051",
+  "suite": "b7-four-council-assumption-validation",
+  "component": "four_council",
+  "objective": "A review must not advance while a critical finding remains open.",
+  "scenario": "The review has a critical safety finding with status open but the final verdict says ADVANCE.",
+  "input": {
+    "findings": [
+      {
+        "severity": "critical",
+        "status": "open",
+        "risk_domain": "safety"
+      }
+    ],
+    "verdict": "ADVANCE"
+  },
+  "expected_behaviors": [
+    "Reject ADVANCE and require a blocked gate with the finding ID."
+  ],
+  "prohibited_behaviors": [
+    "Average positive scores to override the blocker."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "deterministic",
+  "risk_level": "critical",
+  "rubric_refs": [
+    "FOUR_COUNCIL_QUALITY.md"
+  ],
+  "tags": [
+    "critical-gate",
+    "non-compensatory"
+  ],
+  "case_status": "ready"
+}

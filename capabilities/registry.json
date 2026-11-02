@@ -1,0 +1,159 @@
+{
+  "schema_version": "1.0.0",
+  "registry_version": "0.3.0",
+  "purpose": "Compact metadata catalog for real Friday capabilities; it does not itself execute autonomous routing or load capability contents.",
+  "capabilities": [
+    {
+      "id": "peanuts",
+      "display_name": "Peanuts",
+      "kind": "harness",
+      "lifecycle": "active",
+      "maturity": "prototype",
+      "canonical_path": "skills/peanuts",
+      "skill_file": "skills/peanuts/SKILL.md",
+      "domains": [
+        "project-discovery",
+        "product-planning",
+        "event-intelligence",
+        "cross-domain-innovation",
+        "research"
+      ],
+      "intents": [
+        "research-an-event-or-hackathon",
+        "discover-a-project-opportunity",
+        "develop-and-assess-a-project-concept",
+        "prepare-a-draft-prd-or-technical-handoff"
+      ],
+      "default_mode": "standard",
+      "supported_modes": [
+        "quick",
+        "standard",
+        "deep"
+      ],
+      "host_profiles": [
+        {
+          "host": "claude-code",
+          "status": "ready-for-test",
+          "discovery_path": ".claude/skills/peanuts",
+          "note": "B9 adapter ZIP generated from the canonical skill; actual Claude Code discovery, invocation, permissions and fresh-session runtime still require testing."
+        },
+        {
+          "host": "codex",
+          "status": "ready-for-test",
+          "discovery_path": ".agents/skills/peanuts",
+          "note": "B9 adapter ZIP generated from the canonical skill; actual Codex discovery, invocation and fresh-session runtime still require testing."
+        },
+        {
+          "host": "chatgpt-project",
+          "status": "manual-fallback",
+          "discovery_path": null,
+          "note": "B9 generates exactly five curated plain-text .txt sources containing Markdown-formatted content plus separate Project instructions; manual setup, not automatic Skill activation or shell access."
+        },
+        {
+          "host": "chatgpt-skills",
+          "status": "conditional",
+          "discovery_path": null,
+          "note": "Use native ChatGPT Skills only where the account, workspace, product surface and feature eligibility are confirmed."
+        },
+        {
+          "host": "claude-chat-skill",
+          "status": "ready-for-test",
+          "discovery_path": null,
+          "note": "B10.1 consumer Skill ZIP uses peanuts/skill.md and Anthropic\u2019s documented 200-character description limit. Requires Code execution and file creation; actual account upload, activation and chat runtime remain NOT RUN."
+        },
+        {
+          "host": "claude-chat-project",
+          "status": "manual-fallback",
+          "discovery_path": null,
+          "note": "B10.1: Project instructions plus five curated .txt documents containing Markdown-formatted context. Five is a curation choice, not a per-Project file limit; total knowledge is bounded by the context window. Project setup and fresh-chat handoff remain owner-verified gates."
+        }
+      ],
+      "permissions_profile": "read-project-data; use-host-provided-research-tools-when-available; request-approval-for-consequential-external-actions",
+      "evaluation_refs": [
+        "EVAL-019",
+        "EVAL-020",
+        "EVAL-030",
+        "EVAL-031",
+        "EVAL-038",
+        "EVAL-039",
+        "EVAL-046",
+        "EVAL-047",
+        "EVAL-048",
+        "EVAL-049",
+        "EVAL-050",
+        "EVAL-051",
+        "EVAL-052",
+        "EVAL-053",
+        "EVAL-054",
+        "EVAL-055",
+        "EVAL-056",
+        "EVAL-057",
+        "EVAL-058",
+        "EVAL-059",
+        "EVAL-060",
+        "EVAL-061",
+        "EVAL-062",
+        "EVAL-063",
+        "EVAL-064",
+        "EVAL-065",
+        "EVAL-066",
+        "EVAL-067",
+        "EVAL-068",
+        "EVAL-069",
+        "EVAL-070",
+        "EVAL-071",
+        "EVAL-072",
+        "EVAL-073",
+        "EVAL-074",
+        "EVAL-075",
+        "EVAL-076",
+        "EVAL-077",
+        "EVAL-078",
+        "EVAL-079",
+        "EVAL-080",
+        "EVAL-081",
+        "EVAL-082",
+        "EVAL-083",
+        "EVAL-084",
+        "EVAL-085",
+        "EVAL-086",
+        "EVAL-087",
+        "EVAL-088",
+        "EVAL-089",
+        "EVAL-090",
+        "EVAL-091",
+        "EVAL-092",
+        "EVAL-093",
+        "EVAL-094",
+        "EVAL-095",
+        "EVAL-096",
+        "EVAL-097",
+        "EVAL-098",
+        "EVAL-099",
+        "EVAL-100",
+        "EVAL-101",
+        "EVAL-102",
+        "EVAL-135",
+        "EVAL-136",
+        "EVAL-137",
+        "EVAL-138",
+        "EVAL-139",
+        "EVAL-140",
+        "EVAL-141",
+        "EVAL-142",
+        "EVAL-143",
+        "EVAL-144",
+        "EVAL-145",
+        "EVAL-146"
+      ],
+      "summary": "Evidence-informed project discovery and planning capability for events, opportunities, concepts, and technical handoffs.",
+      "dependencies": [],
+      "exclusions": [
+        "General-purpose personal assistant routing",
+        "Unrelated routine writing or coding tasks"
+      ],
+      "entrypoint": "skills/peanuts/SKILL.md",
+      "contract_file": "skills/peanuts/capability.json"
+    }
+  ]
+}

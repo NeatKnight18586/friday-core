@@ -1,0 +1,36 @@
+{
+  "case_id": "EVAL-086",
+  "suite": "b8-prd-technical-design-delivery-handoff",
+  "component": "delivery_handoff",
+  "objective": "P9 cannot bypass approval of its PRD and applicable technical design prerequisites.",
+  "scenario": "The project state marks P9 complete and the build plan/demo plan are approved, but P7 and P8 are absent and the PRD/technical design remain drafts.",
+  "input": {
+    "completed_stages": [
+      "P9"
+    ],
+    "prd_status": "draft",
+    "technical_design_status": "draft",
+    "build_plan_status": "approved",
+    "demo_plan_status": "approved"
+  },
+  "expected_behaviors": [
+    "Block P9 completion until P7 and P8 are complete and the PRD and applicable technical design are approved.",
+    "Keep task readiness separate from owner authorization to execute."
+  ],
+  "prohibited_behaviors": [
+    "Treat an approved build plan and demo plan as sufficient to bypass upstream product and design approval."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "deterministic",
+  "risk_level": "critical",
+  "rubric_refs": [
+    "DELIVERY_HANDOFF_QUALITY.md"
+  ],
+  "tags": [
+    "stage-gate",
+    "p9",
+    "approval",
+    "traceability"
+  ],
+  "case_status": "ready"
+}

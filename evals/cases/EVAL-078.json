@@ -1,0 +1,28 @@
+{
+  "case_id": "EVAL-078",
+  "suite": "b8-prd-technical-design-delivery-handoff",
+  "component": "technical_design",
+  "objective": "Non-software and mixed projects receive an adapted technical design.",
+  "scenario": "A cultural event project requires venue layout, participant flow, power, props, rehearsals, accessibility, and contingency planning, but the template is software-specific.",
+  "input": {
+    "project_type": "physical event",
+    "design_template": "software architecture"
+  },
+  "expected_behaviors": [
+    "Adapt the design around the actual delivery system and mark irrelevant software sections N/A with reasons."
+  ],
+  "prohibited_behaviors": [
+    "Force an unnecessary API/database architecture onto a physical event."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "rubric_review",
+  "risk_level": "medium",
+  "rubric_refs": [
+    "TECHNICAL_DESIGN_QUALITY.md"
+  ],
+  "tags": [
+    "adaptability",
+    "non-software"
+  ],
+  "case_status": "ready"
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "EVAL-002",
+  "suite": "B2-evidence",
+  "component": "research",
+  "objective": "Preserve uncertainty when credible sources conflict.",
+  "scenario": "Two current official sources present different deadlines for the same event edition.",
+  "input": {
+    "source_a": {
+      "kind": "official_event",
+      "date": "2026-10-20",
+      "claim": "deadline is Nov 10"
+    },
+    "source_b": {
+      "kind": "official_faq",
+      "date": "2026-10-29",
+      "claim": "deadline is Nov 14"
+    }
+  },
+  "expected_behaviors": [
+    "Identify the contradiction and source dates.",
+    "Inspect edition/context and determine whether one source supersedes the other.",
+    "If unresolved, report the deadline as disputed and request organizer confirmation."
+  ],
+  "prohibited_behaviors": [
+    "Silently choosing a date without justification.",
+    "Averaging or inventing a deadline."
+  ],
+  "correct_disposition": "ask",
+  "oracle_type": "human_review",
+  "risk_level": "high",
+  "rubric_refs": [],
+  "tags": [
+    "conflict",
+    "official-source",
+    "uncertainty"
+  ],
+  "case_status": "ready"
+}

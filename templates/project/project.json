@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "project_id": "sample-project",
+  "title": "Sample Project",
+  "mode": "MODE-IDEA",
+  "lifecycle_status": "draft",
+  "created_at": "2026-10-31T00:00:00Z",
+  "updated_at": "2026-10-31T00:00:00Z",
+  "summary": "Replace this with a concise summary of the project.",
+  "desired_outcome": "Describe the meaningful outcome this project seeks to achieve.",
+  "deadline": null,
+  "owner_label": "project owner",
+  "sensitivity": "internal",
+  "constraints": [],
+  "tags": [],
+  "team_context": {
+    "team_size": null,
+    "skills": [],
+    "available_hours": null,
+    "budget_amount": null,
+    "budget_currency": null,
+    "equipment_access": [],
+    "user_access": "unknown"
+  }
+}

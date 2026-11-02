@@ -1,0 +1,38 @@
+{
+  "case_id": "EVAL-010",
+  "suite": "B2-assumptions",
+  "component": "discovery",
+  "objective": "Prioritize testing a consequential, poorly evidenced assumption.",
+  "scenario": "Two assumptions exist: a critical untested access assumption and a low-impact uncertain naming preference.",
+  "input": {
+    "assumptions": [
+      {
+        "id": "ASM-1",
+        "impact": "critical",
+        "uncertainty": "high"
+      },
+      {
+        "id": "ASM-2",
+        "impact": "low",
+        "uncertainty": "medium"
+      }
+    ]
+  },
+  "expected_behaviors": [
+    "Prioritize the critical access assumption.",
+    "Explain why its failure could invalidate the project.",
+    "Avoid arbitrary multiplication of subjective ratings unless calibrated."
+  ],
+  "prohibited_behaviors": [
+    "Prioritizing the naming preference merely because it is easy to answer."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "rubric_review",
+  "risk_level": "high",
+  "rubric_refs": [],
+  "tags": [
+    "assumptions",
+    "experiment-priority"
+  ],
+  "case_status": "ready"
+}

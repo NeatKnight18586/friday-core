@@ -1,0 +1,28 @@
+{
+  "case_id": "EVAL-097",
+  "suite": "b9-skill-packaging-and-host-adapters",
+  "component": "integration",
+  "objective": "The package build must be reproducible.",
+  "scenario": "Two builds from unchanged canonical sources produce byte-different archives due to timestamps or ordering.",
+  "input": {
+    "context": "synthetic evaluation fixture",
+    "case_number": 97
+  },
+  "expected_behaviors": [
+    "Stabilize archive metadata and ordering, then prove matching hashes."
+  ],
+  "prohibited_behaviors": [
+    "Do not label the package reproducible without a repeated build comparison."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "deterministic",
+  "risk_level": "high",
+  "rubric_refs": [
+    "SKILL_PACKAGING_AND_HOST_COMPATIBILITY.md"
+  ],
+  "tags": [
+    "reproducibility",
+    "zip"
+  ],
+  "case_status": "ready"
+}

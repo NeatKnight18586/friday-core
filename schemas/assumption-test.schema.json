@@ -1,0 +1,608 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/assumption-test.schema.json",
+  "title": "Assumption Test Record",
+  "type": "object",
+  "additionalProperties": false,
+  "$defs": {
+    "evidenceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "record_type": {
+          "enum": [
+            "source",
+            "claim",
+            "assumption",
+            "test",
+            "decision",
+            "research_finding",
+            "opportunity",
+            "analogy",
+            "nuts_run",
+            "artifact",
+            "external_requirement"
+          ]
+        },
+        "record_id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 500
+        }
+      },
+      "required": [
+        "record_type",
+        "record_id"
+      ]
+    }
+  },
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "test_id": {
+      "type": "string",
+      "pattern": "^TST-[0-9]{4,6}$"
+    },
+    "assumption_id": {
+      "type": "string",
+      "pattern": "^[A-Z]{2,6}-[0-9]{4,6}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 4,
+      "maxLength": 180
+    },
+    "status": {
+      "enum": [
+        "proposed",
+        "approved",
+        "in_progress",
+        "completed",
+        "cancelled"
+      ]
+    },
+    "method": {
+      "enum": [
+        "user_interview",
+        "observation",
+        "usability_test",
+        "prototype_test",
+        "technical_spike",
+        "benchmark",
+        "experiment",
+        "simulation",
+        "expert_review",
+        "official_source_check",
+        "literature_review",
+        "other"
+      ]
+    },
+    "hypothesis": {
+      "type": "string",
+      "minLength": 12,
+      "maxLength": 1500
+    },
+    "target_or_system": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 4
+          }
+        },
+        "success_signal": {
+          "type": "string",
+          "minLength": 4
+        },
+        "failure_signal": {
+          "type": "string",
+          "minLength": 4
+        },
+        "decision_threshold": {
+          "type": "string",
+          "minLength": 4
+        },
+        "sampling_or_test_scope": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "limitations_known_in_advance": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "steps",
+        "success_signal",
+        "failure_signal",
+        "decision_threshold"
+      ]
+    },
+    "participant_controls": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "involves_human_participants": {
+          "type": "boolean"
+        },
+        "consent_status": {
+          "enum": [
+            "not_applicable",
+            "pending",
+            "obtained",
+            "withdrawn"
+          ]
+        },
+        "consent_not_applicable_rationale": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 500
+        },
+        "deidentification_confirmed": {
+          "type": "boolean"
+        },
+        "ethics_review_status": {
+          "enum": [
+            "not_applicable",
+            "pending",
+            "approved",
+            "not_required"
+          ]
+        },
+        "ethics_review_rationale": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 500
+        },
+        "data_minimization_controls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "retention_or_deletion_rule": {
+          "type": "string",
+          "maxLength": 500
+        }
+      },
+      "required": [
+        "involves_human_participants",
+        "consent_status",
+        "deidentification_confirmed",
+        "ethics_review_status",
+        "data_minimization_controls",
+        "retention_or_deletion_rule"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "involves_human_participants": {
+                "const": true
+              }
+            },
+            "required": [
+              "involves_human_participants"
+            ]
+          },
+          "then": {
+            "properties": {
+              "consent_status": {
+                "enum": [
+                  "pending",
+                  "obtained",
+                  "withdrawn"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "involves_human_participants": {
+                "const": false
+              }
+            },
+            "required": [
+              "involves_human_participants"
+            ]
+          },
+          "then": {
+            "properties": {
+              "consent_status": {
+                "const": "not_applicable"
+              }
+            },
+            "required": [
+              "consent_not_applicable_rationale"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "consent_status": {
+                "const": "not_applicable"
+              }
+            },
+            "required": [
+              "consent_status"
+            ]
+          },
+          "then": {
+            "required": [
+              "consent_not_applicable_rationale"
+            ],
+            "properties": {
+              "involves_human_participants": {
+                "const": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "ethics_review_status": {
+                "const": "not_required"
+              }
+            },
+            "required": [
+              "ethics_review_status"
+            ]
+          },
+          "then": {
+            "required": [
+              "ethics_review_rationale"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "consent_status": {
+                "const": "withdrawn"
+              }
+            },
+            "required": [
+              "consent_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "involves_human_participants": {
+                "const": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    "result": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "outcome": {
+          "enum": [
+            "supports",
+            "invalidates",
+            "mixed",
+            "inconclusive"
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 12,
+          "maxLength": 2500
+        },
+        "sample_size": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "record_type": {
+                "enum": [
+                  "source",
+                  "claim",
+                  "assumption",
+                  "test",
+                  "decision",
+                  "research_finding",
+                  "opportunity",
+                  "analogy",
+                  "nuts_run",
+                  "artifact",
+                  "external_requirement"
+                ]
+              },
+              "record_id": {
+                "type": "string",
+                "minLength": 3
+              },
+              "note": {
+                "type": "string",
+                "maxLength": 500
+              }
+            },
+            "required": [
+              "record_type",
+              "record_id"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "deviations_from_protocol": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "outcome",
+        "summary",
+        "sample_size",
+        "evidence_refs",
+        "limitations",
+        "deviations_from_protocol"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "approved_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "completed_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 120
+    }
+  },
+  "required": [
+    "schema_version",
+    "test_id",
+    "assumption_id",
+    "title",
+    "status",
+    "method",
+    "hypothesis",
+    "protocol",
+    "participant_controls",
+    "result",
+    "created_at",
+    "updated_at",
+    "approved_at",
+    "completed_at",
+    "owner"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "completed"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "type": "object"
+          },
+          "completed_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "result",
+          "completed_at"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "proposed",
+              "approved",
+              "in_progress",
+              "cancelled"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "approved",
+              "in_progress",
+              "completed"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "approved_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "approved_at"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "participant_controls": {
+            "properties": {
+              "consent_status": {
+                "const": "withdrawn"
+              }
+            }
+          }
+        },
+        "required": [
+          "participant_controls"
+        ]
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "cancelled"
+          },
+          "result": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "approved",
+              "in_progress",
+              "completed"
+            ]
+          },
+          "participant_controls": {
+            "properties": {
+              "involves_human_participants": {
+                "const": true
+              }
+            }
+          }
+        },
+        "required": [
+          "status",
+          "participant_controls"
+        ]
+      },
+      "then": {
+        "properties": {
+          "participant_controls": {
+            "properties": {
+              "consent_status": {
+                "const": "obtained"
+              },
+              "deidentification_confirmed": {
+                "const": true
+              },
+              "ethics_review_status": {
+                "enum": [
+                  "approved",
+                  "not_required"
+                ]
+              }
+            },
+            "required": [
+              "ethics_review_rationale"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "method": {
+            "enum": [
+              "user_interview",
+              "observation",
+              "usability_test"
+            ]
+          }
+        },
+        "required": [
+          "method"
+        ]
+      },
+      "then": {
+        "properties": {
+          "participant_controls": {
+            "properties": {
+              "involves_human_participants": {
+                "const": true
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

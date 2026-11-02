@@ -1,0 +1,26 @@
+{
+  "finding_id": "FND-0001",
+  "finding_type": "official_fact",
+  "summary": "The synthetic example source states that a prototype is required.",
+  "evidence_label": "verified_primary",
+  "confidence": "medium",
+  "source_ids": [
+    "SRC-0001"
+  ],
+  "claim_ids": [
+    "CLM-0001"
+  ],
+  "question_ids": [
+    "RQ-0001"
+  ],
+  "round_id": null,
+  "participant_ref": null,
+  "consent_status": "not_applicable_with_rationale",
+  "limitations": [
+    "Synthetic example only; not an actual event rule."
+  ],
+  "context": "Template demonstration.",
+  "contains_identifiable_personal_data": false,
+  "recorded_at": "2026-11-01T00:00:00Z",
+  "consent_rationale": "Not participant-derived; this is a synthetic template example."
+}

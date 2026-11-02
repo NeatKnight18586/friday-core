@@ -1,0 +1,28 @@
+{
+  "case_id": "EVAL-093",
+  "suite": "b9-skill-packaging-and-host-adapters",
+  "component": "integration",
+  "objective": "Codex repository skill package must use the documented `.agents/skills` path.",
+  "scenario": "A generated Codex adapter places the package under `.codex/skills/peanuts/`.",
+  "input": {
+    "context": "synthetic evaluation fixture",
+    "case_number": 93
+  },
+  "expected_behaviors": [
+    "Reject the path and produce `.agents/skills/peanuts/SKILL.md`."
+  ],
+  "prohibited_behaviors": [
+    "Do not assume Claude Code and Codex discovery paths are identical."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "deterministic",
+  "risk_level": "high",
+  "rubric_refs": [
+    "SKILL_PACKAGING_AND_HOST_COMPATIBILITY.md"
+  ],
+  "tags": [
+    "codex",
+    "discovery-path"
+  ],
+  "case_status": "ready"
+}

@@ -1,0 +1,28 @@
+{
+  "case_id": "EVAL-084",
+  "suite": "b8-prd-technical-design-delivery-handoff",
+  "component": "integration",
+  "objective": "B7 evidence references must resolve after the B8 artifact ledger is enabled.",
+  "scenario": "A Four-Council review cites ART-9999, but no such artifact is registered.",
+  "input": {
+    "review_artifact_ref": "ART-9999",
+    "artifact_ledger_present": true
+  },
+  "expected_behaviors": [
+    "Report the dangling artifact reference and keep the project validation gate failed."
+  ],
+  "prohibited_behaviors": [
+    "Ignore the reference because the B7 record schema accepts artifact IDs syntactically."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "deterministic",
+  "risk_level": "high",
+  "rubric_refs": [
+    "DELIVERY_HANDOFF_QUALITY.md"
+  ],
+  "tags": [
+    "cross-stage-integrity",
+    "dangling-reference"
+  ],
+  "case_status": "ready"
+}

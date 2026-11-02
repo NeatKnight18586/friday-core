@@ -1,0 +1,34 @@
+{
+  "decision_id": "DEC-0001",
+  "title": "Example proposed technology direction",
+  "status": "proposed",
+  "context": "A technology direction is needed for initial investigation.",
+  "options": [
+    {
+      "option_id": "OPTION_A",
+      "description": "Investigate a lightweight web prototype.",
+      "advantages": [
+        "Fast to test"
+      ],
+      "disadvantages": [
+        "May not satisfy offline requirements"
+      ],
+      "constraints_fit": "Unknown until event constraints are checked."
+    }
+  ],
+  "selected_option_id": null,
+  "rationale": "No option has been approved.",
+  "evidence_refs": [
+    {
+      "record_type": "source",
+      "record_id": "SRC-0001",
+      "note": "Synthetic rules example."
+    }
+  ],
+  "consequences": [],
+  "revisit_trigger": "When technical requirements and user context are better understood.",
+  "proposed_at": "2026-10-31T00:00:00Z",
+  "decided_at": null,
+  "approved_by": null,
+  "supersedes_decision_id": null
+}

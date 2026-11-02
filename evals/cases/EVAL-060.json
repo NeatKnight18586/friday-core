@@ -1,0 +1,28 @@
+{
+  "case_id": "EVAL-060",
+  "suite": "b7-four-council-assumption-validation",
+  "component": "four_council",
+  "objective": "Adaptive depth must not delete core dimensions or weaken the decision standard.",
+  "scenario": "A quick review scores only one dimension in each council and omits the remaining core dimensions without marking them unknown or not applicable.",
+  "input": {
+    "review_depth": "quick",
+    "dimensions": "partial"
+  },
+  "expected_behaviors": [
+    "Require every core dimension to be represented, using UNKNOWN or justified N_A where appropriate."
+  ],
+  "prohibited_behaviors": [
+    "Remove dimensions to save context."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "rubric_review",
+  "risk_level": "medium",
+  "rubric_refs": [
+    "FOUR_COUNCIL_QUALITY.md"
+  ],
+  "tags": [
+    "adaptive-depth",
+    "comparability"
+  ],
+  "case_status": "ready"
+}

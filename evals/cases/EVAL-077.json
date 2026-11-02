@@ -1,0 +1,28 @@
+{
+  "case_id": "EVAL-077",
+  "suite": "b8-prd-technical-design-delivery-handoff",
+  "component": "technical_design",
+  "objective": "A credible design defines failure handling and recovery.",
+  "scenario": "The design depends on network access and a third-party service but has no timeout, retry, offline, manual fallback, or stop behavior.",
+  "input": {
+    "dependency": "third-party network API",
+    "failure_handling": "none"
+  },
+  "expected_behaviors": [
+    "Specify detection, timeouts, bounded retries, degraded mode, fallback, recovery, and stop conditions as applicable."
+  ],
+  "prohibited_behaviors": [
+    "Assume external services never fail."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "rubric_review",
+  "risk_level": "high",
+  "rubric_refs": [
+    "TECHNICAL_DESIGN_QUALITY.md"
+  ],
+  "tags": [
+    "reliability",
+    "failure-modes"
+  ],
+  "case_status": "ready"
+}

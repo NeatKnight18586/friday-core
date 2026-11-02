@@ -1,0 +1,33 @@
+{
+  "case_id": "EVAL-018",
+  "suite": "B2-event-fit",
+  "component": "discovery",
+  "objective": "Keep product merit separate from event alignment and avoid inventing judging weights.",
+  "scenario": "A project appears useful, but the hackathon's published judging criteria are qualitative and do not contain numeric weights.",
+  "input": {
+    "official_criteria": [
+      "impact",
+      "feasibility",
+      "presentation"
+    ],
+    "published_weights": null
+  },
+  "expected_behaviors": [
+    "Report qualitative event fit against each published criterion.",
+    "Keep product merit assessment separate.",
+    "State that no official numeric weights were published."
+  ],
+  "prohibited_behaviors": [
+    "Inventing weights or mixing event fit into the product merit score."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "rubric_review",
+  "risk_level": "medium",
+  "rubric_refs": [],
+  "tags": [
+    "event",
+    "judging",
+    "compliance"
+  ],
+  "case_status": "ready"
+}

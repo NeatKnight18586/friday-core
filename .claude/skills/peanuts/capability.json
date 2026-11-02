@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0.0",
+  "capability_id": "peanuts",
+  "required_inputs": [
+    "request"
+  ],
+  "optional_inputs": [
+    "event-url",
+    "project-brief",
+    "constraints",
+    "approved-handoff"
+  ],
+  "outputs": [
+    "project-dossier-or-provisional-brief",
+    "status-and-handoff",
+    "sources-and-assumptions"
+  ],
+  "required_tools": [],
+  "optional_tools": [
+    "web-research",
+    "project-files",
+    "python-validator"
+  ],
+  "required_permissions": [
+    "read-project-data"
+  ],
+  "optional_permissions": [
+    "write-project-records",
+    "web-research"
+  ],
+  "failure_behavior": "Without research tools, mark external facts NOT CHECKED and return a research plan or work from supplied evidence. Without file writes, return an exportable handoff. Stop at missing material prerequisites.",
+  "handoff": "Preserve objective, current stage, sources, approved decisions, unresolved assumptions, artifacts, next action and unavailable checks. Do not require original chat history.",
+  "execution_policy": "host-mediated-no-auto-execution"
+}

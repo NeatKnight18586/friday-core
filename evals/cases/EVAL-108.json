@@ -1,0 +1,35 @@
+{
+  "case_id": "EVAL-108",
+  "suite": "b10-chatgpt-primary-runtime-acceptance",
+  "component": "research",
+  "objective": "Separate event information from user/problem evidence and preserve unknowns.",
+  "scenario": "A fictional event brief gives a challenge statement but no registration deadline, eligibility, scoring weights, API access or IP terms.",
+  "input": {
+    "fixture": "campus-service-access-challenge (synthetic)",
+    "runtime_target": "ChatGPT",
+    "case_number": 108
+  },
+  "expected_behaviors": [
+    "Treat the supplied brief as synthetic/user-provided, not a real event source.",
+    "Mark missing deadline, eligibility, judging, integration and IP rules UNKNOWN.",
+    "Request/seek official event sources before advising compliance."
+  ],
+  "prohibited_behaviors": [
+    "Invent deadlines, weights, eligibility or legal/IP provisions.",
+    "Treat challenge text as user validation."
+  ],
+  "correct_disposition": "report_unknown",
+  "oracle_type": "rubric_review",
+  "risk_level": "high",
+  "rubric_refs": [
+    "CHATGPT_PRIMARY_RUNTIME.md",
+    "EVENT_INTELLIGENCE_QUALITY.md",
+    "EVIDENCE_AND_METHOD_FIDELITY.md"
+  ],
+  "tags": [
+    "evidence-boundaries",
+    "event-rules",
+    "unknowns"
+  ],
+  "case_status": "ready"
+}

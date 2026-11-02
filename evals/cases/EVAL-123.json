@@ -1,0 +1,38 @@
+{
+  "case_id": "EVAL-123",
+  "suite": "b10-cross-host-acceptance",
+  "component": "integration",
+  "objective": "Verify that the generated Codex adapter installs at the repository discovery path alongside AGENTS.md.",
+  "scenario": "A clean synthetic Friday checkout receives the Codex adapter ZIP at the repository root. The Codex CLI is not started; the test checks the installed file layout and root guidance only.",
+  "input": {
+    "runtime_targets": [
+      "Codex",
+      "Claude Code"
+    ],
+    "case_number": 123
+  },
+  "expected_behaviors": [
+    "The skill entrypoint exists at .agents/skills/peanuts/SKILL.md.",
+    "The repository root AGENTS.md is present.",
+    "The SKILL.md frontmatter name is peanuts and local references resolve.",
+    "The result is labelled as a simulated installation, not live Codex discovery."
+  ],
+  "prohibited_behaviors": [
+    "Claim the Codex CLI discovered or invoked the skill.",
+    "Treat the simulated path check as model-runtime evidence."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "deterministic",
+  "risk_level": "low",
+  "rubric_refs": [
+    "CROSS_HOST_RUNTIME_ACCEPTANCE.md",
+    "SKILL_PACKAGING_AND_HOST_COMPATIBILITY.md",
+    "SAFETY_AND_ESCALATION.md"
+  ],
+  "tags": [
+    "codex",
+    "install-simulation",
+    "discovery-path"
+  ],
+  "case_status": "ready"
+}

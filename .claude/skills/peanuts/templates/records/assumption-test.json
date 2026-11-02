@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "test_id": "TST-0001",
+  "assumption_id": "ASM-0001",
+  "title": "Replace with test title",
+  "status": "proposed",
+  "method": "technical_spike",
+  "hypothesis": "State the specific result expected if the assumption is true.",
+  "target_or_system": "Identify the target user group, system, prototype, or source.",
+  "protocol": {
+    "steps": [
+      "Define and execute the test."
+    ],
+    "success_signal": "Describe observable evidence that supports the assumption.",
+    "failure_signal": "Describe observable evidence that would invalidate the assumption.",
+    "decision_threshold": "Define the threshold before running the test.",
+    "sampling_or_test_scope": "State scope or sample when applicable.",
+    "limitations_known_in_advance": []
+  },
+  "participant_controls": {
+    "involves_human_participants": false,
+    "consent_status": "not_applicable",
+    "consent_not_applicable_rationale": "No human participants are involved in this technical spike.",
+    "deidentification_confirmed": true,
+    "ethics_review_status": "not_required",
+    "ethics_review_rationale": "No human participant data is collected; reassess if scope changes.",
+    "data_minimization_controls": [],
+    "retention_or_deletion_rule": "No participant data is collected."
+  },
+  "result": null,
+  "created_at": "2026-11-01T00:00:00Z",
+  "updated_at": "2026-11-01T00:00:00Z",
+  "approved_at": null,
+  "completed_at": null,
+  "owner": "project owner"
+}

@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/project.schema.json",
+  "title": "Peanuts Project Record",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "project_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 160
+    },
+    "mode": {
+      "enum": [
+        "MODE-EVENT",
+        "MODE-PROBLEM",
+        "MODE-IDEA",
+        "MODE-EXISTING",
+        "MODE-RESEARCH"
+      ]
+    },
+    "lifecycle_status": {
+      "enum": [
+        "draft",
+        "active",
+        "paused",
+        "blocked",
+        "completed",
+        "archived"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "desired_outcome": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 2000
+    },
+    "deadline": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "owner_label": {
+      "type": "string",
+      "maxLength": 120
+    },
+    "sensitivity": {
+      "enum": [
+        "public",
+        "internal",
+        "confidential",
+        "restricted"
+      ]
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "team_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "team_size": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "available_hours": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "budget_amount": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "budget_currency": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[A-Z]{3}$"
+        },
+        "equipment_access": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "user_access": {
+          "enum": [
+            "unknown",
+            "limited",
+            "available",
+            "not_available"
+          ]
+        }
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "project_id",
+    "title",
+    "mode",
+    "lifecycle_status",
+    "created_at",
+    "updated_at",
+    "summary",
+    "desired_outcome",
+    "sensitivity"
+  ]
+}

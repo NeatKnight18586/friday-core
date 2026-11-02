@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/nuts-run.schema.json",
+  "title": "NUTS Innovation Run",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^NUTS-[0-9]{4,6}$"
+    },
+    "status": {
+      "enum": [
+        "planned",
+        "in_progress",
+        "completed",
+        "paused"
+      ]
+    },
+    "target_problem": {
+      "type": "string",
+      "minLength": 10
+    },
+    "target_function": {
+      "type": "string",
+      "minLength": 5
+    },
+    "context_and_constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "domain_paths_attempted": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "nature_biology",
+          "history_civilization",
+          "engineering_physical",
+          "culture_social",
+          "economics_operations",
+          "existing_product_process"
+        ]
+      }
+    },
+    "method_components_used": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "analogy_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^ANL-[0-9]{4,6}$"
+      }
+    },
+    "source_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^SRC-[0-9]{4,6}$"
+      }
+    },
+    "claim_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^CLM-[0-9]{4,6}$"
+      }
+    },
+    "search_coverage_note": {
+      "type": "string",
+      "minLength": 10
+    },
+    "conclusion": {
+      "enum": [
+        "useful_analogy_found",
+        "no_useful_analogy",
+        "research_insufficient",
+        "deferred"
+      ]
+    },
+    "conclusion_rationale": {
+      "type": "string",
+      "minLength": 15
+    },
+    "next_action": {
+      "type": "string",
+      "minLength": 5
+    },
+    "method_version": {
+      "type": "string",
+      "minLength": 3
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_id",
+    "status",
+    "target_problem",
+    "target_function",
+    "context_and_constraints",
+    "domain_paths_attempted",
+    "method_components_used",
+    "analogy_ids",
+    "source_ids",
+    "claim_ids",
+    "search_coverage_note",
+    "conclusion",
+    "conclusion_rationale",
+    "next_action",
+    "method_version",
+    "created_at",
+    "updated_at"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "conclusion": {
+            "const": "useful_analogy_found"
+          }
+        },
+        "required": [
+          "conclusion"
+        ]
+      },
+      "then": {
+        "properties": {
+          "analogy_ids": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "conclusion": {
+            "const": "no_useful_analogy"
+          }
+        },
+        "required": [
+          "conclusion"
+        ]
+      },
+      "then": {
+        "properties": {
+          "analogy_ids": {
+            "maxItems": 0
+          },
+          "conclusion_rationale": {
+            "minLength": 25
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "completed"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "conclusion": {
+            "enum": [
+              "useful_analogy_found",
+              "no_useful_analogy",
+              "research_insufficient"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

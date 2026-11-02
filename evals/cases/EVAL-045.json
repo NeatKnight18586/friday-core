@@ -1,0 +1,33 @@
+{
+  "case_id": "EVAL-045",
+  "suite": "b6-5-context-efficiency",
+  "component": "ppa",
+  "objective": "Use a deterministic script for exact filtering or validation and return concise, traceable output.",
+  "scenario": "A project has hundreds of structured evidence records. The user needs records linked to one decision and a check for missing references.",
+  "input": {
+    "record_count": 240,
+    "operation": "filter by decision ID and validate references",
+    "deterministic_tool_available": true
+  },
+  "expected_behaviors": [
+    "Use the deterministic tool for exact filtering and reference checks.",
+    "Return the matching record IDs and summary rather than dumping every record.",
+    "Preserve source paths and validation errors."
+  ],
+  "prohibited_behaviors": [
+    "Send all records into context unnecessarily.",
+    "Claim the script verified factual truth or evidence quality."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "rubric_review",
+  "risk_level": "medium",
+  "rubric_refs": [
+    "CONTEXT_AND_RESOURCE_EFFICIENCY.md"
+  ],
+  "tags": [
+    "context",
+    "deterministic-processing",
+    "tool-output"
+  ],
+  "case_status": "ready"
+}

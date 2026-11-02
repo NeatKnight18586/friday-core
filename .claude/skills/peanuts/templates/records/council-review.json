@@ -1,0 +1,188 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "REV-0001",
+  "project_id": "sample-project",
+  "concept_title": "Replace with concept title",
+  "concept_version": "0.1.0",
+  "review_depth": "standard",
+  "depth_reason": "Leading concept requires standard review before committing resources.",
+  "reviewed_at": "2026-11-01T00:00:00Z",
+  "reviewer_setup": {
+    "execution_pattern": "same_model_sequential",
+    "reviewer_labels": [
+      "Council 1",
+      "Council 2",
+      "Council 3",
+      "Council 4"
+    ],
+    "independence_note": "Four simulated perspectives use one model and are not statistically independent reviewers.",
+    "independent_first_passes": false,
+    "statistical_independence_claim": false
+  },
+  "evidence_pack": {
+    "source_ids": [],
+    "claim_ids": [],
+    "assumption_ids": [],
+    "decision_ids": [],
+    "scope_and_limitations": [
+      "No evidence has been added yet; this is a blank template."
+    ],
+    "as_of_date": "2026-11-01"
+  },
+  "councils": {
+    "council_1": {
+      "recommendation": "VALIDATE",
+      "strongest_case": "To be completed after review.",
+      "strongest_objection": "To be completed after review.",
+      "key_unknowns": [],
+      "next_tests": [],
+      "dimensions": {
+        "problem_evidence": {
+          "score": "UNKNOWN",
+          "evidence_status": "NOT_ASSESSED",
+          "rationale": "Not yet assessed; do not infer a score.",
+          "evidence_refs": []
+        },
+        "user_fit": {
+          "score": "UNKNOWN",
+          "evidence_status": "NOT_ASSESSED",
+          "rationale": "Not yet assessed; do not infer a score.",
+          "evidence_refs": []
+        },
+        "outcome_relevance": {
+          "score": "UNKNOWN",
+          "evidence_status": "NOT_ASSESSED",
+          "rationale": "Not yet assessed; do not infer a score.",
+          "evidence_refs": []
+        },
+        "usability_accessibility": {
+          "score": "UNKNOWN",
+          "evidence_status": "NOT_ASSESSED",
+          "rationale": "Not yet assessed; do not infer a score.",
+          "evidence_refs": []
+        }
+      }
+    },
+    "council_2": {
+      "recommendation": "VALIDATE",
+      "strongest_case": "To be completed after review.",
+      "strongest_objection": "To be completed after review.",
+      "key_unknowns": [],
+      "next_tests": [],
+      "dimensions": {
+        "differentiation": {
+          "score": "UNKNOWN",
+          "evidence_status": "NOT_ASSESSED",
+          "rationale": "Not yet assessed; do not infer a score.",
+          "evidence_refs": []
+        },
+        "value_proposition": {
+          "score": "UNKNOWN",
+          "evidence_status": "NOT_ASSESSED",
+          "rationale": "Not yet assessed; do not infer a score.",
+          "evidence_refs": []
+        },
+        "adoption_operating_model": {
+          "score": "UNKNOWN",
+          "evidence_status": "NOT_ASSESSED",
+          "rationale": "Not yet assessed; do not infer a score.",
+          "evidence_refs": []
+        },
+        "strategic_fit": {
+          "score": "UNKNOWN",
+          "evidence_status": "NOT_ASSESSED",
+          "rationale": "Not yet assessed; do not infer a score.",
+          "evidence_refs": []
+        }
+      }
+    },
+    "council_3": {
+      "recommendation": "VALIDATE",
+      "strongest_case": "To be completed after review.",
+      "strongest_objection": "To be completed after review.",
+      "key_unknowns": [],
+      "next_tests": [],
+      "dimensions": {
+        "technical_plausibility": {
+          "score": "UNKNOWN",
+          "evidence_status": "NOT_ASSESSED",
+          "rationale": "Not yet assessed; do not infer a score.",
+          "evidence_refs": []
+        },
+        "integration_data": {
+          "score": "UNKNOWN",
+          "evidence_status": "NOT_ASSESSED",
+          "rationale": "Not yet assessed; do not infer a score.",
+          "evidence_refs": []
+        },
+        "product_quality": {
+          "score": "UNKNOWN",
+          "evidence_status": "NOT_ASSESSED",
+          "rationale": "Not yet assessed; do not infer a score.",
+          "evidence_refs": []
+        },
+        "resource_fit": {
+          "score": "UNKNOWN",
+          "evidence_status": "NOT_ASSESSED",
+          "rationale": "Not yet assessed; do not infer a score.",
+          "evidence_refs": []
+        }
+      }
+    },
+    "council_4": {
+      "recommendation": "VALIDATE",
+      "strongest_case": "To be completed after review.",
+      "strongest_objection": "To be completed after review.",
+      "key_unknowns": [],
+      "next_tests": [],
+      "dimensions": {
+        "risk_harm_controls": {
+          "score": "UNKNOWN",
+          "evidence_status": "NOT_ASSESSED",
+          "rationale": "Not yet assessed; do not infer a score.",
+          "evidence_refs": []
+        },
+        "delivery_readiness": {
+          "score": "UNKNOWN",
+          "evidence_status": "NOT_ASSESSED",
+          "rationale": "Not yet assessed; do not infer a score.",
+          "evidence_refs": []
+        },
+        "resilience_failure_handling": {
+          "score": "UNKNOWN",
+          "evidence_status": "NOT_ASSESSED",
+          "rationale": "Not yet assessed; do not infer a score.",
+          "evidence_refs": []
+        },
+        "assumption_challenge": {
+          "score": "UNKNOWN",
+          "evidence_status": "NOT_ASSESSED",
+          "rationale": "Not yet assessed; do not infer a score.",
+          "evidence_refs": []
+        }
+      }
+    }
+  },
+  "findings": [],
+  "event_alignment": {
+    "applicable": false,
+    "assessment_status": "not_applicable",
+    "criteria": [],
+    "overall_notes": "No event-specific overlay applies to this template.",
+    "limitations": []
+  },
+  "verdict": "VALIDATE",
+  "verdict_rationale": "Template only. Replace with evidence-based council synthesis before use.",
+  "gate": {
+    "status": "not_assessed",
+    "blocking_finding_ids": [],
+    "conditions": [],
+    "rationale": "No review has been conducted; no progression clearance is granted.",
+    "next_step": "Populate evidence and conduct the selected review depth."
+  },
+  "user_decision": "pending",
+  "review_limitations": [
+    "Template is not a completed review."
+  ],
+  "created_at": "2026-11-01T00:00:00Z"
+}

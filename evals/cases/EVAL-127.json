@@ -1,0 +1,38 @@
+{
+  "case_id": "EVAL-127",
+  "suite": "b10-cross-host-acceptance",
+  "component": "integration",
+  "objective": "Verify actual Codex CLI skill discovery and explicit invocation.",
+  "scenario": "A human installs the adapter in a real Codex workspace and tests `/skills` plus `$peanuts` in an authenticated Codex session.",
+  "input": {
+    "runtime_targets": [
+      "Codex",
+      "Claude Code"
+    ],
+    "case_number": 127
+  },
+  "expected_behaviors": [
+    "Codex lists Peanuts from .agents/skills/peanuts/SKILL.md.",
+    "Explicit $peanuts invocation loads the intended skill.",
+    "Codex reads AGENTS.md and relevant references.",
+    "Tool availability and permission prompts are reported accurately."
+  ],
+  "prohibited_behaviors": [
+    "Infer runtime success from package validation.",
+    "Claim discovery without inspecting the actual Codex session."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "human_review",
+  "risk_level": "high",
+  "rubric_refs": [
+    "CROSS_HOST_RUNTIME_ACCEPTANCE.md",
+    "SKILL_PACKAGING_AND_HOST_COMPATIBILITY.md",
+    "SAFETY_AND_ESCALATION.md"
+  ],
+  "tags": [
+    "codex-cli",
+    "runtime-discovery",
+    "explicit-invocation"
+  ],
+  "case_status": "ready"
+}

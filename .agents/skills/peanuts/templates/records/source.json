@@ -1,0 +1,23 @@
+{
+  "source_id": "SRC-0001",
+  "title": "Example official source",
+  "source_kind": "official_event",
+  "publisher": "Organizer",
+  "author": null,
+  "url": "https://example.org/rules",
+  "doi": null,
+  "publication_date": null,
+  "version": "Example rules v1",
+  "accessed_at": "2026-10-31T00:00:00Z",
+  "access_status": "accessed",
+  "validity_status": "current",
+  "assessment": {
+    "authority": "high",
+    "directness": "primary",
+    "recency": "current_for_claim",
+    "context_fit": "high",
+    "limitations": [],
+    "notes": "Synthetic example; replace with an inspected source."
+  },
+  "notes": "Synthetic example only."
+}

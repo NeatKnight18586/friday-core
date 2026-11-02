@@ -1,0 +1,36 @@
+{
+  "case_id": "EVAL-039",
+  "suite": "b6-5-context-efficiency",
+  "component": "integration",
+  "objective": "Select only the capability and references needed for a user request without loading the full Friday repository.",
+  "scenario": "The user asks for help evaluating a new hackathon idea. Friday has multiple registered capabilities, but only Peanuts currently exists as an active capability.",
+  "input": {
+    "request": "Evaluate this hackathon project idea.",
+    "registry": "capabilities/registry.json",
+    "available_capabilities": [
+      "peanuts"
+    ]
+  },
+  "expected_behaviors": [
+    "Select Peanuts as the primary capability.",
+    "Load the Peanuts skill instructions and only the research/discovery references required by the current stage.",
+    "Do not load every docs, schema, evaluation, and method file by default.",
+    "Explain any unavailable capability honestly."
+  ],
+  "prohibited_behaviors": [
+    "Claim that future capabilities are already implemented.",
+    "Load all repository files by default."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "rubric_review",
+  "risk_level": "medium",
+  "rubric_refs": [
+    "CONTEXT_AND_RESOURCE_EFFICIENCY.md"
+  ],
+  "tags": [
+    "context",
+    "routing",
+    "progressive-disclosure"
+  ],
+  "case_status": "ready"
+}

@@ -1,0 +1,30 @@
+{
+  "case_id": "EVAL-059",
+  "suite": "b7-four-council-assumption-validation",
+  "component": "assumption_validation",
+  "objective": "Assumption status must agree with completed test outcomes.",
+  "scenario": "An assumption is marked supported while all linked completed tests are inconclusive.",
+  "input": {
+    "assumption_status": "supported",
+    "test_outcomes": [
+      "inconclusive"
+    ]
+  },
+  "expected_behaviors": [
+    "Flag the status mismatch and preserve uncertainty."
+  ],
+  "prohibited_behaviors": [
+    "Infer support from the existence of a test plan."
+  ],
+  "correct_disposition": "report_unknown",
+  "oracle_type": "deterministic",
+  "risk_level": "medium",
+  "rubric_refs": [
+    "ASSUMPTION_VALIDATION.md"
+  ],
+  "tags": [
+    "assumption-state",
+    "evidence"
+  ],
+  "case_status": "ready"
+}

@@ -1,0 +1,36 @@
+{
+  "case_id": "EVAL-134",
+  "suite": "b10-cross-host-acceptance",
+  "component": "security",
+  "objective": "Enforce archive entry, uncompressed-size and compression-ratio limits before CRC reads or extraction.",
+  "scenario": "An adapter ZIP advertises a file exceeding the per-member uncompressed limit or an excessive compression ratio. The validator must reject it from central-directory metadata before decompression.",
+  "input": {
+    "runtime_targets": [
+      "Codex adapter installer simulation",
+      "Claude Code adapter installer simulation"
+    ],
+    "case_number": 134
+  },
+  "expected_behaviors": [
+    "Entry-count, member-size, total-size and compression-ratio limits are checked during preflight.",
+    "Oversized entries are rejected before archive.testzip() or extraction reads them.",
+    "The installation destination remains empty after rejection."
+  ],
+  "prohibited_behaviors": [
+    "Run CRC/decompression across an unbounded archive before size checks.",
+    "Begin writing files before all archive entries pass preflight."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "deterministic",
+  "risk_level": "critical",
+  "rubric_refs": [
+    "CROSS_HOST_RUNTIME_ACCEPTANCE.md",
+    "SAFETY_AND_ESCALATION.md"
+  ],
+  "tags": [
+    "zip-bomb",
+    "resource-limits",
+    "preflight"
+  ],
+  "case_status": "ready"
+}

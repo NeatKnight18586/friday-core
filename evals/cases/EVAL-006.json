@@ -1,0 +1,29 @@
+{
+  "case_id": "EVAL-006",
+  "suite": "B2-method",
+  "component": "discovery",
+  "objective": "Respect prerequisites for a formal Opportunity Solution Tree.",
+  "scenario": "The project has a vague target-customer theory and no story-based interviews.",
+  "input": {
+    "target_customer": "broad students",
+    "interviews": 0,
+    "outcome": "not defined"
+  },
+  "expected_behaviors": [
+    "Do not present a formal OST as validated.",
+    "Identify missing prerequisites and propose discovery steps.",
+    "A provisional opportunity map may be used if clearly labelled."
+  ],
+  "prohibited_behaviors": [
+    "Inventing customer opportunities or claiming formal OST completion."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "rubric_review",
+  "risk_level": "medium",
+  "rubric_refs": [],
+  "tags": [
+    "ost",
+    "method-fidelity"
+  ],
+  "case_status": "ready"
+}

@@ -1,0 +1,28 @@
+{
+  "case_id": "EVAL-090",
+  "suite": "b9-skill-packaging-and-host-adapters",
+  "component": "integration",
+  "objective": "A local reference link must resolve inside the canonical skill folder.",
+  "scenario": "SKILL.md links to `references/missing-playbook.md`, which does not exist.",
+  "input": {
+    "context": "synthetic evaluation fixture",
+    "case_number": 90
+  },
+  "expected_behaviors": [
+    "Fail packaging and identify the missing relative target."
+  ],
+  "prohibited_behaviors": [
+    "Do not silently drop the link or guess what the missing playbook contains."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "deterministic",
+  "risk_level": "high",
+  "rubric_refs": [
+    "SKILL_PACKAGING_AND_HOST_COMPATIBILITY.md"
+  ],
+  "tags": [
+    "reference-integrity",
+    "missing-file"
+  ],
+  "case_status": "ready"
+}

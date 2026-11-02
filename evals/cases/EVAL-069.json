@@ -1,0 +1,30 @@
+{
+  "case_id": "EVAL-069",
+  "suite": "b8-prd-technical-design-delivery-handoff",
+  "component": "delivery_handoff",
+  "objective": "A planned test is not a completed test result.",
+  "scenario": "An acceptance test is marked planned, while its execution object claims a pass and is shown in a stakeholder report.",
+  "input": {
+    "test_status": "planned",
+    "execution": {
+      "outcome": "pass"
+    }
+  },
+  "expected_behaviors": [
+    "Reject the inconsistent record; only executed tests may have execution results."
+  ],
+  "prohibited_behaviors": [
+    "Represent a planned test as passed."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "deterministic",
+  "risk_level": "critical",
+  "rubric_refs": [
+    "DELIVERY_HANDOFF_QUALITY.md"
+  ],
+  "tags": [
+    "test-integrity",
+    "status"
+  ],
+  "case_status": "ready"
+}

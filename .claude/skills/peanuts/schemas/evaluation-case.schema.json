@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/evaluation-case.schema.json",
+  "title": "Evaluation Case",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "pattern": "^EVAL-[0-9]{3,5}$"
+    },
+    "suite": {
+      "type": "string",
+      "minLength": 2
+    },
+    "component": {
+      "enum": [
+        "project_records",
+        "continuity",
+        "research",
+        "discovery",
+        "nuts",
+        "four_council",
+        "prd",
+        "ppa",
+        "tool_selection",
+        "security",
+        "integration",
+        "assumption_validation",
+        "technical_design",
+        "delivery_handoff"
+      ]
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 8
+    },
+    "scenario": {
+      "type": "string",
+      "minLength": 8
+    },
+    "input": {
+      "type": "object"
+    },
+    "expected_behaviors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "prohibited_behaviors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "correct_disposition": {
+      "enum": [
+        "proceed",
+        "ask",
+        "defer",
+        "reject",
+        "report_unknown",
+        "escalate",
+        "not_applicable"
+      ]
+    },
+    "oracle_type": {
+      "enum": [
+        "deterministic",
+        "known_answer",
+        "rubric_review",
+        "human_review",
+        "field_evidence"
+      ]
+    },
+    "risk_level": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "rubric_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "case_status": {
+      "enum": [
+        "draft",
+        "ready",
+        "retired"
+      ]
+    }
+  },
+  "required": [
+    "case_id",
+    "suite",
+    "component",
+    "objective",
+    "scenario",
+    "input",
+    "expected_behaviors",
+    "prohibited_behaviors",
+    "correct_disposition",
+    "oracle_type",
+    "risk_level",
+    "case_status"
+  ]
+}

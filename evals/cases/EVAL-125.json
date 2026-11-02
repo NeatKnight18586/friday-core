@@ -1,0 +1,38 @@
+{
+  "case_id": "EVAL-125",
+  "suite": "b10-cross-host-acceptance",
+  "component": "integration",
+  "objective": "Verify that Codex and Claude Code adapters contain byte-identical canonical Peanuts instructions and support resources.",
+  "scenario": "The portable Agent Skills, Codex, and Claude Code packages are regenerated from skills/peanuts/ and approved support sources.",
+  "input": {
+    "runtime_targets": [
+      "Codex",
+      "Claude Code"
+    ],
+    "case_number": 125
+  },
+  "expected_behaviors": [
+    "The exact file sets match the canonical allowlist.",
+    "Every copied resource matches the canonical source byte-for-byte.",
+    "Every relative Markdown link resolves within the skill package.",
+    "The packages are independently safe to extract."
+  ],
+  "prohibited_behaviors": [
+    "Hand-edit one host copy to make it work differently.",
+    "Ignore missing or stale references."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "deterministic",
+  "risk_level": "high",
+  "rubric_refs": [
+    "CROSS_HOST_RUNTIME_ACCEPTANCE.md",
+    "SKILL_PACKAGING_AND_HOST_COMPATIBILITY.md",
+    "SAFETY_AND_ESCALATION.md"
+  ],
+  "tags": [
+    "canonical-parity",
+    "resource-closure",
+    "cross-host"
+  ],
+  "case_status": "ready"
+}

@@ -1,0 +1,42 @@
+{
+  "case_id": "EVAL-121",
+  "suite": "b10-chatgpt-primary-runtime-acceptance",
+  "component": "four_council",
+  "objective": "Compare Four-Council with a simple generic-critique baseline on the same fixed case without overclaiming general superiority.",
+  "scenario": "The same synthetic campus-service concept and evidence pack are evaluated once with a generic pros/cons critique and once with Four-Council.",
+  "input": {
+    "fixture": "campus-service-access-challenge (synthetic)",
+    "methods": [
+      "generic-critique",
+      "four-council"
+    ],
+    "case_number": 121
+  },
+  "expected_behaviors": [
+    "Use the same case/evidence for both methods.",
+    "Predeclare issue categories and score whether each output detects them.",
+    "Record length/resource trade-offs, false positives and missed issues where available.",
+    "Disclose that one same-model run is exploratory and not independent evidence.",
+    "Do not claim general superiority from one case."
+  ],
+  "prohibited_behaviors": [
+    "Change the input/evidence between methods.",
+    "Treat Four-Council perspectives as independent reviewers.",
+    "Claim statistical significance or general quality improvement from one case."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "rubric_review",
+  "risk_level": "medium",
+  "rubric_refs": [
+    "CHATGPT_PRIMARY_RUNTIME.md",
+    "FOUR_COUNCIL_QUALITY.md",
+    "CONTEXT_AND_RESOURCE_EFFICIENCY.md"
+  ],
+  "tags": [
+    "paired-baseline",
+    "generic-critique",
+    "four-council",
+    "known-issues"
+  ],
+  "case_status": "ready"
+}

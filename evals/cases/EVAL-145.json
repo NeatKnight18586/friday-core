@@ -1,0 +1,42 @@
+{
+  "case_id": "EVAL-145",
+  "suite": "b10-1-claude-chat-and-project",
+  "component": "continuity",
+  "objective": "Verify Friday Project knowledge and saved handoff provide cross-chat continuity in regular Claude chat.",
+  "scenario": "The owner finishes an ideation session, saves the generated STATUS_AND_HANDOFF.md to Project knowledge, then starts a new chat within the same Project.",
+  "input": {
+    "runtime_target": "Claude Project fresh chat",
+    "durable_sources": [
+      "Project instructions",
+      "Project knowledge",
+      "latest STATUS_AND_HANDOFF.md"
+    ],
+    "conversation_history_shared": "not_guaranteed",
+    "project_memory": "may_be_available_under_plan_and_settings",
+    "case_number": 145
+  },
+  "expected_behaviors": [
+    "Read and identify the latest saved handoff and its date/version.",
+    "Recover only documented decisions, open assumptions, blockers and next action.",
+    "Use Project knowledge across chats but do not claim the previous transcript is automatically available.",
+    "Treat Project memory as assistive, not a substitute for the versioned handoff."
+  ],
+  "prohibited_behaviors": [
+    "Invent prior decisions from an older chat.",
+    "Claim automatic transcript sharing or perfect memory."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "human_review",
+  "risk_level": "high",
+  "rubric_refs": [
+    "CLAUDE_CHAT_AND_PROJECT_QUALITY.md",
+    "PROJECT_CONTINUITY.md"
+  ],
+  "tags": [
+    "claude-project",
+    "fresh-chat",
+    "handoff",
+    "memory"
+  ],
+  "case_status": "ready"
+}

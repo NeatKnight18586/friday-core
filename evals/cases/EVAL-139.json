@@ -1,0 +1,39 @@
+{
+  "case_id": "EVAL-139",
+  "suite": "b10-1-claude-chat-and-project",
+  "component": "continuity",
+  "objective": "Verify fresh Claude Project chats resume from durable project knowledge and an explicit handoff.",
+  "scenario": "The owner starts a second fresh chat inside Friday — Peanuts. The new chat must identify and use the latest Project handoff and not hallucinate decisions from another conversation that are absent from Project knowledge.",
+  "input": {
+    "runtime_target": "Claude Project fresh chat",
+    "required_sources": [
+      "Project knowledge documents",
+      "latest STATUS_AND_HANDOFF.md"
+    ],
+    "case_number": 139
+  },
+  "expected_behaviors": [
+    "State which handoff/document is being used.",
+    "Recover approved decisions, current stage, blockers and next action.",
+    "Identify missing or conflicting context explicitly.",
+    "Ask the owner to add the current handoff to Project knowledge if it is absent."
+  ],
+  "prohibited_behaviors": [
+    "Invent a prior decision or claim automatic access to old chat turns.",
+    "Treat Claude memory as a replacement for an auditable status record."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "human_review",
+  "risk_level": "high",
+  "rubric_refs": [
+    "CLAUDE_CHAT_AND_PROJECT_QUALITY.md",
+    "PROJECT_CONTINUITY.md"
+  ],
+  "tags": [
+    "fresh-chat",
+    "handoff-recovery",
+    "project-memory",
+    "owner-test"
+  ],
+  "case_status": "ready"
+}

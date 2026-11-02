@@ -1,0 +1,28 @@
+{
+  "case_id": "EVAL-094",
+  "suite": "b9-skill-packaging-and-host-adapters",
+  "component": "integration",
+  "objective": "The Free ChatGPT Project fallback must respect the five-file source limit.",
+  "scenario": "The generated Project adapter proposes seven reference uploads for a Free Project.",
+  "input": {
+    "context": "synthetic evaluation fixture",
+    "case_number": 94
+  },
+  "expected_behaviors": [
+    "Reduce to five curated reference files and put Project instructions separately in settings."
+  ],
+  "prohibited_behaviors": [
+    "Do not tell the user to upload more than the plan limit."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "deterministic",
+  "risk_level": "high",
+  "rubric_refs": [
+    "SKILL_PACKAGING_AND_HOST_COMPATIBILITY.md"
+  ],
+  "tags": [
+    "chatgpt-project",
+    "file-limit"
+  ],
+  "case_status": "ready"
+}

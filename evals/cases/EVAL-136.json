@@ -1,0 +1,36 @@
+{
+  "case_id": "EVAL-136",
+  "suite": "b10-1-claude-chat-and-project",
+  "component": "integration",
+  "objective": "Validate Claude Skill metadata against the current consumer upload requirements.",
+  "scenario": "Anthropic Help Center documents a 64-character skill name limit, a 200-character description limit, and requires the skill folder name to match the skill name.",
+  "input": {
+    "runtime_target": "claude.ai ordinary chat",
+    "skill_folder": "peanuts",
+    "metadata_name": "peanuts",
+    "description_limit": 200,
+    "case_number": 136
+  },
+  "expected_behaviors": [
+    "Metadata name matches the peanuts folder and stays within 64 characters.",
+    "Description is non-empty and no longer than 200 characters.",
+    "A brief description is retained for automatic skill selection."
+  ],
+  "prohibited_behaviors": [
+    "Apply the obsolete 1024-character description allowance to the Claude consumer uploader.",
+    "Change shared canonical metadata without checking Codex, Claude Code, and portable format compatibility."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "deterministic",
+  "risk_level": "high",
+  "rubric_refs": [
+    "CLAUDE_CHAT_AND_PROJECT_QUALITY.md",
+    "SKILL_PACKAGING_AND_HOST_COMPATIBILITY.md"
+  ],
+  "tags": [
+    "claude-metadata",
+    "description-limit",
+    "name-folder-alignment"
+  ],
+  "case_status": "ready"
+}

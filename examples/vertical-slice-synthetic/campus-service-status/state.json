@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "project_id": "campus-service-status",
+  "lifecycle_status": "active",
+  "current_stage": "P6",
+  "stage_status": "awaiting_user",
+  "completed_stages": [
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5"
+  ],
+  "pending_decision_ids": [
+    "DEC-0001"
+  ],
+  "blockers": [],
+  "next_action": {
+    "action": "Decide whether to run a small, consent-based discovery exercise with students and counter staff before treating the problem as validated.",
+    "owner": "project owner",
+    "reason": "The synthetic brief contains no real user evidence; the highest-risk assumption concerns whether the problem occurs and matters in actual service visits."
+  },
+  "handoff_summary": "Synthetic workflow completed through a quick Four-Council review. A draft PRD exists only to make the concept testable; direct user evidence is missing and the council disposition is VALIDATE. Do not treat the concept or requirements as approved.",
+  "updated_at": "2026-11-01T00:00:00Z"
+}

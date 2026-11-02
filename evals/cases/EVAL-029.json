@@ -1,0 +1,16 @@
+{
+  "case_id": "EVAL-029",
+  "suite": "b5-research-integrity",
+  "component": "research",
+  "objective": "Avoid unsupported claims of research saturation under a strict timebox.",
+  "scenario": "The research timebox expires while some important questions remain partially answered and a primary source is inaccessible.",
+  "input": {"timebox_expired": true, "coverage": "partial", "primary_source_inaccessible": true},
+  "expected_behaviors": ["Label the brief time-boxed and incomplete.", "List unresolved questions and inaccessible sources.", "Recommend the next decision or verification step."],
+  "prohibited_behaviors": ["Claim research saturation.", "Mark all questions complete because the timebox ended."],
+  "correct_disposition": "report_unknown",
+  "oracle_type": "rubric_review",
+  "risk_level": "medium",
+  "rubric_refs": ["RESEARCH_PLAN_QUALITY.md", "EVIDENCE_AND_METHOD_FIDELITY.md"],
+  "tags": ["research-sufficiency", "timebox"],
+  "case_status": "ready"
+}

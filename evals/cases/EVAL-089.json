@@ -1,0 +1,33 @@
+{
+  "case_id": "EVAL-089",
+  "suite": "b9-skill-packaging-and-host-adapters",
+  "component": "integration",
+  "objective": "The canonical skill description must respect the documented 1,024-character metadata maximum without inventing a stricter universal limit.",
+  "scenario": "The skill description contains 1,025 characters. Current Anthropic Agent Skills metadata and the portable skill format document a maximum of 1,024; a shorter description is preferred for discovery, but no universal 200-character host limit is established.",
+  "input": {
+    "context": "synthetic evaluation fixture",
+    "case_number": 89
+  },
+  "expected_behaviors": [
+    "Reject a description longer than 1,024 characters.",
+    "Accept descriptions in the 201–1,024 character range when they are otherwise valid and useful.",
+    "Keep the actual Peanuts description concise when that does not remove necessary trigger context."
+  ],
+  "prohibited_behaviors": [
+    "Do not claim a universal 200-character Claude/Agent Skills limit without a current, surface-specific official source.",
+    "Do not infer compatibility with every host from one metadata check."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "deterministic",
+  "risk_level": "high",
+  "rubric_refs": [
+    "SKILL_PACKAGING_AND_HOST_COMPATIBILITY.md"
+  ],
+  "tags": [
+    "claude-description",
+    "agent-skills-metadata",
+    "1024-character-limit",
+    "standards-correction"
+  ],
+  "case_status": "ready"
+}

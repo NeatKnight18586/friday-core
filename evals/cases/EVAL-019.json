@@ -1,0 +1,42 @@
+{
+  "case_id": "EVAL-019",
+  "suite": "B4-vertical-slice",
+  "component": "integration",
+  "objective": "Verify that a small end-to-end Peanuts workflow preserves provenance and state from event brief through draft PRD and fresh-session handoff.",
+  "scenario": "A fictional event brief is used to test an event-first workflow. There is no real event research or user evidence. The workflow must produce a provisional problem brief, a non-forced NUTS decision, a quick four-perspective review, a draft PRD, and a resumable state. The expected runtime disposition is ask because the next required step depends on user access to real validation; the embedded council artifact must keep its separate conditional VALIDATE recommendation.",
+  "input": {
+    "fixture": "examples/vertical-slice-synthetic/campus-service-status",
+    "mode": "MODE-EVENT",
+    "scenario_type": "synthetic"
+  },
+  "expected_behaviors": [
+    "Clearly label every artifact as synthetic test data.",
+    "Separate the fictional challenge brief from real-world user evidence.",
+    "Mark user need and adoption assumptions as untested.",
+    "Do not claim the analogy is novel or independently researched.",
+    "Produce a quick Four-Council review with a conditional VALIDATE disposition.",
+    "Generate a draft PRD with traceable requirements and explicit unapproved status.",
+    "Preserve a fresh-session handoff with a concrete next action."
+  ],
+  "prohibited_behaviors": [
+    "Inventing official event dates, judging weights, eligibility, or APIs.",
+    "Claiming interviews, user observations, or prototype tests occurred.",
+    "Treating a draft PRD as an approved baseline.",
+    "Presenting the Four-Council perspectives as independent human experts."
+  ],
+  "correct_disposition": "ask",
+  "oracle_type": "rubric_review",
+  "risk_level": "high",
+  "rubric_refs": [
+    "evals/rubrics/EVIDENCE_AND_METHOD_FIDELITY.md",
+    "evals/rubrics/FOUR_COUNCIL_QUALITY.md",
+    "evals/rubrics/PROJECT_CONTINUITY.md"
+  ],
+  "tags": [
+    "vertical-slice",
+    "handoff",
+    "evidence",
+    "synthetic"
+  ],
+  "case_status": "ready"
+}

@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "analogy_id": "ANL-0001",
+  "title": "Illustrative example — threshold-based replenishment in a fictional inventory system",
+  "status": "candidate",
+  "source_domain": "economics_operations",
+  "source_system": {
+    "name": "Synthetic threshold-based inventory controller",
+    "original_context": "A fictional control-system example created only to demonstrate record structure; it is not a claim about a real product or historical system.",
+    "period_or_version": null,
+    "original_function": "Maintain a minimum stock of a shared resource while avoiding unnecessary replenishment.",
+    "actors_components": [
+      "inventory level sensor",
+      "reorder threshold",
+      "reserve supply",
+      "replenishment controller"
+    ],
+    "constraints": [
+      "Storage capacity is limited.",
+      "Replenishment has a delay.",
+      "Demand varies over time."
+    ],
+    "mechanism_description": "The controller observes a stock level, compares it with a threshold that accounts for replenishment delay, and triggers a replenishment action when the threshold is crossed.",
+    "feedback_and_failure": "The example assumes repeated measurement and an alert for failed replenishment; both are hypothetical and require specification."
+  },
+  "source_ids": [
+    "SRC-0001"
+  ],
+  "claim_ids": [
+    "CLM-0001"
+  ],
+  "target_problem": {
+    "problem_statement": "A shared workshop wants to reduce tool-stock shortages without over-ordering consumables.",
+    "target_function": "Maintain sufficient shared consumables under variable demand.",
+    "context": "A synthetic design exercise for a small workshop.",
+    "constraints": [
+      "Storage space is limited.",
+      "Demand can spike before restocking arrives.",
+      "The system must avoid unnecessary orders."
+    ]
+  },
+  "relationship_mappings": [
+    {
+      "source_relationship": "A measured stock level is compared with a threshold that accounts for replenishment delay; crossing the threshold triggers replenishment.",
+      "target_correspondence": "A workshop tracks consumable inventory and triggers a restock request before expected demand exhausts the available stock.",
+      "mapping_quality": "partial",
+      "explanation": "The threshold-and-feedback relationship maps, but demand prediction, supplier reliability, human approval, and cost constraints require separate analysis."
+    }
+  ],
+  "abstracted_principle": "Use a measured state, a context-sensitive threshold, and feedback to trigger a corrective action before a constrained resource reaches an unacceptable level.",
+  "transfer_hypothesis": "If a workshop models consumption rate and replenishment delay, a context-sensitive reorder threshold may reduce stockouts without materially increasing excess inventory; this is an untested hypothesis.",
+  "mismatch_analysis": [
+    "A workshop has human purchasing behavior and supplier variability not represented in the fictional controller.",
+    "The synthetic example does not establish an optimal reorder point or predict real demand."
+  ],
+  "alternatives_considered": [
+    "Fixed periodic restocking",
+    "Manual visual inspection",
+    "Simple minimum-stock reorder rule"
+  ],
+  "failure_modes": [
+    "Incorrect demand estimates trigger premature or late orders.",
+    "A supplier delay exceeds the assumed replenishment window.",
+    "Duplicate orders occur after repeated threshold alerts."
+  ],
+  "test_plan": {
+    "smallest_test": "Replay a small synthetic demand series using the proposed threshold rule and compare it with fixed periodic restocking.",
+    "observable_measure": "Stockout count, excess inventory, and number of reorder events.",
+    "success_signal": "The proposed rule reduces stockouts without exceeding a predeclared excess-inventory threshold.",
+    "failure_signal": "Stockouts do not improve or excess inventory rises beyond the agreed limit.",
+    "time_or_resource_limit": "A small offline simulation with synthetic data; no real purchasing or user research."
+  },
+  "rights_and_attribution": {
+    "attribution_note": "Synthetic example created for Friday schema and training tests; not a claim about a real historical, biological, or commercial system.",
+    "copyright_license_status": "not_applicable",
+    "patent_or_prior_art_status": "not_assessed",
+    "cultural_knowledge_status": "not_applicable"
+  },
+  "assessment": {
+    "source_accuracy": "unverified",
+    "functional_relevance": "adequate",
+    "relational_mapping": "adequate",
+    "context_fit": "weak",
+    "incremental_value": "unknown",
+    "testability": "strong",
+    "disposition": "plausible_needs_test",
+    "rationale": "This is a synthetic schema demonstration. Its fictional source is unverified and cannot support a real-world analogy claim or retained-for-test decision.",
+    "reviewed_at": "2026-11-01T00:00:00Z"
+  },
+  "created_at": "2026-11-01T00:00:00Z",
+  "updated_at": "2026-11-01T00:00:00Z",
+  "method_version": "0.4.0-draft"
+}

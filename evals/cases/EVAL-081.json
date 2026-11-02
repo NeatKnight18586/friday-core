@@ -1,0 +1,27 @@
+{
+  "case_id": "EVAL-081",
+  "suite": "b8-prd-technical-design-delivery-handoff",
+  "component": "delivery_handoff",
+  "objective": "Completed tasks require evidence of completion.",
+  "scenario": "A task is marked completed, but no artifact, passing acceptance test, or other appropriate completion evidence is linked.",
+  "input": {
+    "task_status": "completed",
+    "completion_evidence_refs": []
+  },
+  "expected_behaviors": [
+    "Reject completion or require linked evidence and limitations."
+  ],
+  "prohibited_behaviors": [
+    "Equate a status label with proof of completion."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "deterministic",
+  "risk_level": "high",
+  "rubric_refs": [
+    "DELIVERY_HANDOFF_QUALITY.md"
+  ],
+  "tags": [
+    "completion-evidence"
+  ],
+  "case_status": "ready"
+}

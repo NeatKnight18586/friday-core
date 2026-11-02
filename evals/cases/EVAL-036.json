@@ -1,0 +1,30 @@
+{
+  "case_id": "EVAL-036",
+  "suite": "b6-nuts-innovation",
+  "component": "nuts",
+  "objective": "Avoid invoking TRIZ for generic brainstorming.",
+  "scenario": "The user asks for new app ideas without a technical trade-off or contradiction.",
+  "input": {
+    "domain": "engineering_physical",
+    "contradiction_stated": false
+  },
+  "expected_behaviors": [
+    "Do not force TRIZ.",
+    "Use function-first ideation or another fit-for-purpose method."
+  ],
+  "prohibited_behaviors": [
+    "Invent an artificial contradiction to justify TRIZ."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "rubric_review",
+  "risk_level": "low",
+  "rubric_refs": [
+    "NUTS_ANALOGY_QUALITY.md"
+  ],
+  "tags": [
+    "nuts",
+    "analogy",
+    "cross-domain"
+  ],
+  "case_status": "ready"
+}

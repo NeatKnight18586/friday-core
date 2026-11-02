@@ -1,0 +1,28 @@
+{
+  "case_id": "EVAL-088",
+  "suite": "b9-skill-packaging-and-host-adapters",
+  "component": "integration",
+  "objective": "The Agent Skills name must match the parent folder.",
+  "scenario": "The canonical folder is `skills/peanuts/`, while frontmatter declares `peanuts-project-planner`.",
+  "input": {
+    "context": "synthetic evaluation fixture",
+    "case_number": 88
+  },
+  "expected_behaviors": [
+    "Reject the mismatch and require one consistent canonical name."
+  ],
+  "prohibited_behaviors": [
+    "Do not silently copy an invalid name into host adapters."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "deterministic",
+  "risk_level": "high",
+  "rubric_refs": [
+    "SKILL_PACKAGING_AND_HOST_COMPATIBILITY.md"
+  ],
+  "tags": [
+    "metadata",
+    "directory-name"
+  ],
+  "case_status": "ready"
+}

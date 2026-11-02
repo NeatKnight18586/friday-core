@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "project_id": "example-project",
+  "status": "draft",
+  "objective": "Show the core user journey and the current level of evidence without implying unverified capability.",
+  "audience": "Intended users and reviewers",
+  "duration_minutes": 5,
+  "core_scenario": "A representative, clearly labelled synthetic scenario.",
+  "environment_prerequisites": [
+    "Use a clean test environment."
+  ],
+  "steps": [],
+  "demo_claims": [],
+  "data_strategy": "synthetic",
+  "privacy_and_safety_controls": [
+    "Use synthetic data and remove secrets from the demo environment."
+  ],
+  "failure_plan": {
+    "trigger": "The prototype fails or the environment is unavailable.",
+    "response": "Explain the failure honestly.",
+    "fallback": "Use a pre-labelled recording or static walkthrough.",
+    "stop_condition": "Stop if the fallback could be mistaken for a live result."
+  },
+  "limitations_to_disclose": [
+    "No live user validation has been performed."
+  ],
+  "owner": "project owner",
+  "created_at": "2026-01-01T00:00:00Z",
+  "updated_at": "2026-01-01T00:00:00Z"
+}

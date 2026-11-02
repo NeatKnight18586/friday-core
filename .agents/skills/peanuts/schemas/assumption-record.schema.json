@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/assumption-record.schema.json",
+  "title": "Assumption Record",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "assumption_id": {
+      "type": "string",
+      "pattern": "^[A-Z]{2,6}-[0-9]{4,6}$"
+    },
+    "statement": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 1500
+    },
+    "category": {
+      "enum": [
+        "user_need",
+        "behavior",
+        "technical",
+        "operational",
+        "business",
+        "event_compliance",
+        "legal_regulatory",
+        "security_privacy",
+        "resource",
+        "other"
+      ]
+    },
+    "criticality": {
+      "enum": [
+        "critical",
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "uncertainty": {
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        "not_assessed"
+      ]
+    },
+    "status": {
+      "enum": [
+        "untested",
+        "testing",
+        "supported",
+        "invalidated",
+        "accepted_with_rationale",
+        "deferred"
+      ]
+    },
+    "related_claim_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]{2,6}-[0-9]{4,6}$"
+      },
+      "uniqueItems": true
+    },
+    "affected_decision_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]{2,6}-[0-9]{4,6}$"
+      },
+      "uniqueItems": true
+    },
+    "test_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "hypothesis": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "target_or_system": {
+          "type": "string"
+        },
+        "success_signal": {
+          "type": "string"
+        },
+        "failure_signal": {
+          "type": "string"
+        },
+        "ethical_and_data_controls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "hypothesis",
+        "method",
+        "success_signal",
+        "failure_signal"
+      ]
+    },
+    "owner": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "result_summary": {
+      "type": "string"
+    },
+    "acceptance_rationale": {
+      "type": "string",
+      "minLength": 12,
+      "maxLength": 1500
+    },
+    "accepted_by": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 120
+    },
+    "revisit_trigger": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 500
+    }
+  },
+  "required": [
+    "assumption_id",
+    "statement",
+    "category",
+    "criticality",
+    "uncertainty",
+    "status",
+    "related_claim_ids",
+    "affected_decision_ids",
+    "created_at",
+    "updated_at"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "accepted_with_rationale"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "acceptance_rationale",
+          "accepted_by",
+          "revisit_trigger"
+        ]
+      }
+    }
+  ]
+}

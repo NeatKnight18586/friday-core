@@ -1,0 +1,29 @@
+{
+  "case_id": "EVAL-055",
+  "suite": "b7-four-council-assumption-validation",
+  "component": "four_council",
+  "objective": "High residual risks accepted with rationale must remain visible as conditions.",
+  "scenario": "A non-safety, non-legal high delivery risk is explicitly accepted by the project owner with a revisit trigger.",
+  "input": {
+    "severity": "high",
+    "status": "accepted_with_rationale"
+  },
+  "expected_behaviors": [
+    "Require acceptance rationale, named acceptor and revisit trigger.",
+    "Use pass_with_conditions rather than an unconditional pass."
+  ],
+  "prohibited_behaviors": [
+    "Mark the risk resolved without evidence."
+  ],
+  "correct_disposition": "ask",
+  "oracle_type": "rubric_review",
+  "risk_level": "high",
+  "rubric_refs": [
+    "FOUR_COUNCIL_QUALITY.md"
+  ],
+  "tags": [
+    "risk-acceptance",
+    "conditional-gate"
+  ],
+  "case_status": "ready"
+}

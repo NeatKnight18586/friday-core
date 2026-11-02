@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/opportunity-record.schema.json",
+  "title": "User Opportunity Record",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "opportunity_id": { "type": "string", "pattern": "^OPP-[0-9]{4,6}$" },
+    "statement": { "type": "string", "minLength": 12, "maxLength": 1200 },
+    "need_type": { "enum": ["functional", "emotional", "social", "pain_point", "barrier", "desire", "other"] },
+    "target_segment": { "type": "string", "minLength": 3 },
+    "context": { "type": "string", "minLength": 5 },
+    "desired_outcome": { "type": "string", "minLength": 3 },
+    "finding_ids": { "type": "array", "items": { "type": "string", "pattern": "^FND-[0-9]{4,6}$" }, "uniqueItems": true },
+    "claim_ids": { "type": "array", "items": { "type": "string", "pattern": "^[A-Z]{2,6}-[0-9]{4,6}$" }, "uniqueItems": true },
+    "counterevidence": { "type": "array", "items": { "type": "string" } },
+    "current_workarounds": { "type": "array", "items": { "type": "string" } },
+    "significance": { "enum": ["high", "medium", "low", "unknown"] },
+    "confidence": { "enum": ["high", "medium", "low", "not_assessed"] },
+    "maturity": { "enum": ["hypothesis", "emerging", "supported", "contested", "deprioritized"] },
+    "unresolved_questions": { "type": "array", "items": { "type": "string", "pattern": "^RQ-[0-9]{4,6}$" }, "uniqueItems": true },
+    "notes": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" }
+  },
+  "required": ["opportunity_id", "statement", "need_type", "target_segment", "context", "desired_outcome", "finding_ids", "claim_ids", "counterevidence", "current_workarounds", "significance", "confidence", "maturity", "unresolved_questions", "notes", "created_at"]
+}

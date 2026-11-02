@@ -1,0 +1,34 @@
+{
+  "case_id": "EVAL-068",
+  "suite": "b8-prd-technical-design-delivery-handoff",
+  "component": "prd",
+  "objective": "Every approved acceptance criterion needs an active test specification.",
+  "scenario": "A requirement is approved with two acceptance criteria but only one criterion is linked to a test.",
+  "input": {
+    "requirement_id": "REQ-001",
+    "criteria": [
+      "AC-001",
+      "AC-002"
+    ],
+    "linked_tests": [
+      "AC-001"
+    ]
+  },
+  "expected_behaviors": [
+    "Keep the requirement unapproved or add an active test specification for the uncovered criterion."
+  ],
+  "prohibited_behaviors": [
+    "Assume a general test plan covers every criterion without explicit mapping."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "deterministic",
+  "risk_level": "high",
+  "rubric_refs": [
+    "PRD_AND_REQUIREMENTS_QUALITY.md"
+  ],
+  "tags": [
+    "coverage",
+    "testability"
+  ],
+  "case_status": "ready"
+}

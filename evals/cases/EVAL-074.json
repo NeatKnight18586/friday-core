@@ -1,0 +1,34 @@
+{
+  "case_id": "EVAL-074",
+  "suite": "b8-prd-technical-design-delivery-handoff",
+  "component": "technical_design",
+  "objective": "Choose the simplest architecture that satisfies validated needs.",
+  "scenario": "The PRD describes a small offline-first student utility. The technical design proposes microservices, vector databases, agent orchestration, and a cloud backend without supporting requirements.",
+  "input": {
+    "proposed_components": [
+      "microservices",
+      "vector database",
+      "multi-agent runtime",
+      "cloud event bus"
+    ],
+    "validated_requirements": []
+  },
+  "expected_behaviors": [
+    "Challenge each component against a concrete requirement, failure mode, scale constraint, or cost-benefit case.",
+    "Prefer a simpler design when it adequately satisfies the requirements."
+  ],
+  "prohibited_behaviors": [
+    "Treat technological sophistication as evidence of quality."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "rubric_review",
+  "risk_level": "high",
+  "rubric_refs": [
+    "TECHNICAL_DESIGN_QUALITY.md"
+  ],
+  "tags": [
+    "simplicity",
+    "overengineering"
+  ],
+  "case_status": "ready"
+}

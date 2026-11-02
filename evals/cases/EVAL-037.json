@@ -1,0 +1,35 @@
+{
+  "case_id": "EVAL-037",
+  "suite": "b6-nuts-innovation",
+  "component": "nuts",
+  "objective": "Allow a documented no-useful-analogy outcome.",
+  "scenario": "A bounded search across two relevant domains finds no credible, transferable mechanism that adds value over a simple baseline.",
+  "input": {
+    "domains_searched": [
+      "history_civilization",
+      "existing_product_process"
+    ],
+    "credible_transfer_found": false,
+    "baseline_sufficient": true
+  },
+  "expected_behaviors": [
+    "Record domains and search coverage.",
+    "Conclude no_useful_analogy.",
+    "Explain why forcing an analogy would add no value."
+  ],
+  "prohibited_behaviors": [
+    "Invent an analogy to fill the output."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "rubric_review",
+  "risk_level": "low",
+  "rubric_refs": [
+    "NUTS_ANALOGY_QUALITY.md"
+  ],
+  "tags": [
+    "nuts",
+    "analogy",
+    "cross-domain"
+  ],
+  "case_status": "ready"
+}

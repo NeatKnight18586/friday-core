@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/decision-record.schema.json",
+  "title": "Decision Record",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "decision_id": {
+      "type": "string",
+      "pattern": "^[A-Z]{2,6}-[0-9]{4,6}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 200
+    },
+    "status": {
+      "enum": [
+        "proposed",
+        "approved",
+        "rejected",
+        "deferred",
+        "superseded"
+      ]
+    },
+    "context": {
+      "type": "string",
+      "minLength": 5
+    },
+    "options": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "option_id": {
+            "type": "string",
+            "pattern": "^[A-Z0-9_-]+$"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "advantages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "disadvantages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "constraints_fit": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "option_id",
+          "description"
+        ]
+      }
+    },
+    "selected_option_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "rationale": {
+      "type": "string"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "record_type": {
+            "enum": [
+              "source",
+              "claim",
+              "assumption",
+              "artifact",
+              "external_requirement"
+            ]
+          },
+          "record_id": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "record_type",
+          "record_id"
+        ]
+      }
+    },
+    "consequences": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "revisit_trigger": {
+      "type": "string"
+    },
+    "proposed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "decided_at": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "approved_by": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "supersedes_decision_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[A-Z]{2,6}-[0-9]{4,6}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "decision_id",
+    "title",
+    "status",
+    "context",
+    "options",
+    "selected_option_id",
+    "rationale",
+    "evidence_refs",
+    "proposed_at"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "approved"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "selected_option_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "decided_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "approved_by": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "selected_option_id",
+          "decided_at",
+          "approved_by"
+        ]
+      }
+    }
+  ]
+}

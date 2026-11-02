@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "NUTS-0001",
+  "status": "planned",
+  "target_problem": "Replace with a solution-neutral target problem.",
+  "target_function": "Describe the function the solution must perform.",
+  "context_and_constraints": [],
+  "domain_paths_attempted": [
+    "engineering_physical"
+  ],
+  "method_components_used": [
+    "function-first framing",
+    "source reconstruction",
+    "relational mapping",
+    "transfer challenge"
+  ],
+  "analogy_ids": [],
+  "source_ids": [],
+  "claim_ids": [],
+  "search_coverage_note": "Record which source domains and queries were actually examined; do not imply exhaustive coverage.",
+  "conclusion": "deferred",
+  "conclusion_rationale": "Research has not yet been performed.",
+  "next_action": "Define the target function and conduct a bounded source search.",
+  "method_version": "0.4.0-draft",
+  "created_at": "2026-11-01T00:00:00Z",
+  "updated_at": "2026-11-01T00:00:00Z"
+}

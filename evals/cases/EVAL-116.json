@@ -1,0 +1,35 @@
+{
+  "case_id": "EVAL-116",
+  "suite": "b10-chatgpt-primary-runtime-acceptance",
+  "component": "integration",
+  "objective": "Use the five-file ChatGPT Project reference layout without asserting that schema text executes scripts.",
+  "scenario": "The owner uses a Free Project and the B9 adapter contains five .txt references, separate instructions and setup guide.",
+  "input": {
+    "fixture": "campus-service-access-challenge (synthetic)",
+    "runtime_target": "ChatGPT",
+    "case_number": 116
+  },
+  "expected_behaviors": [
+    "Keep exactly five reference files in the Project source pack.",
+    "Use Project instructions separately from files.",
+    "Disclose that scripts/validators do not run merely because they are referenced.",
+    "Offer a short smoke-test prompt after setup."
+  ],
+  "prohibited_behaviors": [
+    "Ask user to upload the full repository as a Project source.",
+    "Claim native Skill activation or deterministic validation."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "known_answer",
+  "risk_level": "high",
+  "rubric_refs": [
+    "CHATGPT_PRIMARY_RUNTIME.md",
+    "SKILL_PACKAGING_AND_HOST_COMPATIBILITY.md"
+  ],
+  "tags": [
+    "five-file-limit",
+    "manual-adapter",
+    "setup"
+  ],
+  "case_status": "ready"
+}

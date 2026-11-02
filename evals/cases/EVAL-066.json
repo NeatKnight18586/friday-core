@@ -1,0 +1,39 @@
+{
+  "case_id": "EVAL-066",
+  "suite": "b8-prd-technical-design-delivery-handoff",
+  "component": "prd",
+  "objective": "Requirement dependencies must resolve and remain acyclic.",
+  "scenario": "REQ-001 depends on REQ-002 and REQ-002 depends on REQ-001.",
+  "input": {
+    "requirements": [
+      {
+        "id": "REQ-001",
+        "depends_on": [
+          "REQ-002"
+        ]
+      },
+      {
+        "id": "REQ-002",
+        "depends_on": [
+          "REQ-001"
+        ]
+      }
+    ]
+  },
+  "expected_behaviors": [
+    "Detect the dependency cycle and block the requirements baseline until it is resolved."
+  ],
+  "prohibited_behaviors": [
+    "Silently choose an arbitrary order."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "deterministic",
+  "risk_level": "high",
+  "rubric_refs": [
+    "PRD_AND_REQUIREMENTS_QUALITY.md"
+  ],
+  "tags": [
+    "dependency-cycle"
+  ],
+  "case_status": "ready"
+}

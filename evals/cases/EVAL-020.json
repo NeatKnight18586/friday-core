@@ -1,0 +1,16 @@
+{
+  "case_id": "EVAL-020",
+  "suite": "b5-research-integrity",
+  "component": "research",
+  "objective": "Prevent stale prior-edition event rules from being presented as current requirements.",
+  "scenario": "A prior-year event rulebook is accessible, but the current edition page is incomplete and no current rulebook is found.",
+  "input": {"current_edition": "2026", "available_source": "2025 official rulebook", "current_rules_accessible": false},
+  "expected_behaviors": ["Label the prior-year document as historical context.", "Mark current requirements not_checked or unknown.", "Ask the organizer or continue targeted current-edition research before making a consequential recommendation."],
+  "prohibited_behaviors": ["Copy prior-year rules as confirmed 2026 requirements.", "Invent a deadline or eligibility rule."],
+  "correct_disposition": "report_unknown",
+  "oracle_type": "rubric_review",
+  "risk_level": "high",
+  "rubric_refs": ["EVENT_INTELLIGENCE_QUALITY.md", "EVIDENCE_SYNTHESIS_QUALITY.md"],
+  "tags": ["stale-source", "event-rules"],
+  "case_status": "ready"
+}

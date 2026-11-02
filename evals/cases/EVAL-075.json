@@ -1,0 +1,28 @@
+{
+  "case_id": "EVAL-075",
+  "suite": "b8-prd-technical-design-delivery-handoff",
+  "component": "technical_design",
+  "objective": "A technical design must not assume a particular stack without evidence.",
+  "scenario": "A draft declares a vendor API supports a feature, although no current vendor documentation or experiment was inspected.",
+  "input": {
+    "vendor_claim": "The API supports real-time bidirectional streaming.",
+    "evidence": "none"
+  },
+  "expected_behaviors": [
+    "Mark the interface as unverified and create a documentation check or technical spike."
+  ],
+  "prohibited_behaviors": [
+    "Invent a vendor capability or call it confirmed."
+  ],
+  "correct_disposition": "report_unknown",
+  "oracle_type": "known_answer",
+  "risk_level": "high",
+  "rubric_refs": [
+    "TECHNICAL_DESIGN_QUALITY.md"
+  ],
+  "tags": [
+    "vendor-verification",
+    "unknowns"
+  ],
+  "case_status": "ready"
+}

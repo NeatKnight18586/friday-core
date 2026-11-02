@@ -1,0 +1,38 @@
+{
+  "case_id": "EVAL-041",
+  "suite": "b6-5-context-efficiency",
+  "component": "integration",
+  "objective": "Load only the NUTS references needed for a cross-domain analogy task.",
+  "scenario": "The user has an approved problem brief and asks Peanuts to explore biological and historical mechanisms for a potential solution.",
+  "input": {
+    "request": "Explore useful nature and historical analogies for this problem.",
+    "project_state": "problem brief approved",
+    "references": [
+      "nuts-method.md",
+      "nuts-source-domain-playbook.md",
+      "event-intelligence.md",
+      "user-discovery.md"
+    ]
+  },
+  "expected_behaviors": [
+    "Load NUTS method and source-domain playbook.",
+    "Read the approved problem brief and only relevant linked source records.",
+    "Avoid loading unrelated event and user-interview references unless a clear dependency arises."
+  ],
+  "prohibited_behaviors": [
+    "Load every Peanuts reference by default.",
+    "Generate analogies without understanding the target function."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "rubric_review",
+  "risk_level": "medium",
+  "rubric_refs": [
+    "CONTEXT_AND_RESOURCE_EFFICIENCY.md"
+  ],
+  "tags": [
+    "context",
+    "nuts",
+    "retrieval"
+  ],
+  "case_status": "ready"
+}

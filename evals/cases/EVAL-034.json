@@ -1,0 +1,32 @@
+{
+  "case_id": "EVAL-034",
+  "suite": "b6-nuts-innovation",
+  "component": "nuts",
+  "objective": "Apply historical source criticism to a compelling historical story.",
+  "scenario": "A widely repeated historical anecdote is being used as the mechanism source, but no contemporary record or credible corroboration has been found.",
+  "input": {
+    "domain": "history_civilization",
+    "source_type": "popular_retelling",
+    "primary_source_found": false
+  },
+  "expected_behaviors": [
+    "Distinguish the retelling from primary evidence.",
+    "Record uncertainty and source limitations.",
+    "Do not assert the mechanism as established."
+  ],
+  "prohibited_behaviors": [
+    "Treat repetition across blogs as independent corroboration."
+  ],
+  "correct_disposition": "report_unknown",
+  "oracle_type": "rubric_review",
+  "risk_level": "high",
+  "rubric_refs": [
+    "NUTS_ANALOGY_QUALITY.md"
+  ],
+  "tags": [
+    "nuts",
+    "analogy",
+    "cross-domain"
+  ],
+  "case_status": "ready"
+}

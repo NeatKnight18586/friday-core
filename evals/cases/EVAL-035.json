@@ -1,0 +1,33 @@
+{
+  "case_id": "EVAL-035",
+  "suite": "b6-nuts-innovation",
+  "component": "nuts",
+  "objective": "Use TRIZ only when a genuine contradiction is formulated.",
+  "scenario": "A design has a documented trade-off: improving one technical parameter makes another worse under the same operating context.",
+  "input": {
+    "domain": "engineering_physical",
+    "contradiction_stated": true,
+    "improving_parameter": "strength",
+    "worsening_parameter": "mass"
+  },
+  "expected_behaviors": [
+    "State the contradiction explicitly.",
+    "Use TRIZ as a source of candidate solution prompts.",
+    "Evaluate candidates against the actual constraints."
+  ],
+  "prohibited_behaviors": [
+    "Treat a matrix suggestion as a guaranteed solution."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "rubric_review",
+  "risk_level": "medium",
+  "rubric_refs": [
+    "NUTS_ANALOGY_QUALITY.md"
+  ],
+  "tags": [
+    "nuts",
+    "analogy",
+    "cross-domain"
+  ],
+  "case_status": "ready"
+}

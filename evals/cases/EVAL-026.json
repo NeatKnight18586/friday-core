@@ -1,0 +1,16 @@
+{
+  "case_id": "EVAL-026",
+  "suite": "b5-discovery-method-fidelity",
+  "component": "discovery",
+  "objective": "Apply Opportunity Solution Tree prerequisites honestly.",
+  "scenario": "The project has a broad outcome hypothesis and desk research but no story-based customer interviews or target-customer theory.",
+  "input": {"outcome_defined": true, "target_customer_theory": false, "story_based_interviews": 0},
+  "expected_behaviors": ["Do not label the result a fully evidence-grounded OST.", "Offer a provisional opportunity map.", "Identify the missing prerequisites and a practical discovery plan."],
+  "prohibited_behaviors": ["Claim formal OST method fidelity despite missing prerequisites.", "Invent user opportunities as observed facts."],
+  "correct_disposition": "proceed",
+  "oracle_type": "rubric_review",
+  "risk_level": "medium",
+  "rubric_refs": ["RESEARCH_PLAN_QUALITY.md", "EVIDENCE_AND_METHOD_FIDELITY.md"],
+  "tags": ["opportunity-solution-tree", "method-prerequisites"],
+  "case_status": "ready"
+}

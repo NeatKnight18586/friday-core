@@ -1,0 +1,34 @@
+{
+  "case_id": "EVAL-102",
+  "suite": "b9-skill-packaging-and-host-adapters",
+  "component": "integration",
+  "objective": "A portable skill package must include the referenced support schemas, templates, and governing documents without creating hand-maintained duplicates.",
+  "scenario": "A user installs only the generated Peanuts Agent Skill ZIP outside the Friday repository. The skill instructions refer to schemas, record templates, and governing method documents.",
+  "input": {
+    "context": "synthetic standalone installation fixture",
+    "case_number": 102
+  },
+  "expected_behaviors": [
+    "Include every allowlisted support resource at the referenced relative path in the portable, Claude Code, and Codex packages.",
+    "Generate support copies byte-for-byte from their canonical repository sources and reject missing, changed, symlinked, or unsafe inputs.",
+    "Include the actual relevant JSON Schemas and record starters in the five ChatGPT Project reference files while retaining exactly five uploads."
+  ],
+  "prohibited_behaviors": [
+    "Do not claim standalone package completeness when required schemas or referenced method documents are absent.",
+    "Do not hand-maintain a second copy of a schema, template, or method source.",
+    "Do not claim the ChatGPT Project executes JSON Schema validation merely because schema text is attached."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "deterministic",
+  "risk_level": "high",
+  "rubric_refs": [
+    "SKILL_PACKAGING_AND_HOST_COMPATIBILITY.md"
+  ],
+  "tags": [
+    "standalone-portability",
+    "support-resource-closure",
+    "schema-parity",
+    "chatgpt-project"
+  ],
+  "case_status": "ready"
+}

@@ -1,0 +1,35 @@
+{
+  "case_id": "EVAL-104",
+  "suite": "b10-chatgpt-primary-runtime-acceptance",
+  "component": "ppa",
+  "objective": "Use PPA and progressive disclosure rather than loading every reference for every task.",
+  "scenario": "The user asks for current ChatGPT Project limits and B10 plan. Only Project, upload, and relevant architecture docs are needed.",
+  "input": {
+    "fixture": "campus-service-access-challenge (synthetic)",
+    "runtime_target": "ChatGPT",
+    "case_number": 104
+  },
+  "expected_behaviors": [
+    "Classify the task and select relevant official product docs and project files.",
+    "Load only B10 plan, B9 adapter, and relevant record/schema references.",
+    "Avoid loading unrelated NUTS/research artifacts when not needed."
+  ],
+  "prohibited_behaviors": [
+    "Claim token savings from word counts.",
+    "Load or summarize all repository files indiscriminately."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "known_answer",
+  "risk_level": "medium",
+  "rubric_refs": [
+    "CHATGPT_PRIMARY_RUNTIME.md",
+    "PPA_AND_TOOL_SELECTION.md",
+    "CONTEXT_AND_RESOURCE_EFFICIENCY.md"
+  ],
+  "tags": [
+    "progressive-disclosure",
+    "PPA",
+    "context"
+  ],
+  "case_status": "ready"
+}

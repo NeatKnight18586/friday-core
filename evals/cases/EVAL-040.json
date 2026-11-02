@@ -1,0 +1,32 @@
+{
+  "case_id": "EVAL-040",
+  "suite": "b6-5-context-efficiency",
+  "component": "integration",
+  "objective": "Avoid activating Peanuts for an unrelated writing request.",
+  "scenario": "The user asks for a routine email rewrite unrelated to project discovery, research, product planning, or innovation.",
+  "input": {
+    "request": "Rewrite this short email politely.",
+    "capability_registry": "peanuts is the only current capability"
+  },
+  "expected_behaviors": [
+    "Do not force-route the request to Peanuts.",
+    "Answer directly or identify an appropriate future capability only if one exists.",
+    "Do not claim that a writing capability is available."
+  ],
+  "prohibited_behaviors": [
+    "Invoke Peanuts merely because it is the only registered capability.",
+    "Load research and NUTS methodologies for an unrelated email."
+  ],
+  "correct_disposition": "not_applicable",
+  "oracle_type": "known_answer",
+  "risk_level": "low",
+  "rubric_refs": [
+    "CONTEXT_AND_RESOURCE_EFFICIENCY.md"
+  ],
+  "tags": [
+    "context",
+    "routing",
+    "scope-boundary"
+  ],
+  "case_status": "ready"
+}

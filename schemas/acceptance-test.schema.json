@@ -1,0 +1,392 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/acceptance-test.schema.json",
+  "title": "Acceptance Test Specification",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "test_id": {
+      "type": "string",
+      "pattern": "^AT-[0-9]{3,5}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 180
+    },
+    "test_type": {
+      "enum": [
+        "functional",
+        "integration",
+        "system",
+        "performance",
+        "security",
+        "privacy",
+        "accessibility",
+        "reliability",
+        "usability",
+        "operational",
+        "compliance",
+        "demonstration",
+        "manual_review"
+      ]
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 12,
+      "maxLength": 1000
+    },
+    "criterion_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "requirement_id": {
+            "type": "string",
+            "pattern": "^REQ-[0-9]{3,5}$"
+          },
+          "criterion_id": {
+            "type": "string",
+            "pattern": "^AC-[0-9]{3,5}$"
+          }
+        },
+        "required": [
+          "requirement_id",
+          "criterion_id"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "preconditions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 3
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 3
+      }
+    },
+    "expected_result": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 1000
+    },
+    "pass_condition": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 500
+    },
+    "test_data_strategy": {
+      "enum": [
+        "synthetic",
+        "fixture",
+        "deidentified",
+        "public",
+        "authorized_test_data",
+        "not_applicable"
+      ]
+    },
+    "involves_human_participants": {
+      "type": "boolean"
+    },
+    "participant_controls": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "consent_status": {
+          "enum": [
+            "not_applicable",
+            "not_obtained",
+            "obtained",
+            "withdrawn"
+          ]
+        },
+        "ethics_review_disposition": {
+          "enum": [
+            "not_applicable",
+            "not_required",
+            "pending",
+            "approved",
+            "refer_for_review"
+          ]
+        },
+        "ethics_review_rationale": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "data_minimization": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 1000
+        },
+        "retention_and_access": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 1000
+        },
+        "withdrawal_plan": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 1000
+        }
+      },
+      "required": [
+        "consent_status",
+        "ethics_review_disposition",
+        "data_minimization",
+        "retention_and_access",
+        "withdrawal_plan"
+      ]
+    },
+    "contains_identifiable_personal_data": {
+      "const": false
+    },
+    "status": {
+      "enum": [
+        "planned",
+        "ready",
+        "blocked",
+        "executed",
+        "not_applicable",
+        "cancelled"
+      ]
+    },
+    "not_applicable_rationale": {
+      "type": "string",
+      "minLength": 12,
+      "maxLength": 1000
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "outcome": {
+          "enum": [
+            "pass",
+            "fail",
+            "inconclusive"
+          ]
+        },
+        "executed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "executed_by": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 120
+        },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "record_type": {
+                "enum": [
+                  "source",
+                  "claim",
+                  "assumption",
+                  "decision",
+                  "research_finding",
+                  "opportunity",
+                  "analogy",
+                  "council_finding",
+                  "artifact",
+                  "external_requirement",
+                  "acceptance_test",
+                  "assumption_test",
+                  "nuts_run",
+                  "evaluation_result"
+                ]
+              },
+              "record_id": {
+                "type": "string",
+                "minLength": 3
+              },
+              "note": {
+                "type": "string",
+                "maxLength": 500
+              }
+            },
+            "required": [
+              "record_type",
+              "record_id"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "limitations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 5
+          }
+        }
+      },
+      "required": [
+        "outcome",
+        "executed_at",
+        "executed_by",
+        "evidence_refs",
+        "limitations"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 120
+    },
+    "status_reason": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "schema_version",
+    "test_id",
+    "title",
+    "test_type",
+    "objective",
+    "criterion_refs",
+    "preconditions",
+    "steps",
+    "expected_result",
+    "pass_condition",
+    "test_data_strategy",
+    "involves_human_participants",
+    "contains_identifiable_personal_data",
+    "status",
+    "created_at",
+    "updated_at",
+    "owner"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "executed"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "execution"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "not_applicable"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "not_applicable_rationale"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "involves_human_participants": {
+            "const": true
+          }
+        },
+        "required": [
+          "involves_human_participants"
+        ]
+      },
+      "then": {
+        "required": [
+          "participant_controls"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "cancelled"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "execution": {
+            "not": {}
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "blocked"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "status_reason"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "cancelled"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "status_reason"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "case_id": "EVAL-105",
+  "suite": "b10-chatgpt-primary-runtime-acceptance",
+  "component": "tool_selection",
+  "objective": "Verify current ChatGPT Project and file capabilities using official primary sources.",
+  "scenario": "The user is on an iPad and likely Free; current Project file limits and upload cadence materially affect setup.",
+  "input": {
+    "fixture": "campus-service-access-challenge (synthetic)",
+    "runtime_target": "ChatGPT",
+    "case_number": 105
+  },
+  "expected_behaviors": [
+    "Consult current official OpenAI Help Center documentation.",
+    "Record five Project file limit and Free upload rate only with date/source.",
+    "Confirm mobile Project availability and supported text file format.",
+    "Cite claims and flag account/workspace variations."
+  ],
+  "prohibited_behaviors": [
+    "Use stale remembered limits without verification.",
+    "Claim universal account behavior without qualification."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "known_answer",
+  "risk_level": "high",
+  "rubric_refs": [
+    "CHATGPT_PRIMARY_RUNTIME.md",
+    "PPA_AND_TOOL_SELECTION.md"
+  ],
+  "tags": [
+    "current-facts",
+    "openai-docs",
+    "chatgpt-project"
+  ],
+  "case_status": "ready"
+}

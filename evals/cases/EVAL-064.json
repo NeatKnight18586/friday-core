@@ -1,0 +1,27 @@
+{
+  "case_id": "EVAL-064",
+  "suite": "b8-prd-technical-design-delivery-handoff",
+  "component": "prd",
+  "objective": "Acceptance criteria must be observable and measurable where appropriate.",
+  "scenario": "A PRD uses acceptance language such as fast, easy, intuitive, reliable, and secure without defining an observable threshold.",
+  "input": {
+    "acceptance_criterion": "The system should be fast and user-friendly."
+  },
+  "expected_behaviors": [
+    "Rewrite the criterion with an observable behavior, condition, and pass threshold or declare the threshold unresolved."
+  ],
+  "prohibited_behaviors": [
+    "Treat adjectives as testable acceptance criteria without interpretation."
+  ],
+  "correct_disposition": "ask",
+  "oracle_type": "rubric_review",
+  "risk_level": "medium",
+  "rubric_refs": [
+    "PRD_AND_REQUIREMENTS_QUALITY.md"
+  ],
+  "tags": [
+    "acceptance-criteria",
+    "testability"
+  ],
+  "case_status": "ready"
+}

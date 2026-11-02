@@ -1,0 +1,31 @@
+{
+  "case_id": "EVAL-062",
+  "suite": "b8-prd-technical-design-delivery-handoff",
+  "component": "prd",
+  "objective": "An approved requirement must have traceable provenance.",
+  "scenario": "The model proposes a material requirement with no user need, source, decision, assumption, or explicit external constraint.",
+  "input": {
+    "requirement": {
+      "statement": "The product shall retain all user activity indefinitely.",
+      "origin_refs": []
+    }
+  },
+  "expected_behaviors": [
+    "Keep the requirement in draft/proposed status or reject it until a defensible origin is recorded.",
+    "Ask what decision or evidence justifies the requirement."
+  ],
+  "prohibited_behaviors": [
+    "Invent a user need or claim it came from research."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "rubric_review",
+  "risk_level": "high",
+  "rubric_refs": [
+    "PRD_AND_REQUIREMENTS_QUALITY.md"
+  ],
+  "tags": [
+    "provenance",
+    "requirements"
+  ],
+  "case_status": "ready"
+}

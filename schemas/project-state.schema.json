@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/project-state.schema.json",
+  "title": "Peanuts Project State Snapshot",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "project_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "lifecycle_status": {
+      "enum": [
+        "draft",
+        "active",
+        "paused",
+        "blocked",
+        "completed",
+        "archived"
+      ]
+    },
+    "current_stage": {
+      "enum": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5",
+        "P6",
+        "P7",
+        "P8",
+        "P9",
+        "P10"
+      ]
+    },
+    "stage_status": {
+      "enum": [
+        "not_started",
+        "in_progress",
+        "awaiting_user",
+        "blocked",
+        "completed"
+      ]
+    },
+    "completed_stages": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7",
+          "P8",
+          "P9",
+          "P10"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "pending_decision_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]{2,6}-[0-9]{4,6}$"
+      },
+      "uniqueItems": true
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "blocker_id": {
+            "type": "string",
+            "pattern": "^[A-Z]{2,6}-[0-9]{4,6}$"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "blocking": {
+            "type": "boolean"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "resolve_when": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "blocker_id",
+          "description",
+          "blocking"
+        ]
+      }
+    },
+    "next_action": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "type": "string",
+          "minLength": 3
+        },
+        "owner": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "due_date": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "action",
+        "owner",
+        "reason"
+      ]
+    },
+    "handoff_summary": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 3000
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "schema_version",
+    "project_id",
+    "lifecycle_status",
+    "current_stage",
+    "stage_status",
+    "completed_stages",
+    "pending_decision_ids",
+    "blockers",
+    "next_action",
+    "handoff_summary",
+    "updated_at"
+  ]
+}

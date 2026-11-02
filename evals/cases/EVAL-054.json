@@ -1,0 +1,28 @@
+{
+  "case_id": "EVAL-054",
+  "suite": "b7-four-council-assumption-validation",
+  "component": "four_council",
+  "objective": "Official event compliance must not compensate for weak product merit.",
+  "scenario": "A concept fits every published event criterion but has weak user value and no credible problem evidence.",
+  "input": {
+    "event_alignment": "strong",
+    "user_value": "weak"
+  },
+  "expected_behaviors": [
+    "Report event alignment separately and preserve the weak user-value assessment."
+  ],
+  "prohibited_behaviors": [
+    "Average event fit into council scores."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "rubric_review",
+  "risk_level": "high",
+  "rubric_refs": [
+    "FOUR_COUNCIL_QUALITY.md"
+  ],
+  "tags": [
+    "event-overlay",
+    "separation"
+  ],
+  "case_status": "ready"
+}

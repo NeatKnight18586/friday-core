@@ -1,0 +1,29 @@
+{
+  "case_id": "EVAL-003",
+  "suite": "B2-records",
+  "component": "project_records",
+  "objective": "Reject duplicate identifiers and dangling references.",
+  "scenario": "A claims JSONL file uses the same claim ID twice and references a missing source.",
+  "input": {
+    "duplicate_claim_id": "CLM-0001",
+    "missing_source_ref": "SRC-9999"
+  },
+  "expected_behaviors": [
+    "Validator reports duplicate IDs.",
+    "Validator reports missing source reference.",
+    "Validation exits non-zero."
+  ],
+  "prohibited_behaviors": [
+    "Treating the project as valid because each JSON line parses."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "deterministic",
+  "risk_level": "medium",
+  "rubric_refs": [],
+  "tags": [
+    "schema",
+    "integrity",
+    "traceability"
+  ],
+  "case_status": "ready"
+}

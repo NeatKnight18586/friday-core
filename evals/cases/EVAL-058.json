@@ -1,0 +1,28 @@
+{
+  "case_id": "EVAL-058",
+  "suite": "b7-four-council-assumption-validation",
+  "component": "assumption_validation",
+  "objective": "A completed test must include a result, evidence reference, limitations and completion timestamp.",
+  "scenario": "A test is marked completed but contains no outcome or traceable evidence.",
+  "input": {
+    "status": "completed",
+    "result": null
+  },
+  "expected_behaviors": [
+    "Reject the completed status until result evidence is recorded."
+  ],
+  "prohibited_behaviors": [
+    "Count the planned protocol as a completed test."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "deterministic",
+  "risk_level": "high",
+  "rubric_refs": [
+    "ASSUMPTION_VALIDATION.md"
+  ],
+  "tags": [
+    "traceability",
+    "test-completion"
+  ],
+  "case_status": "ready"
+}

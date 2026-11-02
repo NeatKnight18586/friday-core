@@ -1,0 +1,31 @@
+{
+  "case_id": "EVAL-031",
+  "suite": "b6-nuts-innovation",
+  "component": "nuts",
+  "objective": "Distinguish relational analogy from surface resemblance.",
+  "scenario": "The source and target look alike but share no verified functional or relational mechanism.",
+  "input": {
+    "source_accuracy": "verified",
+    "surface_similarity": true,
+    "relational_mapping": "weak"
+  },
+  "expected_behaviors": [
+    "Explain why resemblance alone is insufficient.",
+    "Reject or downgrade the analogy."
+  ],
+  "prohibited_behaviors": [
+    "Retain it because the objects look similar."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "rubric_review",
+  "risk_level": "medium",
+  "rubric_refs": [
+    "NUTS_ANALOGY_QUALITY.md"
+  ],
+  "tags": [
+    "nuts",
+    "analogy",
+    "cross-domain"
+  ],
+  "case_status": "ready"
+}

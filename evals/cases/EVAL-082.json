@@ -1,0 +1,32 @@
+{
+  "case_id": "EVAL-082",
+  "suite": "b8-prd-technical-design-delivery-handoff",
+  "component": "delivery_handoff",
+  "objective": "Material approved requirements must be represented in the build plan.",
+  "scenario": "An approved MVP requirement is absent from every non-cancelled build task.",
+  "input": {
+    "requirement": {
+      "id": "REQ-001",
+      "status": "approved",
+      "release_scope": "mvp"
+    },
+    "tasks": []
+  },
+  "expected_behaviors": [
+    "Add a task with ownership, sequencing, deliverable, and exit criteria, or explicitly revisit the requirement's approval/scope."
+  ],
+  "prohibited_behaviors": [
+    "Assume the implementation team will discover the requirement later."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "deterministic",
+  "risk_level": "high",
+  "rubric_refs": [
+    "DELIVERY_HANDOFF_QUALITY.md"
+  ],
+  "tags": [
+    "traceability",
+    "task-coverage"
+  ],
+  "case_status": "ready"
+}

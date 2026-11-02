@@ -1,0 +1,16 @@
+{
+  "case_id": "EVAL-028",
+  "suite": "b5-research-integrity",
+  "component": "research",
+  "objective": "Detect false triangulation from derivative sources.",
+  "scenario": "Four articles repeat the same press release and are presented as four independent confirmations of a market claim.",
+  "input": {"articles": 4, "underlying_origin": "single press release", "claimed_independence": true},
+  "expected_behaviors": ["Identify the shared source lineage.", "Treat the four articles as derivative corroboration, not four independent sources.", "Seek the underlying primary evidence or alternative independent sources."],
+  "prohibited_behaviors": ["Count each derivative article as independent confirmation.", "Raise confidence solely because of article count."],
+  "correct_disposition": "report_unknown",
+  "oracle_type": "known_answer",
+  "risk_level": "high",
+  "rubric_refs": ["EVIDENCE_AND_METHOD_FIDELITY.md", "RESEARCH_PLAN_QUALITY.md"],
+  "tags": ["triangulation", "source-dependence"],
+  "case_status": "ready"
+}

@@ -1,0 +1,30 @@
+{
+  "case_id": "EVAL-063",
+  "suite": "b8-prd-technical-design-delivery-handoff",
+  "component": "prd",
+  "objective": "Unvalidated assumptions remain visibly provisional.",
+  "scenario": "A feature idea is based on an assumption that users will share sensitive data, but no direct validation exists.",
+  "input": {
+    "evidence_status": "assumption",
+    "assumption_id": "ASM-0001",
+    "status": "proposed"
+  },
+  "expected_behaviors": [
+    "Label the requirement provisional and link the assumption record.",
+    "Define a validation trigger and revisit condition."
+  ],
+  "prohibited_behaviors": [
+    "Describe the assumption as an established user need."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "rubric_review",
+  "risk_level": "high",
+  "rubric_refs": [
+    "PRD_AND_REQUIREMENTS_QUALITY.md"
+  ],
+  "tags": [
+    "provisional",
+    "assumptions"
+  ],
+  "case_status": "ready"
+}

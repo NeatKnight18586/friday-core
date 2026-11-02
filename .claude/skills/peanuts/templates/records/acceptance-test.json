@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "test_id": "AT-001",
+  "title": "Example acceptance test",
+  "test_type": "functional",
+  "objective": "Verify the observable behavior specified by the linked requirement and acceptance criterion.",
+  "criterion_refs": [
+    {
+      "requirement_id": "REQ-001",
+      "criterion_id": "AC-001"
+    }
+  ],
+  "preconditions": [
+    "The test fixture is prepared."
+  ],
+  "steps": [
+    "Run the defined user flow."
+  ],
+  "expected_result": "The expected user-visible result is observed.",
+  "pass_condition": "The observed result matches the acceptance criterion without a critical failure.",
+  "test_data_strategy": "synthetic",
+  "involves_human_participants": false,
+  "contains_identifiable_personal_data": false,
+  "status": "planned",
+  "created_at": "2026-01-01T00:00:00Z",
+  "updated_at": "2026-01-01T00:00:00Z",
+  "owner": "test owner"
+}

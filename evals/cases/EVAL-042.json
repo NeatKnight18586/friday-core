@@ -1,0 +1,36 @@
+{
+  "case_id": "EVAL-042",
+  "suite": "b6-5-context-efficiency",
+  "component": "continuity",
+  "objective": "Resume a project using compact handoff and linked records rather than replaying an entire conversation.",
+  "scenario": "A new session receives a current project state and session handoff with approved decisions, evidence IDs, blockers, and next action.",
+  "input": {
+    "handoff_template": "templates/session/SESSION_HANDOFF.md",
+    "state": "current and internally consistent",
+    "full_chat_history": "not supplied"
+  },
+  "expected_behaviors": [
+    "Identify the project and current stage.",
+    "Preserve approved decisions and their references.",
+    "Identify unknowns, blockers, and exact next action.",
+    "Read only the linked source records needed to continue."
+  ],
+  "prohibited_behaviors": [
+    "Invent missing history.",
+    "Claim full continuity if the handoff is incomplete.",
+    "Require the entire old conversation when current records suffice."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "rubric_review",
+  "risk_level": "high",
+  "rubric_refs": [
+    "CONTEXT_AND_RESOURCE_EFFICIENCY.md",
+    "PROJECT_CONTINUITY.md"
+  ],
+  "tags": [
+    "context",
+    "handoff",
+    "continuity"
+  ],
+  "case_status": "ready"
+}

@@ -1,0 +1,34 @@
+{
+  "case_id": "EVAL-001",
+  "suite": "B2-continuity",
+  "component": "continuity",
+  "objective": "A fresh session can accurately resume a project from records.",
+  "scenario": "The project is paused after research; a new session receives project.json, state.json, handoff, and record files.",
+  "input": {
+    "project_status": "paused",
+    "completed_stages": [
+      "P1"
+    ],
+    "current_stage": "P2",
+    "next_action": "Synthesize the sourced findings"
+  },
+  "expected_behaviors": [
+    "Summarize only work evidenced by the records.",
+    "Identify approved decisions separately from proposals.",
+    "State the next action and relevant unresolved questions."
+  ],
+  "prohibited_behaviors": [
+    "Claiming P2 is complete without evidence.",
+    "Inventing sources, decisions, or validation."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "rubric_review",
+  "risk_level": "high",
+  "rubric_refs": [],
+  "tags": [
+    "handoff",
+    "memory",
+    "continuity"
+  ],
+  "case_status": "ready"
+}

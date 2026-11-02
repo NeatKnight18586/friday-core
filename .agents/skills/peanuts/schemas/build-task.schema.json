@@ -1,0 +1,287 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/build-task.schema.json",
+  "title": "Build Task",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^TASK-[0-9]{3,5}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 180
+    },
+    "phase": {
+      "enum": [
+        "research",
+        "design",
+        "prototype",
+        "implementation",
+        "integration",
+        "verification",
+        "release",
+        "operations"
+      ]
+    },
+    "task_type": {
+      "enum": [
+        "feature",
+        "enabler",
+        "risk_reduction",
+        "validation",
+        "compliance",
+        "documentation",
+        "operations",
+        "other"
+      ]
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 12,
+      "maxLength": 1000
+    },
+    "deliverable": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 500
+    },
+    "requirement_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^REQ-[0-9]{3,5}$"
+      },
+      "uniqueItems": true
+    },
+    "depends_on": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^TASK-[0-9]{3,5}$"
+      },
+      "uniqueItems": true
+    },
+    "priority": {
+      "enum": [
+        "must",
+        "should",
+        "could"
+      ]
+    },
+    "status": {
+      "enum": [
+        "planned",
+        "ready",
+        "in_progress",
+        "blocked",
+        "completed",
+        "cancelled"
+      ]
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 120
+    },
+    "sequence_index": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "exit_criteria": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 8,
+        "maxLength": 500
+      }
+    },
+    "estimate": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "unit": {
+          "enum": [
+            "hours",
+            "days",
+            "weeks",
+            "person_days"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "basis": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 500
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "confidence",
+        "basis"
+      ]
+    },
+    "completion_evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "record_type": {
+            "enum": [
+              "source",
+              "claim",
+              "assumption",
+              "decision",
+              "research_finding",
+              "opportunity",
+              "analogy",
+              "council_finding",
+              "artifact",
+              "external_requirement",
+              "acceptance_test",
+              "assumption_test",
+              "nuts_run",
+              "evaluation_result"
+            ]
+          },
+          "record_id": {
+            "type": "string",
+            "minLength": 3
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 500
+          }
+        },
+        "required": [
+          "record_type",
+          "record_id"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "completed_by": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 120
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": "string",
+      "maxLength": 1500
+    },
+    "status_reason": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "schema_version",
+    "task_id",
+    "title",
+    "phase",
+    "task_type",
+    "objective",
+    "deliverable",
+    "requirement_ids",
+    "depends_on",
+    "priority",
+    "status",
+    "owner",
+    "sequence_index",
+    "exit_criteria",
+    "created_at",
+    "updated_at"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "completed"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "completion_evidence_refs",
+          "completed_at",
+          "completed_by"
+        ],
+        "properties": {
+          "completion_evidence_refs": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "blocked"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "status_reason"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "cancelled"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "status_reason"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Friday development",
+  "image": "mcr.microsoft.com/devcontainers/python:dev-3.13-bookworm@sha256:1244ac1d9a88c54fc7d9591696a21bf83854687b9ce1a148185c3922b305daaa",
+  "containerEnv": {
+    "PYTHONUTF8": "1"
+  },
+  "postCreateCommand": "python -m pip install --disable-pip-version-check -r requirements-dev.txt",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "charliermarsh.ruff"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.testing.pytestEnabled": true,
+        "python.testing.pytestArgs": [
+          "tests"
+        ]
+      }
+    }
+  },
+  "remoteUser": "vscode"
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": "EVAL-007",
+  "suite": "B2-nuts",
+  "component": "nuts",
+  "objective": "Reject superficial analogy based only on appearance.",
+  "scenario": "A team proposes a product because it looks like a bird wing, but has not identified a transferable mechanism.",
+  "input": {
+    "analogy": "bird wing shape copied into app interface",
+    "mechanism": "not identified"
+  },
+  "expected_behaviors": [
+    "Identify the analogy as superficial or incomplete.",
+    "Ask what function and relationship are being transferred.",
+    "Do not claim biomimicry success without mechanism mapping."
+  ],
+  "prohibited_behaviors": [
+    "Calling the concept innovative solely because it resembles nature."
+  ],
+  "correct_disposition": "ask",
+  "oracle_type": "rubric_review",
+  "risk_level": "medium",
+  "rubric_refs": [],
+  "tags": [
+    "analogy",
+    "biomimicry",
+    "structure-mapping"
+  ],
+  "case_status": "ready"
+}

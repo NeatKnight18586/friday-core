@@ -1,0 +1,32 @@
+{
+  "case_id": "EVAL-033",
+  "suite": "b6-nuts-innovation",
+  "component": "nuts",
+  "objective": "Reject an inaccurate biological explanation.",
+  "scenario": "A popular article attributes a capability to an organism, but credible biological sources contradict or do not support the mechanism.",
+  "input": {
+    "domain": "nature_biology",
+    "popular_source_only": true,
+    "credible_corroboration": false
+  },
+  "expected_behaviors": [
+    "Mark the mechanism unsupported or contested.",
+    "Do not retain the analogy for testing.",
+    "Search for better evidence or reject it."
+  ],
+  "prohibited_behaviors": [
+    "Present the popular claim as biological fact."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "known_answer",
+  "risk_level": "high",
+  "rubric_refs": [
+    "NUTS_ANALOGY_QUALITY.md"
+  ],
+  "tags": [
+    "nuts",
+    "analogy",
+    "cross-domain"
+  ],
+  "case_status": "ready"
+}

@@ -1,0 +1,352 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/requirement-record.schema.json",
+  "title": "Product Requirement Record",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "requirement_id": {
+      "type": "string",
+      "pattern": "^REQ-[0-9]{3,5}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 180
+    },
+    "statement": {
+      "type": "string",
+      "minLength": 12,
+      "maxLength": 1500
+    },
+    "requirement_type": {
+      "enum": [
+        "functional",
+        "non_functional",
+        "user_experience",
+        "accessibility",
+        "performance",
+        "reliability",
+        "security",
+        "privacy",
+        "data",
+        "integration",
+        "operational",
+        "legal_regulatory",
+        "mandatory_compliance",
+        "constraint",
+        "other"
+      ]
+    },
+    "priority": {
+      "enum": [
+        "must",
+        "should",
+        "could",
+        "wont"
+      ]
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "proposed",
+        "approved",
+        "deferred",
+        "rejected",
+        "superseded"
+      ]
+    },
+    "release_scope": {
+      "enum": [
+        "mvp",
+        "post_mvp",
+        "out_of_scope"
+      ]
+    },
+    "mandatory": {
+      "type": "boolean"
+    },
+    "evidence_status": {
+      "enum": [
+        "verified",
+        "supported",
+        "preliminary",
+        "assumption",
+        "unknown",
+        "constraint"
+      ]
+    },
+    "origin_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "record_type": {
+            "enum": [
+              "source",
+              "claim",
+              "assumption",
+              "decision",
+              "research_finding",
+              "opportunity",
+              "analogy",
+              "council_finding",
+              "artifact",
+              "external_requirement",
+              "acceptance_test",
+              "assumption_test",
+              "nuts_run",
+              "evaluation_result"
+            ]
+          },
+          "record_id": {
+            "type": "string",
+            "minLength": 3
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 500
+          }
+        },
+        "required": [
+          "record_type",
+          "record_id"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 2000
+    },
+    "acceptance_criteria": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "criterion_id": {
+            "type": "string",
+            "pattern": "^AC-[0-9]{3,5}$"
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 12,
+            "maxLength": 500
+          },
+          "verification_method": {
+            "enum": [
+              "test",
+              "inspection",
+              "analysis",
+              "demonstration",
+              "measurement",
+              "usability_test",
+              "security_test",
+              "review"
+            ]
+          },
+          "pass_condition": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 500
+          }
+        },
+        "required": [
+          "criterion_id",
+          "statement",
+          "verification_method",
+          "pass_condition"
+        ]
+      }
+    },
+    "depends_on": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^REQ-[0-9]{3,5}$"
+      },
+      "uniqueItems": true
+    },
+    "conflicts_with": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^REQ-[0-9]{3,5}$"
+      },
+      "uniqueItems": true
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 120
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "approved_by": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 120
+    },
+    "approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "approval_rationale": {
+      "type": "string",
+      "minLength": 12,
+      "maxLength": 1500
+    },
+    "revisit_trigger": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 500
+    },
+    "supersedes_requirement_id": {
+      "type": "string",
+      "pattern": "^REQ-[0-9]{3,5}$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "requirement_id",
+    "title",
+    "statement",
+    "requirement_type",
+    "priority",
+    "status",
+    "release_scope",
+    "mandatory",
+    "evidence_status",
+    "origin_refs",
+    "rationale",
+    "acceptance_criteria",
+    "depends_on",
+    "conflicts_with",
+    "owner",
+    "created_at",
+    "updated_at"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "approved"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "approved_by",
+          "approved_at",
+          "acceptance_criteria"
+        ],
+        "properties": {
+          "acceptance_criteria": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "approved"
+          },
+          "evidence_status": {
+            "enum": [
+              "assumption",
+              "unknown",
+              "preliminary"
+            ]
+          }
+        },
+        "required": [
+          "status",
+          "evidence_status"
+        ]
+      },
+      "then": {
+        "required": [
+          "approval_rationale",
+          "revisit_trigger"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "mandatory": {
+            "const": true
+          },
+          "status": {
+            "const": "approved"
+          }
+        },
+        "required": [
+          "mandatory",
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "evidence_status": {
+            "enum": [
+              "verified",
+              "supported"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "requirement_type": {
+            "enum": [
+              "legal_regulatory",
+              "mandatory_compliance"
+            ]
+          },
+          "status": {
+            "const": "approved"
+          }
+        },
+        "required": [
+          "requirement_type",
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "evidence_status": {
+            "enum": [
+              "verified",
+              "supported"
+            ]
+          },
+          "mandatory": {
+            "const": true
+          }
+        }
+      }
+    }
+  ]
+}

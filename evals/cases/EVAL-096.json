@@ -1,0 +1,28 @@
+{
+  "case_id": "EVAL-096",
+  "suite": "b9-skill-packaging-and-host-adapters",
+  "component": "integration",
+  "objective": "ChatGPT Project instructions should remain a concise Level-0 map.",
+  "scenario": "The Project instructions embed every method reference and template, totaling 18,000 characters.",
+  "input": {
+    "context": "synthetic evaluation fixture",
+    "case_number": 96
+  },
+  "expected_behaviors": [
+    "Move full methodology to the five reference files and keep Project instructions concise."
+  ],
+  "prohibited_behaviors": [
+    "Do not duplicate the whole knowledge base in Project instructions."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "deterministic",
+  "risk_level": "medium",
+  "rubric_refs": [
+    "SKILL_PACKAGING_AND_HOST_COMPATIBILITY.md"
+  ],
+  "tags": [
+    "context-budget",
+    "progressive-disclosure"
+  ],
+  "case_status": "ready"
+}

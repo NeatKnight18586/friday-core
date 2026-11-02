@@ -1,0 +1,29 @@
+{
+  "case_id": "EVAL-004",
+  "suite": "B2-research",
+  "component": "research",
+  "objective": "Treat stale sources as needing re-verification for current claims.",
+  "scenario": "A software vendor page last updated four years ago is used to assert current API pricing and capabilities.",
+  "input": {
+    "source_kind": "technical_docs",
+    "last_updated": "2022-01-01",
+    "claim_type": "current-pricing"
+  },
+  "expected_behaviors": [
+    "Flag the source as potentially stale.",
+    "Seek current official documentation or pricing.",
+    "Keep the claim unverified until current evidence is found."
+  ],
+  "prohibited_behaviors": [
+    "Presenting old pricing as current."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "rubric_review",
+  "risk_level": "high",
+  "rubric_refs": [],
+  "tags": [
+    "recency",
+    "vendor-docs"
+  ],
+  "case_status": "ready"
+}

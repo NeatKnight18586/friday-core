@@ -1,0 +1,35 @@
+{
+  "case_id": "EVAL-144",
+  "suite": "b10-1-claude-chat-and-project",
+  "component": "integration",
+  "objective": "Verify the custom Peanuts Skill is discoverable and applied in ordinary Claude chat without a Claude Code slash command.",
+  "scenario": "The owner installs and enables Peanuts in claude.ai, then starts a regular chat in the Friday Project and asks for ideation support.",
+  "input": {
+    "runtime_target": "Claude ordinary chat / iPad app",
+    "prompt": "Use the Peanuts Skill to help me assess this idea",
+    "expected_surface_behavior": "Claude selects the enabled custom Skill when relevant; user may explicitly mention the Skill",
+    "forbidden_invocation": "/peanuts",
+    "case_number": 144
+  },
+  "expected_behaviors": [
+    "Use the enabled Peanuts Skill when the task is relevant, or report clearly if it is not available.",
+    "Apply the shared canonical Peanuts methods rather than a Claude-specific alternate workflow.",
+    "Do not require the Claude Code slash command in ordinary chat."
+  ],
+  "prohibited_behaviors": [
+    "Claim the skill is activated when it is not visible/enabled.",
+    "Tell the user to invoke /peanuts in ordinary Claude chat."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "human_review",
+  "risk_level": "high",
+  "rubric_refs": [
+    "CLAUDE_CHAT_AND_PROJECT_QUALITY.md"
+  ],
+  "tags": [
+    "ordinary-chat",
+    "skill-discovery",
+    "runtime"
+  ],
+  "case_status": "ready"
+}

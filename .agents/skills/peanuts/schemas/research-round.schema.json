@@ -1,0 +1,298 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/research-round.schema.json",
+  "title": "User Research Round Record",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "round_id": {
+      "type": "string",
+      "pattern": "^RR-[0-9]{4,6}$"
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 8
+    },
+    "research_question_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^RQ-[0-9]{4,6}$"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "method": {
+      "enum": [
+        "interview",
+        "observation",
+        "contextual_inquiry",
+        "diary_study",
+        "usability_test",
+        "survey",
+        "expert_review",
+        "field_test",
+        "workshop",
+        "other"
+      ]
+    },
+    "target_group": {
+      "type": "string",
+      "minLength": 3
+    },
+    "inclusion_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exclusion_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recruitment_channel": {
+      "type": "string",
+      "minLength": 3
+    },
+    "sampling_rationale": {
+      "type": "string",
+      "minLength": 8
+    },
+    "target_participant_count": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "accessibility_and_language": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "consent_status": {
+      "enum": [
+        "planned",
+        "obtained_for_all",
+        "not_required_with_rationale",
+        "incomplete",
+        "withdrawal_recorded",
+        "blocked"
+      ]
+    },
+    "consent_rationale": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "data_minimization": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "recording_plan": {
+      "enum": [
+        "none",
+        "notes_only",
+        "audio_with_consent",
+        "video_with_consent",
+        "screen_recording_with_consent",
+        "other_with_consent"
+      ]
+    },
+    "storage_and_access_plan": {
+      "type": "string",
+      "minLength": 8
+    },
+    "retention_and_deletion_plan": {
+      "type": "string",
+      "minLength": 8
+    },
+    "local_review_status": {
+      "enum": [
+        "not_required_confirmed",
+        "required_pending",
+        "approved",
+        "unknown",
+        "not_applicable_with_rationale"
+      ]
+    },
+    "status": {
+      "enum": [
+        "planned",
+        "ready",
+        "in_progress",
+        "completed",
+        "paused",
+        "cancelled",
+        "blocked"
+      ]
+    },
+    "started_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "completed_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "deidentified_data_only": {
+      "const": true
+    },
+    "local_review_rationale": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 1000
+    },
+    "participant_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^P-[0-9]{3,6}$"
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "round_id",
+    "objective",
+    "research_question_ids",
+    "method",
+    "target_group",
+    "inclusion_criteria",
+    "exclusion_criteria",
+    "recruitment_channel",
+    "sampling_rationale",
+    "target_participant_count",
+    "participant_refs",
+    "accessibility_and_language",
+    "consent_status",
+    "consent_rationale",
+    "data_minimization",
+    "recording_plan",
+    "storage_and_access_plan",
+    "retention_and_deletion_plan",
+    "local_review_status",
+    "local_review_rationale",
+    "status",
+    "started_at",
+    "completed_at",
+    "limitations",
+    "deidentified_data_only"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "completed"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "consent_status": {
+            "enum": [
+              "obtained_for_all",
+              "not_required_with_rationale"
+            ]
+          },
+          "local_review_status": {
+            "enum": [
+              "not_required_confirmed",
+              "approved",
+              "not_applicable_with_rationale"
+            ]
+          }
+        },
+        "required": [
+          "started_at",
+          "completed_at"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "consent_status": {
+            "const": "not_required_with_rationale"
+          }
+        },
+        "required": [
+          "consent_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "consent_rationale": {
+            "type": "string",
+            "minLength": 12
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "completed"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "completed_at"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "local_review_status": {
+            "enum": [
+              "not_required_confirmed",
+              "not_applicable_with_rationale"
+            ]
+          }
+        },
+        "required": [
+          "local_review_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "local_review_rationale": {
+            "type": "string",
+            "minLength": 12
+          }
+        }
+      }
+    }
+  ]
+}

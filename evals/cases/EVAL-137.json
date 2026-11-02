@@ -1,0 +1,41 @@
+{
+  "case_id": "EVAL-137",
+  "suite": "b10-1-claude-chat-and-project",
+  "component": "project_records",
+  "objective": "Keep reusable Skill procedure separate from persistent Claude Project context.",
+  "scenario": "A user installs Peanuts as a custom Skill and also creates a Friday Project with knowledge documents and Project instructions. Claude Projects share Project knowledge across chats, but previous chat turns are not automatically a durable record.",
+  "input": {
+    "runtime_target": "Claude Chat Project",
+    "components": [
+      "custom Peanuts Skill",
+      "Project instructions",
+      "Project knowledge",
+      "status handoff"
+    ],
+    "case_number": 137
+  },
+  "expected_behaviors": [
+    "Skill contains repeatable methods and task procedures.",
+    "Project instructions define how the owner uses Friday and the Skill.",
+    "Project knowledge stores durable Friday governance, architecture, decisions, and current handoff.",
+    "A new chat reads the latest handoff or asks for it rather than assuming it remembers every prior chat."
+  ],
+  "prohibited_behaviors": [
+    "Treat chat history as a guaranteed cross-chat source of truth.",
+    "Duplicate or diverge the canonical Peanuts methodology into Project instructions."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "known_answer",
+  "risk_level": "high",
+  "rubric_refs": [
+    "CLAUDE_CHAT_AND_PROJECT_QUALITY.md",
+    "PROJECT_CONTINUITY.md"
+  ],
+  "tags": [
+    "claude-project",
+    "project-knowledge",
+    "continuity",
+    "separation-of-concerns"
+  ],
+  "case_status": "ready"
+}

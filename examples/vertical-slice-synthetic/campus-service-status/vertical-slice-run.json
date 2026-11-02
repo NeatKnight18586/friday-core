@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "VS-001",
+  "project_id": "campus-service-status",
+  "scenario_type": "synthetic",
+  "mode": "MODE-EVENT",
+  "created_at": "2026-11-01T00:00:00Z",
+  "workflow_status": "complete_with_open_validation",
+  "decision_disposition": "VALIDATE",
+  "stage_records": [
+    {
+      "stage_id": "P1",
+      "status": "completed",
+      "artifact": "artifacts/01-event-dossier.md",
+      "note": "Fictional input brief parsed; no external event facts verified."
+    },
+    {
+      "stage_id": "P2",
+      "status": "provisional",
+      "artifact": "artifacts/02-problem-brief.md",
+      "note": "Problem hypothesis documented; no direct user evidence."
+    },
+    {
+      "stage_id": "P3",
+      "status": "completed",
+      "artifact": "artifacts/03-nuts-analogy-card.md",
+      "note": "Analogy candidate retained only as a design hypothesis; novelty not claimed."
+    },
+    {
+      "stage_id": "P4",
+      "status": "provisional",
+      "artifact": "artifacts/04-concept-brief.md",
+      "note": "Concept drafted for review; not co-designed with real users."
+    },
+    {
+      "stage_id": "P5",
+      "status": "completed",
+      "artifact": "artifacts/05-quick-council-review.md",
+      "note": "Quick four-lens review produced VALIDATE disposition."
+    },
+    {
+      "stage_id": "P6",
+      "status": "awaiting_user",
+      "artifact": "artifacts/07-status-and-handoff.md",
+      "note": "User/operational assumption validation not performed."
+    },
+    {
+      "stage_id": "P7",
+      "status": "draft",
+      "artifact": "artifacts/06-draft-prd.md",
+      "note": "Draft exists to define a testable prototype; not an approved baseline."
+    }
+  ],
+  "record_files": [
+    "project.json",
+    "state.json",
+    "records/sources.jsonl",
+    "records/claims.jsonl",
+    "records/assumptions.jsonl",
+    "records/decisions.jsonl"
+  ],
+  "required_artifacts": [
+    "artifacts/01-event-dossier.md",
+    "artifacts/02-problem-brief.md",
+    "artifacts/03-nuts-analogy-card.md",
+    "artifacts/04-concept-brief.md",
+    "artifacts/05-quick-council-review.md",
+    "artifacts/06-draft-prd.md",
+    "artifacts/07-status-and-handoff.md"
+  ],
+  "limitations": [
+    "All scenario content is synthetic and fictional.",
+    "No external browsing or real event verification was performed.",
+    "No real user interviews, observations, prototype tests, or market validation were performed.",
+    "No Claude Code or ChatGPT host skill runtime was executed; this is a structural vertical-slice fixture."
+  ]
+}

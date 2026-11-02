@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/vertical-slice-run.schema.json",
+  "title": "Peanuts Vertical Slice Run",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^VS-[0-9]{3,5}$"
+    },
+    "project_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "scenario_type": {
+      "enum": [
+        "synthetic",
+        "user_provided",
+        "real"
+      ]
+    },
+    "mode": {
+      "enum": [
+        "MODE-EVENT",
+        "MODE-PROBLEM",
+        "MODE-IDEA",
+        "MODE-EXISTING",
+        "MODE-RESEARCH"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "workflow_status": {
+      "enum": [
+        "complete_with_open_validation",
+        "ready_for_user_review",
+        "blocked"
+      ]
+    },
+    "decision_disposition": {
+      "enum": [
+        "ADVANCE",
+        "REVISE",
+        "VALIDATE",
+        "PIVOT",
+        "STOP"
+      ]
+    },
+    "stage_records": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "stage_id": {
+            "enum": [
+              "P1",
+              "P2",
+              "P3",
+              "P4",
+              "P5",
+              "P6",
+              "P7"
+            ]
+          },
+          "status": {
+            "enum": [
+              "completed",
+              "provisional",
+              "awaiting_user",
+              "draft",
+              "blocked",
+              "not_started"
+            ]
+          },
+          "artifact": {
+            "type": "string",
+            "minLength": 3
+          },
+          "note": {
+            "type": "string",
+            "minLength": 3
+          }
+        },
+        "required": [
+          "stage_id",
+          "status",
+          "artifact",
+          "note"
+        ]
+      }
+    },
+    "record_files": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "required_artifacts": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 3
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_id",
+    "project_id",
+    "scenario_type",
+    "mode",
+    "created_at",
+    "workflow_status",
+    "decision_disposition",
+    "stage_records",
+    "record_files",
+    "required_artifacts",
+    "limitations"
+  ]
+}

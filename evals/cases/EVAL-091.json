@@ -1,0 +1,28 @@
+{
+  "case_id": "EVAL-091",
+  "suite": "b9-skill-packaging-and-host-adapters",
+  "component": "integration",
+  "objective": "Host bundles must be generated from one canonical skill source.",
+  "scenario": "The generated Codex adapter has a changed method paragraph not present in `skills/peanuts/`.",
+  "input": {
+    "context": "synthetic evaluation fixture",
+    "case_number": 91
+  },
+  "expected_behaviors": [
+    "Reject content drift and regenerate the adapter from canonical sources."
+  ],
+  "prohibited_behaviors": [
+    "Do not maintain independent methodology copies per host."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "deterministic",
+  "risk_level": "critical",
+  "rubric_refs": [
+    "SKILL_PACKAGING_AND_HOST_COMPATIBILITY.md"
+  ],
+  "tags": [
+    "source-of-truth",
+    "drift"
+  ],
+  "case_status": "ready"
+}

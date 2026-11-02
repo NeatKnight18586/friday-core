@@ -1,0 +1,40 @@
+{
+  "round_id": "RR-0001",
+  "objective": "Understand how the intended user currently handles the relevant task.",
+  "research_question_ids": [
+    "RQ-0001"
+  ],
+  "method": "interview",
+  "target_group": "People with recent experience of the task.",
+  "inclusion_criteria": [
+    "Has completed the task within the past six months."
+  ],
+  "exclusion_criteria": [
+    "No relevant experience."
+  ],
+  "recruitment_channel": "To be selected and documented before recruitment.",
+  "sampling_rationale": "Exploratory qualitative discovery; not a population estimate.",
+  "target_participant_count": 5,
+  "accessibility_and_language": [
+    "Ask participants about preferred language and access needs."
+  ],
+  "consent_status": "planned",
+  "consent_rationale": null,
+  "data_minimization": [
+    "Use pseudonymous participant references.",
+    "Do not collect unnecessary identifiers."
+  ],
+  "recording_plan": "notes_only",
+  "storage_and_access_plan": "Store de-identified notes in the protected project workspace; consent records remain outside Git.",
+  "retention_and_deletion_plan": "Define a retention date and delete identifiable material when no longer needed or when withdrawal requires it.",
+  "local_review_status": "unknown",
+  "status": "planned",
+  "started_at": null,
+  "completed_at": null,
+  "limitations": [
+    "Template only; no participants have been recruited or interviewed."
+  ],
+  "deidentified_data_only": true,
+  "local_review_rationale": null,
+  "participant_refs": []
+}

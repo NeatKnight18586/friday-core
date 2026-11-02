@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/research-finding.schema.json",
+  "title": "Research Finding Record",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "finding_id": {
+      "type": "string",
+      "pattern": "^FND-[0-9]{4,6}$"
+    },
+    "finding_type": {
+      "enum": [
+        "official_fact",
+        "source_summary",
+        "user_statement",
+        "user_observation",
+        "measurement",
+        "synthesized_pattern",
+        "counterevidence",
+        "inference",
+        "synthetic_test"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 2000
+    },
+    "evidence_label": {
+      "enum": [
+        "verified_primary",
+        "supported_secondary",
+        "user_reported",
+        "observed",
+        "measured",
+        "inferred",
+        "assumption",
+        "unknown",
+        "contested",
+        "synthetic_test_data"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        "not_assessed"
+      ]
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]{2,6}-[0-9]{4,6}$"
+      },
+      "uniqueItems": true
+    },
+    "claim_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]{2,6}-[0-9]{4,6}$"
+      },
+      "uniqueItems": true
+    },
+    "question_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^RQ-[0-9]{4,6}$"
+      },
+      "uniqueItems": true
+    },
+    "round_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^RR-[0-9]{4,6}$"
+    },
+    "participant_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^P-[0-9]{3,6}$"
+    },
+    "consent_status": {
+      "enum": [
+        "confirmed",
+        "not_applicable_with_rationale",
+        "unknown",
+        "withdrawn"
+      ]
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "context": {
+      "type": "string"
+    },
+    "contains_identifiable_personal_data": {
+      "const": false
+    },
+    "recorded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "consent_rationale": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "finding_id",
+    "finding_type",
+    "summary",
+    "evidence_label",
+    "confidence",
+    "source_ids",
+    "claim_ids",
+    "question_ids",
+    "round_id",
+    "participant_ref",
+    "consent_status",
+    "consent_rationale",
+    "limitations",
+    "context",
+    "contains_identifiable_personal_data",
+    "recorded_at"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "finding_type": {
+            "enum": [
+              "user_statement",
+              "user_observation"
+            ]
+          }
+        },
+        "required": [
+          "finding_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "round_id": {
+            "type": "string",
+            "pattern": "^RR-[0-9]{4,6}$"
+          },
+          "participant_ref": {
+            "type": "string",
+            "pattern": "^P-[0-9]{3,6}$"
+          },
+          "consent_status": {
+            "const": "confirmed"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "consent_status": {
+            "const": "not_applicable_with_rationale"
+          }
+        },
+        "required": [
+          "consent_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "consent_rationale": {
+            "type": "string",
+            "minLength": 12
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "finding_type": {
+            "const": "synthetic_test"
+          }
+        },
+        "required": [
+          "finding_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "evidence_label": {
+            "const": "synthetic_test_data"
+          },
+          "confidence": {
+            "enum": [
+              "not_assessed",
+              "low"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

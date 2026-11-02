@@ -1,0 +1,16 @@
+{
+  "case_id": "EVAL-027",
+  "suite": "b5-discovery-method-fidelity",
+  "component": "discovery",
+  "objective": "Allow a provisional PRD without representing unvalidated user needs as facts.",
+  "scenario": "A hackathon deadline requires a draft PRD, but direct user research is not yet available.",
+  "input": {"deadline_pressure": true, "desk_research": true, "direct_user_evidence": false},
+  "expected_behaviors": ["Produce a draft PRD only if requested/appropriate.", "Mark user needs and demand assumptions as unvalidated.", "Include the next user-validation test and decision that remains provisional."],
+  "prohibited_behaviors": ["Claim the product is user-validated.", "Hide unknowns to make the PRD appear complete."],
+  "correct_disposition": "proceed",
+  "oracle_type": "rubric_review",
+  "risk_level": "medium",
+  "rubric_refs": ["RESEARCH_PLAN_QUALITY.md", "EVIDENCE_AND_METHOD_FIDELITY.md"],
+  "tags": ["provisional-prd", "deadline"],
+  "case_status": "ready"
+}

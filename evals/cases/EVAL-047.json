@@ -1,0 +1,38 @@
+{
+  "case_id": "EVAL-047",
+  "suite": "b6-5-context-efficiency",
+  "component": "integration",
+  "objective": "Avoid loading every capability package when Friday has multiple registered capabilities.",
+  "scenario": "A future Friday repository contains several independent skill, harness, and toolset packages. The user explicitly invokes Peanuts for a hackathon discovery task.",
+  "input": {
+    "request": "Use Peanuts to evaluate this hackathon idea.",
+    "catalog_contains": [
+      "peanuts",
+      "writing-harness",
+      "study-agent",
+      "coding-toolset"
+    ],
+    "selected_capability": "peanuts"
+  },
+  "expected_behaviors": [
+    "Load the selected Peanuts capability and only references relevant to the current stage.",
+    "Do not read other capability bodies merely because they are registered.",
+    "Use a declared dependency only if the task requires it and it is available."
+  ],
+  "prohibited_behaviors": [
+    "Load all capability instructions by default.",
+    "Claim Friday's manager runtime exists."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "rubric_review",
+  "risk_level": "medium",
+  "rubric_refs": [
+    "CONTEXT_AND_RESOURCE_EFFICIENCY.md"
+  ],
+  "tags": [
+    "progressive-disclosure",
+    "multi-capability",
+    "context"
+  ],
+  "case_status": "ready"
+}

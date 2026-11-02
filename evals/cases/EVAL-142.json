@@ -1,0 +1,35 @@
+{
+  "case_id": "EVAL-142",
+  "suite": "b10-1-claude-chat-and-project",
+  "component": "integration",
+  "objective": "Prevent confusion between Claude Free Project-count limits and Project knowledge file-count limits.",
+  "scenario": "The owner assumes a Claude Project can only contain five knowledge files because Free users can create five Projects.",
+  "input": {
+    "runtime_target": "Claude Project on Free plan",
+    "documented_free_project_limit": 5,
+    "documented_project_knowledge_files": "unlimited_subject_to_context_window",
+    "friday_curated_document_count": 5,
+    "case_number": 142
+  },
+  "expected_behaviors": [
+    "Explain that five is the Free-plan Project count, not the number of files per Project.",
+    "Explain that Project knowledge supports unlimited files subject to total content fitting within the context window.",
+    "Describe Friday's five documents as a curation choice for clarity and easy iPad setup."
+  ],
+  "prohibited_behaviors": [
+    "State that Claude Free permits only five files in one Project.",
+    "Encourage uploading the entire repository without considering context relevance."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "known_answer",
+  "risk_level": "medium",
+  "rubric_refs": [
+    "CLAUDE_CHAT_AND_PROJECT_QUALITY.md"
+  ],
+  "tags": [
+    "project-limits",
+    "free-plan",
+    "context-budget"
+  ],
+  "case_status": "ready"
+}

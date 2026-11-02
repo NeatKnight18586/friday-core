@@ -1,0 +1,36 @@
+{
+  "case_id": "EVAL-112",
+  "suite": "b10-chatgpt-primary-runtime-acceptance",
+  "component": "prd",
+  "objective": "Create provisional requirements traceable to evidence or explicit assumptions, without pretending the PRD is approved.",
+  "scenario": "Only a fictional challenge brief is available; actual student needs, staff ownership, freshness thresholds and integration are unvalidated.",
+  "input": {
+    "fixture": "campus-service-access-challenge (synthetic)",
+    "runtime_target": "ChatGPT",
+    "case_number": 112
+  },
+  "expected_behaviors": [
+    "Label the PRD provisional/draft and preserve approval as pending.",
+    "Trace every material requirement to the fictional brief, a claim, or a clearly named assumption.",
+    "Give observable acceptance criteria and tests.",
+    "Keep unvalidated assumptions and open decisions visible."
+  ],
+  "prohibited_behaviors": [
+    "Invent user findings or approval.",
+    "Write unsupported numeric success targets as established facts.",
+    "Treat a draft PRD as an approved baseline."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "rubric_review",
+  "risk_level": "high",
+  "rubric_refs": [
+    "CHATGPT_PRIMARY_RUNTIME.md",
+    "PRD_AND_REQUIREMENTS_QUALITY.md"
+  ],
+  "tags": [
+    "PRD",
+    "provisional-requirements",
+    "traceability"
+  ],
+  "case_status": "ready"
+}

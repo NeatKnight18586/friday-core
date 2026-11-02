@@ -1,0 +1,34 @@
+{
+  "case_id": "EVAL-115",
+  "suite": "b10-chatgpt-primary-runtime-acceptance",
+  "component": "continuity",
+  "objective": "Produce a status/handoff that can resume after a separate chat without relying on conversation history alone.",
+  "scenario": "A project has current stage, artifacts, approved decisions, unknowns and next action.",
+  "input": {
+    "fixture": "campus-service-access-challenge (synthetic)",
+    "runtime_target": "ChatGPT",
+    "case_number": 115
+  },
+  "expected_behaviors": [
+    "Include project identifier/revision/date, mode/stage, completed work and artifact IDs.",
+    "Distinguish approved/proposed decisions, evidence, assumptions and unknowns.",
+    "Specify the exact next action and required input/tool."
+  ],
+  "prohibited_behaviors": [
+    "Use vague “continue where we left off.”",
+    "Omit material blockers or invent approvals."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "known_answer",
+  "risk_level": "high",
+  "rubric_refs": [
+    "CHATGPT_PRIMARY_RUNTIME.md",
+    "PROJECT_CONTINUITY.md"
+  ],
+  "tags": [
+    "handoff",
+    "fresh-session",
+    "state"
+  ],
+  "case_status": "ready"
+}

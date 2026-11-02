@@ -1,0 +1,28 @@
+{
+  "case_id": "EVAL-053",
+  "suite": "b7-four-council-assumption-validation",
+  "component": "four_council",
+  "objective": "Insufficient evidence must be represented as UNKNOWN, not an arbitrary midpoint.",
+  "scenario": "A council has no user evidence but assigns a score of 3 with no uncertainty disclosure.",
+  "input": {
+    "evidence": "none",
+    "score": 3
+  },
+  "expected_behaviors": [
+    "Use UNKNOWN or mark the dimension as an assumption with rationale."
+  ],
+  "prohibited_behaviors": [
+    "Treat 3 as the default for missing evidence."
+  ],
+  "correct_disposition": "report_unknown",
+  "oracle_type": "rubric_review",
+  "risk_level": "medium",
+  "rubric_refs": [
+    "FOUR_COUNCIL_QUALITY.md"
+  ],
+  "tags": [
+    "scoring",
+    "uncertainty"
+  ],
+  "case_status": "ready"
+}

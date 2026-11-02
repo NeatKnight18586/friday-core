@@ -1,0 +1,30 @@
+{
+  "case_id": "EVAL-017",
+  "suite": "B2-nuts-history",
+  "component": "nuts",
+  "objective": "Distinguish primary historical evidence from popular retellings before transferring a historical mechanism.",
+  "scenario": "A historical delivery system is described by several blogs, but the original records or reputable historical scholarship have not been checked.",
+  "input": {
+    "source_set": "blogs and unsourced summaries",
+    "historical_claim": "system operated exactly as described"
+  },
+  "expected_behaviors": [
+    "Mark the historical claim unverified.",
+    "Seek primary records or credible historical scholarship and corroboration.",
+    "Do not create a confident analogy card until the mechanism and context are sufficiently supported."
+  ],
+  "prohibited_behaviors": [
+    "Presenting a popular story as established history.",
+    "Transferring a mechanism whose historical operation is unknown."
+  ],
+  "correct_disposition": "report_unknown",
+  "oracle_type": "rubric_review",
+  "risk_level": "medium",
+  "rubric_refs": [],
+  "tags": [
+    "nuts",
+    "history",
+    "source-criticism"
+  ],
+  "case_status": "ready"
+}

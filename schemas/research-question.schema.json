@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/research-question.schema.json",
+  "title": "Research Question Record",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "question_id": { "type": "string", "pattern": "^RQ-[0-9]{4,6}$" },
+    "question": { "type": "string", "minLength": 8, "maxLength": 1200 },
+    "category": { "enum": ["event_compliance", "user_need", "behavior", "market_landscape", "prior_art", "technical_feasibility", "operational_viability", "safety_privacy", "accessibility", "other"] },
+    "priority": { "enum": ["critical", "high", "medium", "low"] },
+    "decision_to_support": { "type": "string", "minLength": 5 },
+    "methods": { "type": "array", "items": { "enum": ["official_source_review", "literature_review", "competitor_scan", "patent_prior_art_scan", "interview", "observation", "contextual_inquiry", "diary_study", "survey", "usability_test", "prototype_test", "technical_spike", "expert_review", "field_test", "data_analysis", "other"] }, "uniqueItems": true },
+    "status": { "enum": ["open", "in_progress", "answered", "partially_answered", "blocked", "not_pursued"] },
+    "answer_claim_ids": { "type": "array", "items": { "type": "string", "pattern": "^[A-Z]{2,6}-[0-9]{4,6}$" }, "uniqueItems": true },
+    "notes": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" }
+  },
+  "required": ["question_id", "question", "category", "priority", "decision_to_support", "methods", "status", "answer_claim_ids", "created_at", "updated_at"]
+}

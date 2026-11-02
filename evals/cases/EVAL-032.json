@@ -1,0 +1,33 @@
+{
+  "case_id": "EVAL-032",
+  "suite": "b6-nuts-innovation",
+  "component": "nuts",
+  "objective": "Prefer a sourced relational analogy over a visual metaphor.",
+  "scenario": "A credible source documents a mechanism; the candidate maps a connected relationship system to a target function with explicit mismatches.",
+  "input": {
+    "source_accuracy": "partially_verified",
+    "relational_mapping": "adequate",
+    "mismatch_analysis": true,
+    "test_plan": true
+  },
+  "expected_behaviors": [
+    "Describe source-target relationships.",
+    "State context mismatches.",
+    "Keep transfer as a hypothesis requiring a test."
+  ],
+  "prohibited_behaviors": [
+    "Claim the transfer is proven or original."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "rubric_review",
+  "risk_level": "medium",
+  "rubric_refs": [
+    "NUTS_ANALOGY_QUALITY.md"
+  ],
+  "tags": [
+    "nuts",
+    "analogy",
+    "cross-domain"
+  ],
+  "case_status": "ready"
+}

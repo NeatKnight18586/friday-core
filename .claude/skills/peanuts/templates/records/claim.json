@@ -1,0 +1,16 @@
+{
+  "claim_id": "CLM-0001",
+  "statement": "The synthetic event requires a working prototype at submission.",
+  "claim_type": "factual",
+  "origin_type": "source",
+  "source_ids": [
+    "SRC-0001"
+  ],
+  "evidence_status": "supported",
+  "confidence": "high",
+  "evidence_summary": "Example claim supported by the synthetic official source.",
+  "counterevidence": [],
+  "decision_relevance": "Affects delivery planning.",
+  "last_verified_at": "2026-10-31T00:00:00Z",
+  "supersedes_claim_id": null
+}

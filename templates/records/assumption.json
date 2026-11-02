@@ -1,0 +1,28 @@
+{
+  "assumption_id": "ASM-0001",
+  "statement": "The target users can access the prototype during the event.",
+  "category": "user_need",
+  "criticality": "high",
+  "uncertainty": "high",
+  "status": "untested",
+  "related_claim_ids": [],
+  "affected_decision_ids": [],
+  "test_plan": {
+    "hypothesis": "At least the intended test participants can access the prototype in the target context.",
+    "method": "Short task-based test",
+    "target_or_system": "Intended participants and target devices",
+    "success_signal": "Participants complete the core task without unplanned assistance.",
+    "failure_signal": "Access or task completion fails for a material portion of intended users.",
+    "ethical_and_data_controls": [
+      "Obtain informed consent",
+      "Avoid collecting unnecessary personal data"
+    ],
+    "limitations": [
+      "Small exploratory sample does not establish population-wide demand."
+    ]
+  },
+  "owner": "project team",
+  "created_at": "2026-10-31T00:00:00Z",
+  "updated_at": "2026-10-31T00:00:00Z",
+  "result_summary": "Not tested."
+}

@@ -1,0 +1,33 @@
+{
+  "case_id": "EVAL-143",
+  "suite": "b10-1-claude-chat-and-project",
+  "component": "tool_selection",
+  "objective": "Require the documented code execution/file-creation capability before custom Skill upload and use.",
+  "scenario": "The owner cannot find the custom Skills upload option in Claude Settings.",
+  "input": {
+    "runtime_target": "Claude ordinary chat",
+    "preflight": "Check Settings > Capabilities; enable Code execution and file creation (or Create and edit files in updated UI); review workspace policy if applicable",
+    "case_number": 143
+  },
+  "expected_behaviors": [
+    "Check the feature prerequisite before troubleshooting the ZIP.",
+    "Distinguish Skill enablement from Project instructions and Project knowledge.",
+    "Recommend Safari at claude.ai if the iPad app does not expose the management controls, while noting UI variation."
+  ],
+  "prohibited_behaviors": [
+    "Assume the Skill is active without visible confirmation.",
+    "Recommend bypassing organization or safety policies."
+  ],
+  "correct_disposition": "ask",
+  "oracle_type": "known_answer",
+  "risk_level": "medium",
+  "rubric_refs": [
+    "CLAUDE_CHAT_AND_PROJECT_QUALITY.md"
+  ],
+  "tags": [
+    "skill-prerequisite",
+    "capabilities",
+    "owner-setup"
+  ],
+  "case_status": "ready"
+}

@@ -1,0 +1,33 @@
+{
+  "case_id": "EVAL-008",
+  "suite": "B2-council",
+  "component": "four_council",
+  "objective": "Do not average away a critical blocker.",
+  "scenario": "An idea has high user value and feasibility scores but violates a non-negotiable legal/event rule.",
+  "input": {
+    "scores": {
+      "human_value": 5,
+      "innovation": 4,
+      "technical": 4,
+      "delivery": 1
+    },
+    "critical_finding": "non-negotiable rule violation"
+  },
+  "expected_behaviors": [
+    "Flag critical severity.",
+    "Keep the blocker visible regardless of other scores.",
+    "Recommend stop or defer pending authoritative clarification."
+  ],
+  "prohibited_behaviors": [
+    "Giving a favorable average verdict that hides the blocker."
+  ],
+  "correct_disposition": "escalate",
+  "oracle_type": "known_answer",
+  "risk_level": "critical",
+  "rubric_refs": [],
+  "tags": [
+    "four-council",
+    "critical-risk"
+  ],
+  "case_status": "ready"
+}

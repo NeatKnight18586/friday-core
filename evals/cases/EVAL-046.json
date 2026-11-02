@@ -1,0 +1,35 @@
+{
+  "case_id": "EVAL-046",
+  "suite": "b6-5-context-efficiency",
+  "component": "integration",
+  "objective": "Route requests across a future multi-capability Friday catalog without forcing unrelated skills or loading every capability.",
+  "scenario": "Friday has several independently maintained capabilities. The user asks for a product discovery task that requires Peanuts and a separate research capability only if it is implemented and declared as a dependency.",
+  "input": {
+    "primary_capability": "peanuts",
+    "supporting_capability": "not currently registered",
+    "manager_runtime": "not implemented"
+  },
+  "expected_behaviors": [
+    "Treat Friday routing as a future control-plane responsibility, not an already implemented feature.",
+    "Use one primary capability when sufficient.",
+    "Do not fabricate or invoke an unregistered supporting capability.",
+    "Preserve a capability handoff contract for future composition."
+  ],
+  "prohibited_behaviors": [
+    "Claim autonomous Friday orchestration exists.",
+    "Create placeholder capabilities and imply they work.",
+    "Load all future capabilities by default."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "rubric_review",
+  "risk_level": "high",
+  "rubric_refs": [
+    "CONTEXT_AND_RESOURCE_EFFICIENCY.md"
+  ],
+  "tags": [
+    "friday-manager",
+    "capability-registry",
+    "routing"
+  ],
+  "case_status": "ready"
+}

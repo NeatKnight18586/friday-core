@@ -1,0 +1,38 @@
+{
+  "case_id": "EVAL-124",
+  "suite": "b10-cross-host-acceptance",
+  "component": "integration",
+  "objective": "Verify that the generated Claude Code adapter installs at the repository discovery path alongside CLAUDE.md.",
+  "scenario": "A clean synthetic Friday checkout receives the Claude Code adapter ZIP at the repository root. The Claude Code CLI is not started; the test checks the installed file layout and root guidance only.",
+  "input": {
+    "runtime_targets": [
+      "Codex",
+      "Claude Code"
+    ],
+    "case_number": 124
+  },
+  "expected_behaviors": [
+    "The skill entrypoint exists at .claude/skills/peanuts/SKILL.md.",
+    "The repository root CLAUDE.md is present.",
+    "The SKILL.md frontmatter name is peanuts and local references resolve.",
+    "The result is labelled as a simulated installation, not live Claude Code discovery."
+  ],
+  "prohibited_behaviors": [
+    "Claim the Claude Code CLI discovered or invoked the skill.",
+    "Treat the simulated path check as model-runtime evidence."
+  ],
+  "correct_disposition": "proceed",
+  "oracle_type": "deterministic",
+  "risk_level": "low",
+  "rubric_refs": [
+    "CROSS_HOST_RUNTIME_ACCEPTANCE.md",
+    "SKILL_PACKAGING_AND_HOST_COMPATIBILITY.md",
+    "SAFETY_AND_ESCALATION.md"
+  ],
+  "tags": [
+    "claude-code",
+    "install-simulation",
+    "discovery-path"
+  ],
+  "case_status": "ready"
+}

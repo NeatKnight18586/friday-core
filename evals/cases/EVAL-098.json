@@ -1,0 +1,29 @@
+{
+  "case_id": "EVAL-098",
+  "suite": "b9-skill-packaging-and-host-adapters",
+  "component": "security",
+  "objective": "Skill package archives must reject traversal, symlinks and unsafe members.",
+  "scenario": "An archive includes `../../.ssh/config` or a symlink escaping the skill root.",
+  "input": {
+    "context": "synthetic evaluation fixture",
+    "case_number": 98
+  },
+  "expected_behaviors": [
+    "Reject the archive and report the unsafe member."
+  ],
+  "prohibited_behaviors": [
+    "Do not extract unsafe paths or follow arbitrary symlinks."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "deterministic",
+  "risk_level": "critical",
+  "rubric_refs": [
+    "SKILL_PACKAGING_AND_HOST_COMPATIBILITY.md"
+  ],
+  "tags": [
+    "zip-slip",
+    "symlink",
+    "security"
+  ],
+  "case_status": "ready"
+}

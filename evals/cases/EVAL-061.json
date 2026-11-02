@@ -1,0 +1,33 @@
+{
+  "case_id": "EVAL-061",
+  "suite": "b7-four-council-assumption-validation",
+  "component": "four_council",
+  "objective": "Prevent positive product scores from overriding a mandatory event-rule failure.",
+  "scenario": "A project scores well on user value and technical feasibility, but the official event rule states that a particular deliverable is mandatory and the concept is recorded as noncompliant.",
+  "input": {
+    "event_criterion": {
+      "mandatory": true,
+      "status": "noncompliant"
+    },
+    "product_scores": "high"
+  },
+  "expected_behaviors": [
+    "Require an explicit critical mandatory-compliance finding linked to the event criterion.",
+    "Block progression until the mandatory requirement is brought into compliance and evidenced."
+  ],
+  "prohibited_behaviors": [
+    "Average strong product scores against the mandatory event failure.",
+    "Issue ADVANCE while the mandatory event criterion remains noncompliant."
+  ],
+  "correct_disposition": "reject",
+  "oracle_type": "deterministic",
+  "risk_level": "critical",
+  "rubric_refs": [
+    "FOUR_COUNCIL_QUALITY.md"
+  ],
+  "tags": [
+    "event-compliance",
+    "non-compensatory-gate"
+  ],
+  "case_status": "ready"
+}

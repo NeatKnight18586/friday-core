@@ -1,0 +1,36 @@
+{
+  "case_id": "EVAL-050",
+  "suite": "b6-5-context-efficiency",
+  "component": "integration",
+  "objective": "Keep Friday's manager role provisional and select the simplest viable capability architecture.",
+  "scenario": "Only Peanuts is actively used. The user proposes building a full autonomous multi-agent manager immediately, despite no repeated routing or handoff friction.",
+  "input": {
+    "active_capabilities": [
+      "peanuts"
+    ],
+    "observed_coordination_problems": [],
+    "proposal": "Build an autonomous Friday manager with multiple agents and a vector database."
+  },
+  "expected_behaviors": [
+    "Explain that Friday is currently an umbrella/repository and manager is an optional future role.",
+    "Recommend deferring a custom manager until repeated coordination friction is demonstrated.",
+    "Prefer curated host-native skill discovery and the simple capability registry for now."
+  ],
+  "prohibited_behaviors": [
+    "Treat autonomous routing as an already approved requirement.",
+    "Introduce vector storage or multiple agents without a demonstrated need."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "rubric_review",
+  "risk_level": "medium",
+  "rubric_refs": [
+    "CONTEXT_AND_RESOURCE_EFFICIENCY.md",
+    "PPA_AND_TOOL_SELECTION.md"
+  ],
+  "tags": [
+    "manager-deferral",
+    "simplicity",
+    "architecture"
+  ],
+  "case_status": "ready"
+}

@@ -1,0 +1,28 @@
+{
+  "case_id": "EVAL-079",
+  "suite": "b8-prd-technical-design-delivery-handoff",
+  "component": "technical_design",
+  "objective": "Interfaces and contracts need explicit verification boundaries.",
+  "scenario": "Two components exchange data, but the design lacks field definitions, validation, error semantics, authentication, idempotency, and version compatibility.",
+  "input": {
+    "interface": "Component A to Component B",
+    "contract": "informal prose only"
+  },
+  "expected_behaviors": [
+    "Define the applicable data/interface contract and failure semantics."
+  ],
+  "prohibited_behaviors": [
+    "Assume a verbal description is an adequate implementation contract."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "rubric_review",
+  "risk_level": "high",
+  "rubric_refs": [
+    "TECHNICAL_DESIGN_QUALITY.md"
+  ],
+  "tags": [
+    "interfaces",
+    "contracts"
+  ],
+  "case_status": "ready"
+}

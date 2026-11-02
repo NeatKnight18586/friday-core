@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/research-plan.schema.json",
+  "title": "Project Research Plan",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "project_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "decision_to_support": { "type": "string", "minLength": 8, "maxLength": 1500 },
+    "desired_outcome": { "type": "string", "minLength": 3, "maxLength": 1500 },
+    "research_objectives": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 5 }, "uniqueItems": true },
+    "research_question_ids": { "type": "array", "items": { "type": "string", "pattern": "^RQ-[0-9]{4,6}$" }, "uniqueItems": true },
+    "research_round_ids": { "type": "array", "items": { "type": "string", "pattern": "^RR-[0-9]{4,6}$" }, "uniqueItems": true },
+    "priority_claim_ids": { "type": "array", "items": { "type": "string", "pattern": "^[A-Z]{2,6}-[0-9]{4,6}$" }, "uniqueItems": true },
+    "scope": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "included_topics": { "type": "array", "items": { "type": "string" } },
+        "excluded_topics": { "type": "array", "items": { "type": "string" } },
+        "geography_or_context": { "type": ["string", "null"] },
+        "time_window": { "type": ["string", "null"] }
+      },
+      "required": ["included_topics", "excluded_topics", "geography_or_context", "time_window"]
+    },
+    "source_strategy": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "primary_source_targets": { "type": "array", "items": { "type": "string" } },
+        "discovery_indexes": { "type": "array", "items": { "type": "string" } },
+        "search_themes": { "type": "array", "items": { "type": "string" } },
+        "date_or_version_constraints": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["primary_source_targets", "discovery_indexes", "search_themes", "date_or_version_constraints"]
+    },
+    "methods": {
+      "type": "array", "items": {
+        "enum": ["official_source_review", "literature_review", "competitor_scan", "patent_prior_art_scan", "interview", "observation", "contextual_inquiry", "diary_study", "survey", "usability_test", "prototype_test", "technical_spike", "expert_review", "field_test", "data_analysis", "other"]
+      }, "uniqueItems": true
+    },
+    "timebox": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "budget_hours": { "type": ["number", "null"], "minimum": 0 },
+        "deadline": { "type": ["string", "null"], "format": "date-time" },
+        "priority_mode": { "enum": ["normal", "time_critical", "high_consequence"] }
+      },
+      "required": ["budget_hours", "deadline", "priority_mode"]
+    },
+    "stop_criteria": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 8 } },
+    "user_research_status": { "enum": ["not_needed_for_current_decision", "planned", "ready", "completed", "blocked", "unknown"] },
+    "known_limitations": { "type": "array", "items": { "type": "string" } },
+    "status": { "enum": ["draft", "planned", "active", "paused", "completed", "blocked"] },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" }
+  },
+  "required": ["schema_version", "project_id", "decision_to_support", "desired_outcome", "research_objectives", "research_question_ids", "research_round_ids", "priority_claim_ids", "scope", "source_strategy", "methods", "timebox", "stop_criteria", "user_research_status", "known_limitations", "status", "created_at", "updated_at"]
+}

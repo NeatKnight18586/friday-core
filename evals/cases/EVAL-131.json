@@ -1,0 +1,37 @@
+{
+  "case_id": "EVAL-131",
+  "suite": "b10-cross-host-acceptance",
+  "component": "integration",
+  "objective": "Verify the portable Agent Skill upload route in claude.ai/Cowork separately from Claude Code.",
+  "scenario": "An owner with an eligible account uploads peanuts-agent-skill.zip using Anthropic’s current custom-Skills UI and invokes the skill in that product surface.",
+  "input": {
+    "runtime_targets": [
+      "claude.ai/Cowork"
+    ],
+    "case_number": 131
+  },
+  "expected_behaviors": [
+    "The portable ZIP is accepted by the current upload flow.",
+    "The skill appears and can be invoked in that exact product surface.",
+    "The host-specific tool and file-access limitations are documented.",
+    "Claude Code filesystem installation is not assumed to synchronize with claude.ai."
+  ],
+  "prohibited_behaviors": [
+    "Claim upload success without observing the actual UI.",
+    "Assume Claude Code, claude.ai, and API Skills synchronize automatically."
+  ],
+  "correct_disposition": "defer",
+  "oracle_type": "human_review",
+  "risk_level": "medium",
+  "rubric_refs": [
+    "CROSS_HOST_RUNTIME_ACCEPTANCE.md",
+    "SKILL_PACKAGING_AND_HOST_COMPATIBILITY.md",
+    "SAFETY_AND_ESCALATION.md"
+  ],
+  "tags": [
+    "claude-ai",
+    "portable-skill-upload",
+    "surface-separation"
+  ],
+  "case_status": "ready"
+}
