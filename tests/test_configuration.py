@@ -76,3 +76,42 @@ def test_development_requirements_use_exact_version_snapshot() -> None:
     assert all("==" in line and not line.startswith(("-", ".")) for line in entries)
     normalized = {line.split("==", 1)[0].lower().replace("_", "-") for line in entries}
     assert {"jsonschema", "pytest", "pyyaml", "ruff"}.issubset(normalized)
+
+
+def test_windows_style_git_checkout_preserves_source_bytes(tmp_path) -> None:
+    """Exercise checkout conversion, including files without a covered extension."""
+    import os
+    import shutil
+    import subprocess
+
+    import pytest
+
+    if shutil.which("git") is None:
+        pytest.skip("Git is required for the checkout conversion regression")
+    source = tmp_path / "source"
+    checkout = tmp_path / "checkout"
+    source.mkdir()
+    names = [
+        ".gitattributes", ".editorconfig", ".gitignore", ".python-version", "LICENSE",
+        "evals/results/results.jsonl",
+        "examples/vertical-slice-synthetic/campus-service-status/records/claims.jsonl",
+        "templates/project/records/analogies.jsonl", "templates/project/records/nuts-runs.jsonl",
+    ]
+    expected = {name: (ROOT / name).read_bytes() for name in names}
+    expected["asset.png"] = b"\x89PNG\r\n\x00binary\n"
+    for name, payload in expected.items():
+        path = source / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(payload)
+    env = {**os.environ, "GIT_CONFIG_NOSYSTEM": "1", "GIT_CONFIG_GLOBAL": os.devnull}
+
+    def git(*args):
+        subprocess.run(["git", *args], cwd=source, env=env, check=True,
+                       capture_output=True, encoding="utf-8")
+
+    git("init", "--quiet")
+    git("-c", "core.autocrlf=false", "add", "-f", ".")
+    git("-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid",
+        "-c", "commit.gpgsign=false", "commit", "--quiet", "-m", "Checkout fixture")
+    git("-c", "core.autocrlf=true", "clone", "--quiet", "--no-local", str(source), str(checkout))
+    assert {name: (checkout / name).read_bytes() for name in expected} == expected

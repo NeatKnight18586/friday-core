@@ -1,3 +1,14 @@
+## [0.15.0-rc.3] - 2026-11-02 — Windows verification fixes
+
+### Fixed
+- Kept LF line endings for extensionless files and JSONL records during Windows checkout so manifest hashes remain valid.
+- Used explicit UTF-8 for remaining test file reads/writes, avoiding Windows locale-dependent decoding.
+- Pinned pytest's Windows-only colorama dependency.
+
+### Validation
+- Added a real Git checkout regression with core.autocrlf=true; it fails with the original attributes and passes with the correction.
+- Retained manifest/hash and method assertions; no checks were weakened. Hosted matrix results are recorded per commit in GitHub Actions.
+
 ## [0.15.0-rc.2] - 2026-11-02 — Clean source publication
 
 ### Changed

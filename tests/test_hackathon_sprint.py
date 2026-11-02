@@ -10,15 +10,15 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_method_is_event_triggered_not_a_new_universal_stage():
-    skill = (ROOT / "skills/peanuts/SKILL.md").read_text()
+    skill = (ROOT / "skills/peanuts/SKILL.md").read_text(encoding="utf-8")
     assert "hackathon-sprint.md" in skill
     assert "optional P1–P6" in skill
     assert "not a universal default" in skill
-    assert "P1–P10" in (ROOT / "docs/methods/HACKATHON_OPPORTUNITY_SPRINT.md").read_text()
+    assert "P1–P10" in (ROOT / "docs/methods/HACKATHON_OPPORTUNITY_SPRINT.md").read_text(encoding="utf-8")
 
 
 def test_hard_gates_and_no_false_sponsor_scoring():
-    method = (ROOT / "docs/methods/HACKATHON_OPPORTUNITY_SPRINT.md").read_text()
+    method = (ROOT / "docs/methods/HACKATHON_OPPORTUNITY_SPRINT.md").read_text(encoding="utf-8")
     for phrase in ("official", "hard gates", "three", "consent", "NOT CHECKED", "NO_USEFUL_ANALOGY", "fallback"):
         assert phrase.lower() in method.lower()
     assert "fit × wow × buildability" in method
@@ -42,15 +42,15 @@ def test_chatgpt_and_claude_project_include_method_from_same_source():
 
 
 def test_token_honesty_and_no_force_nuts():
-    context = (ROOT / "skills/peanuts/references/context-efficiency.md").read_text()
-    method = (ROOT / "skills/peanuts/references/hackathon-sprint.md").read_text()
+    context = (ROOT / "skills/peanuts/references/context-efficiency.md").read_text(encoding="utf-8")
+    method = (ROOT / "skills/peanuts/references/hackathon-sprint.md").read_text(encoding="utf-8")
     assert "Exact tokens/cost only when actually exposed" in context
     assert "NO_USEFUL_ANALOGY" in method
     assert "never" in context.lower()
 
 
 def test_owner_live_gate_is_not_pretended_completed():
-    checklist = (ROOT / "docs/acceptance/B10_1_C_OWNER_SMOKE_AND_COST_LOG.md").read_text()
+    checklist = (ROOT / "docs/acceptance/B10_1_C_OWNER_SMOKE_AND_COST_LOG.md").read_text(encoding="utf-8")
     assert "Owner action required" in checklist
     assert "NOT AVAILABLE" in checklist
     assert "READY_FOR_CLAUDE_CHAT_MANUAL_USE" in checklist
@@ -58,6 +58,6 @@ def test_owner_live_gate_is_not_pretended_completed():
 
 
 def test_new_shortlist_template_does_not_pretend_validated():
-    template = (ROOT / "skills/peanuts/assets/templates/hackathon-shortlist.md").read_text()
+    template = (ROOT / "skills/peanuts/assets/templates/hackathon-shortlist.md").read_text(encoding="utf-8")
     for phrase in ("provisional", "UNKNOWN", "owner approval: pending", "What wasn't checked"):
         assert phrase.lower() in template.lower()

@@ -15,7 +15,7 @@ except ImportError:  # Support direct execution as `python tools/update_manifest
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "PACKAGE_MANIFEST.json"
-DEFAULT_VERSION = "0.15.0-rc.2"
+DEFAULT_VERSION = "0.15.0-rc.3"
 DEFAULT_MILESTONE = "Stage 2 — Minimal manager and CI/host preflight"
 DEFAULT_STATUS = (
     "STAGE_2_CHECKPOINT: public-release preparation with a provider-neutral canonical Peanuts core. "

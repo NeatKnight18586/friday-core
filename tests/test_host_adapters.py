@@ -34,7 +34,7 @@ def test_simulated_installs_report_runtime_not_run(tmp_path: Path) -> None:
             host=host,
         )
         assert errors == []
-        record = json.loads((fixture / f"{host}-INSTALL-SIMULATION-PASS.json").read_text())
+        record = json.loads((fixture / f"{host}-INSTALL-SIMULATION-PASS.json").read_text(encoding="utf-8"))
         assert record["result"].startswith("PASS")
         assert record["runtime_claim"].startswith("NOT RUN")
 

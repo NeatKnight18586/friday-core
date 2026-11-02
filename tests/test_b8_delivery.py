@@ -617,7 +617,7 @@ def test_new_project_initializes_and_validates_b8_workspace(tmp_path: Path) -> N
     assert (project / "TECHNICAL_DESIGN.md").is_file()
     assert (project / "BUILD_PLAN.md").is_file()
     assert (project / "DEMO_PLAN.md").is_file()
-    assert len((project / "records/artifacts.jsonl").read_text().splitlines()) == 6
+    assert len((project / "records/artifacts.jsonl").read_text(encoding="utf-8").splitlines()) == 6
     checked = subprocess.run(
         [sys.executable, str(ROOT / "tools/validate_project.py"), str(project)],
         cwd=ROOT, capture_output=True, text=True, check=False,

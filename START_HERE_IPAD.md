@@ -1,6 +1,6 @@
 # Start here — iPad and source checkpoint
 
-**Release:** 0.15.0-rc.2 · Stage 2. **Purpose:** prepare a public, provider-neutral capability manager; Peanuts is the current prototype. The read-only selector/intake helper and manual manager adapter are implemented; actual host behavior remains separately gated. The main branch is the source development branch; [Actions](https://github.com/NeatKnight18586/friday-core/actions/workflows/ci.yml) shows checks for each uploaded commit.
+**Release:** 0.15.0-rc.3 · Stage 2. **Purpose:** prepare a public, provider-neutral capability manager; Peanuts is the current prototype. The read-only selector/intake helper and manual manager adapter are implemented; actual host behavior remains separately gated. The main branch is the source development branch; [Actions](https://github.com/NeatKnight18586/friday-core/actions/workflows/ci.yml) shows checks for each uploaded commit.
 
 To use Friday in a consumer chat, attach the generated `Friday-Manager.txt` alongside the selected capability route. It contains instructions/catalog/contracts, not the Peanuts method files or an executable native manager. If Peanuts is missing, Friday must report the missing package.
 

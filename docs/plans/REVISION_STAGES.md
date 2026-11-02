@@ -1,6 +1,6 @@
 # Friday revision stages
 
-**Current checkpoint:** 0.15.0-rc.2, Stage 2. **Authority:** ADR-046–048 in [current decisions](../architecture/DECISIONS.md). These stages supersede conflicting historical host priorities and optional-manager directions in the [build roadmap](BUILD_ROADMAP.md).
+**Current checkpoint:** 0.15.0-rc.3, Stage 2. **Authority:** ADR-046–048 in [current decisions](../architecture/DECISIONS.md). These stages supersede conflicting historical host priorities and optional-manager directions in the [build roadmap](BUILD_ROADMAP.md).
 
 | Stage | Scope | Exit gate |
 |---|---|---|

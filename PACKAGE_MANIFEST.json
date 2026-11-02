@@ -1,6 +1,6 @@
 {
   "project": "Friday / Peanuts",
-  "version": "0.15.0-rc.2",
+  "version": "0.15.0-rc.3",
   "milestone": "Stage 2 — Minimal manager and CI/host preflight",
   "status": "STAGE_2_CHECKPOINT: public-release preparation with a provider-neutral canonical Peanuts core. Read-only Friday selection/intake and a manual manager adapter are implemented; no autonomous execution. Deterministic verification evidence is in RELEASE_VERIFICATION.md. Live host acceptance, method effectiveness, and measured savings remain unverified. Hosted CI status is recorded per commit in GitHub Actions. Existing MIT license preserved; owner selected friday-core for clean source publication; third-party rights and public-release acceptance remain pending; no universal compatibility claim.",
   "generated_date": "2026-11-02",
@@ -1088,8 +1088,8 @@
     },
     {
       "path": ".gitattributes",
-      "bytes": 286,
-      "sha256": "793220c70d11f894b301a060455fdea0a21866aa93c3fabcf3b14ed75848c29b"
+      "bytes": 293,
+      "sha256": "9018189e794cd2462aa441fe0022e30d7cd160ad966da180a8e8304cec6feb2a"
     },
     {
       "path": ".github/dependabot.yml",
@@ -1118,8 +1118,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 27549,
-      "sha256": "046632d23b6de68576b49e6f426c707b29861c1adf0a80190daad065488cd92b"
+      "bytes": 28188,
+      "sha256": "197e6a3c40de654f6832504a7b541dcd7f4e4c453e45e2025484c04e4dd9fd00"
     },
     {
       "path": "CLAUDE.md",
@@ -1144,22 +1144,22 @@
     {
       "path": "README.md",
       "bytes": 6414,
-      "sha256": "37b853b28b56c0dff076e9ed1e0102ff0371def16a799076e6735c87c8bcefff"
+      "sha256": "40c72892791997295634d10eb7682e70c230a3a278aca98204d6aeaed42c9e7a"
     },
     {
       "path": "RELEASE_STATUS.md",
       "bytes": 2659,
-      "sha256": "dd14440bba39ad303c0fac66f195c20b5a54258e964c775d4164c78408bb30bf"
+      "sha256": "0628a3aa3980bcc833e5969fab2a4950e1fc0372b161b741bc6815386efa3d5a"
     },
     {
       "path": "RELEASE_VERIFICATION.md",
-      "bytes": 4031,
-      "sha256": "33ea075750ffc0e435b6e81e14640f477ac72580e5a1cff6cfeb96c976867198"
+      "bytes": 5758,
+      "sha256": "4e3d27769d82e7d6937dc626cc176419c1d820a9d20df07bde357212e0c4fa73"
     },
     {
       "path": "START_HERE_IPAD.md",
       "bytes": 4826,
-      "sha256": "290b624604f724a5eed8e182ba7dff0cb0c6f4b17dca95ceaea5a2dc3adafb74"
+      "sha256": "e2cf3e9b0486eb453f7b380d86c008d2544684f1d7165bc093914abee5b99014"
     },
     {
       "path": "adapters/chatgpt/PROJECT_INSTRUCTIONS.md",
@@ -1479,7 +1479,7 @@
     {
       "path": "docs/plans/REVISION_STAGES.md",
       "bytes": 3267,
-      "sha256": "337617f32f3f54747a1200ebb6e4dd81b63c9962391804ef4a6af1f91e0e4bdf"
+      "sha256": "d1783fff633689828e52b01ba539fd3b4f704be6178d3881a04ade1945aa6c84"
     },
     {
       "path": "docs/product/PEANUTS_CONSTITUTION.md",
@@ -2523,8 +2523,8 @@
     },
     {
       "path": "requirements-dev.txt",
-      "bytes": 459,
-      "sha256": "9e88845fc1773bacb1890c7bf9db3e4c7bf1981e5aadc9fb0b8834575d29b221"
+      "bytes": 475,
+      "sha256": "a3d30760f11166757f6d0bb545a17bdd888ea228452bf245d065cfb66c8d17a7"
     },
     {
       "path": "schemas/README.md",
@@ -3078,8 +3078,8 @@
     },
     {
       "path": "tests/test_b8_delivery.py",
-      "bytes": 44590,
-      "sha256": "0e2c1c042d12f69c70489263057f330a6316092b9917e1a324150f74b0251379"
+      "bytes": 44606,
+      "sha256": "518548e48280cb2833f673c9691757cc678b96a288673d6b3f1dbaa796359d5f"
     },
     {
       "path": "tests/test_b9_packaging.py",
@@ -3088,8 +3088,8 @@
     },
     {
       "path": "tests/test_capability_manager.py",
-      "bytes": 11979,
-      "sha256": "03c58f3fadaebc467a117e88ec53f18c763e1ad04aad7ac651b9f0897bae4677"
+      "bytes": 12115,
+      "sha256": "3f5d0684dee9aefe9a03f6a22ce4f1dd7efa181d59eec64c714fc4a78adc9b07"
     },
     {
       "path": "tests/test_claude_chat_companion.py",
@@ -3098,8 +3098,8 @@
     },
     {
       "path": "tests/test_configuration.py",
-      "bytes": 3317,
-      "sha256": "1282969549fbf2a9ba9a5c76d7c6b04377be691432d41148eb74ca02b03aed6a"
+      "bytes": 5044,
+      "sha256": "49e5f31ffb73fdf006ae71163eb1d05c8c03ea1ac95f066623ff278b52016432"
     },
     {
       "path": "tests/test_context_architecture.py",
@@ -3108,13 +3108,13 @@
     },
     {
       "path": "tests/test_hackathon_sprint.py",
-      "bytes": 3142,
-      "sha256": "af0a94adfb1cb873de4b56f6a62cb63467d8963b92b8ca7e56ef4d374eb99ef6"
+      "bytes": 3254,
+      "sha256": "42566c2d212a34ad5dc5fd5ea978dfafce0d6704483025b4fc24db5e2e1dd0b3"
     },
     {
       "path": "tests/test_host_adapters.py",
-      "bytes": 6691,
-      "sha256": "6fd584598e90d6d67995700b37780101c3eec1d1982e355410e8285190d28232"
+      "bytes": 6707,
+      "sha256": "5aa651aba22002fa695ebf0fd0f1758bbad66fcfec9b35473a856332cc031590"
     },
     {
       "path": "tests/test_host_entrypoints_checked_in.py",
@@ -3219,7 +3219,7 @@
     {
       "path": "tools/update_manifest.py",
       "bytes": 2901,
-      "sha256": "4bb9b6999e9e0bc698d43c6620dac8ab1fb96bf53ce7f71c22ce6407986a7a35"
+      "sha256": "cd09178200f7d005e8e90a4b33eca5967cdb169faa74c8f7cb2d148ff586ab34"
     },
     {
       "path": "tools/validate_b10.py",

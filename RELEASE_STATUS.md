@@ -1,6 +1,6 @@
 # Friday / Peanuts — Release Status
 
-**Version:** 0.15.0-rc.2  
+**Version:** 0.15.0-rc.3  
 **Release class:** `STAGE_2_CHECKPOINT` — minimal capability selection/intake and CI/host preflight.  
 **Intended audience:** people building projects and reusable AI capabilities across supported hosts, including iPad users.
 

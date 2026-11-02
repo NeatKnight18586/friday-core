@@ -2,7 +2,7 @@
 
 A portable capability manager in development, with **Peanuts** as its first project-discovery and planning capability.
 
-**Checkpoint:** `0.15.0-rc.2` · Stage 2 · Public-release preparation. Friday now provides a read-only capability selector and dry-run intake helper, portable host-mediated manager instructions, a capability catalog, records, packaging and validation. Peanuts is an installable prototype whose live behavior still needs testing on each target host.
+**Checkpoint:** `0.15.0-rc.3` · Stage 2 · Public-release preparation. Friday now provides a read-only capability selector and dry-run intake helper, portable host-mediated manager instructions, a capability catalog, records, packaging and validation. Peanuts is an installable prototype whose live behavior still needs testing on each target host.
 
 ## Use Friday to select or add capabilities
 
