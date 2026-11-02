@@ -1,24 +1,21 @@
-# Release verification — Friday 0.15.0-rc.3
+# Release verification — Friday 0.16.0-rc.1
 
-**Classification:** `STAGE_2_CHECKPOINT` — read-only manager selection/intake, portable manual adapter and early CI/host preflight.  
+**Classification:** `STAGE_3_CHECKPOINT` — selective skill context, Fast compatibility and portable planning handoff.  
 **Date:** 2026-11-02. **Managed environment:** Linux / Python 3.12.14.
 
 ## Observed local verification
 
-An actual complete `python tools/verify.py` run passed after Stage 2 implementation: **226 tests at the initial Stage 2 baseline**, **14 validator steps**, Python compilation, test-module coverage and Ruff. The manager adds 30 cases; all previous 196 tests remain. The Windows checkout regression brings the current suite to **227 tests**. Final archive runs, clean-container outcomes, exact source SHA-256, resolved image digests and blocked CLI evidence are recorded in the external checkpoint kit's machine-readable results and logs. These artifacts are evidence only for the exact commands/environments they name.
+An actual complete Stage 3 `python tools/verify.py` run passed **258 tests**, **15 validator steps**, Python compilation, configured test-module coverage and Ruff. This retains the previous 227 tests and adds 31 portable planning cases. The canonical skill entrypoint changed from 1,949 to 831 words (14,955 to 6,581 characters); those are whitespace word/character measurements, not token or quality results.
 
 | Check | Evidence scope |
 |---|---|
-| Initial managed Linux verifier | PASS: 226 baseline tests, 14 validators, Ruff; current suite adds the Windows checkout regression |
-| Manager contracts, metadata-only manual export and read-only selection/intake | PASS: deterministic helper tests; actual host/model behavior remains separate |
-| Generated host snapshots and consumer upload packages | Canonical parity, package/resource closure, safe layout and deterministic-build checks |
-| Workflow syntax/expressions | PASS: actionlint 1.7.12, upstream release checksum verified |
-| Pinned GitHub Action commits | PASS: both commit SHAs resolve upstream |
-| Clean offline Linux Python 3.11–3.14 installations/full verification | Version-specific verified-download wheel sets, offline installs, exact outcomes and image digests in delivery evidence; not GitHub-hosted CI |
-| Actual Codex CLI Peanuts smoke attempt | BLOCKED: unrefreshable authentication token/401 before model completion |
-| Actual Claude Code/consumer activation and configured ChatGPT Project recovery | NOT RUN |
-| GitHub-hosted Ubuntu/macOS/Windows, Python 3.11–3.14 | PASS: all 12 jobs at `10bbd13`; [hosted run](https://github.com/NeatKnight18586/friday-core/actions/runs/41419736151). Current-commit results remain visible in Actions |
-| Independent user usefulness, NUTS/Four-Council advantage, credit/token savings | NOT ESTABLISHED |
+| Complete local Stage 3 verifier | PASS: 258 tests, 15 validators, Ruff |
+| Compact planning | PASS: two-file initialization, integrity/traceability gates and fresh-process recovery; not actual model behavior |
+| Generated host/consumer resources | Source parity/resource closure and deterministic package checks; ChatGPT remains five reference files |
+| Hosted Stage 2 Windows fix | PASS: all 12 jobs at `10bbd13`; [run](https://github.com/NeatKnight18586/friday-core/actions/runs/41419736151) |
+| Stage 3 hosted OS/Python matrix | Commit-specific results in [Actions](https://github.com/NeatKnight18586/friday-core/actions/workflows/ci.yml); local success alone is insufficient |
+| Actual Codex CLI/model and configured consumer recovery | Not established by Stage 3 structural tests; prior Codex attempt was authentication-blocked |
+| Independent usefulness, method advantage, token/credit savings | NOT ESTABLISHED |
 
 The Stage 1 count correction remains: the original full lint diagnostics contained 21 findings, not the initial truncated-output count of nine. Stage 1 fixed them without weakening lint. Historical evaluation records retain their original scope; no new consumer/model pass is inferred here.
 
@@ -29,10 +26,11 @@ python -m pip install -r requirements-dev.txt
 python tools/sync_host_entrypoints.py --check
 python tools/update_manifest.py --check
 python tools/verify.py
+python tools/handoff.py examples/planning-handoff/fast --resume
 python tools/build_manager_adapter.py --out build/manager
 python tools/build_skill_packages.py --out build/skill-packages
 python tools/build_claude_chat_companion.py --out build/claude-chat
-python tools/package_release.py --output build/Friday-Stage-2-Source.zip
+python tools/package_release.py --output build/Friday-Stage-3-Source.zip
 ```
 
 For canonical changes, regenerate with `python tools/sync_host_entrypoints.py --sync`, then update the manifest before checking it. Build the source ZIP twice and compare bytes; extract into a fresh directory and run full verification. The source manifest excludes itself and private/build/cache data; external checksums cover the archive without self-reference. Heuristic secret scans do not prove absence of every sensitive item.

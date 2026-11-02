@@ -15,11 +15,11 @@ except ImportError:  # Support direct execution as `python tools/update_manifest
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "PACKAGE_MANIFEST.json"
-DEFAULT_VERSION = "0.15.0-rc.3"
-DEFAULT_MILESTONE = "Stage 2 — Minimal manager and CI/host preflight"
+DEFAULT_VERSION = "0.16.0-rc.1"
+DEFAULT_MILESTONE = "Stage 3 — Selective Peanuts context and portable planning handoff"
 DEFAULT_STATUS = (
-    "STAGE_2_CHECKPOINT: public-release preparation with a provider-neutral canonical Peanuts core. "
-    "Read-only Friday selection/intake and a manual manager adapter are implemented; no autonomous execution. "
+    "STAGE_3_CHECKPOINT: public-release preparation with a provider-neutral canonical Peanuts core. "
+    "Read-only Friday management, Fast/quick compatibility and compact planning handoff are implemented; no autonomous execution. "
     "Deterministic verification evidence is in RELEASE_VERIFICATION.md. "
     "Live host acceptance, method effectiveness, and measured savings remain unverified. Hosted CI status is recorded per commit in GitHub Actions. "
     "Existing MIT license preserved; owner selected friday-core for clean source publication; third-party rights and public-release acceptance remain pending; no universal compatibility claim."

@@ -2,7 +2,7 @@
 
 A portable capability manager in development, with **Peanuts** as its first project-discovery and planning capability.
 
-**Checkpoint:** `0.15.0-rc.3` · Stage 2 · Public-release preparation. Friday now provides a read-only capability selector and dry-run intake helper, portable host-mediated manager instructions, a capability catalog, records, packaging and validation. Peanuts is an installable prototype whose live behavior still needs testing on each target host.
+**Checkpoint:** `0.16.0-rc.1` · Stage 3 · Public-release preparation. Friday now provides a read-only capability selector and dry-run intake helper, portable host-mediated manager instructions, a capability catalog, records, packaging and validation. Peanuts is an installable prototype whose live behavior still needs testing on each target host.
 
 ## Use Friday to select or add capabilities
 
@@ -20,7 +20,7 @@ The grant flag reports authorization already given; it grants no system access. 
 
 Start with an idea, a problem, an existing project, or a hackathon. Peanuts guides evidence-led research, user/problem discovery, selective inspiration from nature/history/other domains, concept comparison, Four-Council critique, assumption testing, and a documented handoff for building.
 
-NUTS (“Nothing New Under the Sun”) studies and transforms existing mechanisms with attribution. NUTS and Four-Council are experimental methods; they do not guarantee novelty, validated demand, or competition wins. Quick/Standard/Deep guide work depth, with Standard as the default. A Fast display name/alias is planned for Stage 3; the current identifier is `quick`.
+NUTS (“Nothing New Under the Sun”) studies and transforms existing mechanisms with attribution. NUTS and Four-Council are experimental methods; they do not guarantee novelty, validated demand, or competition wins. Fast/Standard/Deep guide work depth, with Standard as the default. Both `fast` and legacy `quick` select Fast; stored mode IDs remain `quick` for compatibility.
 
 ## Try the prototype
 
@@ -41,6 +41,17 @@ After setup, an example request is:
 > Use Peanuts in standard mode. Help me identify a project worth building for this event: [official event URL]. Check the rules and affected users, compare a few options, and recommend a feasible demo. Mark assumptions and give me a resumable handoff.
 
 This is a usage prompt, not a recorded success. If research tools are unavailable, Peanuts must disclose that and provide a research plan or work from supplied sources. A [synthetic end-to-end fixture](examples/vertical-slice-synthetic/campus-service-status/README.md) demonstrates the record format; it is not user validation.
+
+## Save a compact planning handoff
+
+For early planning, use two files: a readable `PROJECT_DOSSIER.md` and portable `handoff.json`. The handoff preserves sources/claims, decisions, risks, unavailable checks and the next action without the original conversation. Full PRD/design/delivery approval still uses the existing record gates.
+
+```bash
+python tools/init_project.py --id my-idea --title "My idea" --layout compact --resource-mode fast
+python tools/handoff.py local-workspace/projects/my-idea --resume
+```
+
+The initializer's default remains `--layout full` for existing callers. See [planning handoff](skills/peanuts/references/planning-handoff.md) and [synthetic mode examples](examples/planning-handoff/README.md). In chat-only hosts, export the templates; label unavailable checks NOT RUN and keep an unavailable digest null. This does not claim automatic persistence or actual fresh-chat model success.
 
 ## Verify and build packages
 

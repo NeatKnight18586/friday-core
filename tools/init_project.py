@@ -11,6 +11,11 @@ import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
+try:
+    from .handoff import create_starter
+except ImportError:
+    from handoff import create_starter
+
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_WORKSPACE = ROOT / "local-workspace" / "projects"
 MODES = ["MODE-EVENT", "MODE-PROBLEM", "MODE-IDEA", "MODE-EXISTING", "MODE-RESEARCH"]
@@ -33,6 +38,10 @@ def main() -> int:
     parser.add_argument("--mode", choices=MODES, default="MODE-IDEA")
     parser.add_argument("--outcome", default="To be clarified with the project owner.")
     parser.add_argument("--owner", default="project owner")
+    parser.add_argument("--layout", choices=["full", "compact"], default="full",
+                        help="Compact planning: dossier + handoff only; full retains existing records/gates")
+    parser.add_argument("--resource-mode", choices=["fast", "quick", "standard", "deep"], default="standard",
+                        help="Compact layout depth; stored fast mode remains quick")
     parser.add_argument(
         "--workspace-root",
         type=Path,
@@ -47,6 +56,12 @@ def main() -> int:
             raise ValueError("Project title must contain at least 3 characters.")
         if len(args.outcome.strip()) < 3:
             raise ValueError("Desired outcome must contain at least 3 characters.")
+        if len(args.title.strip()) > 160 or len(args.outcome.strip()) > 2000:
+            raise ValueError("Title/outcome exceeds the project contract limit.")
+        if args.layout == "compact" and (not args.owner.strip() or len(args.owner.strip()) > 120):
+            raise ValueError("Compact project owner must contain 1–120 characters.")
+        if args.layout == "full" and args.resource_mode != "standard":
+            raise ValueError("--resource-mode applies to --layout compact")
     except ValueError as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 2
@@ -67,6 +82,17 @@ def main() -> int:
     stage_dir = Path(tempfile.mkdtemp(prefix=f".{project_id}.", dir=workspace))
 
     try:
+        if args.layout == "compact":
+            create_starter(stage_dir, project_id=project_id, title=args.title.strip(),
+                           outcome=args.outcome.strip(), owner=args.owner.strip(),
+                           updated_at=now, resource_mode=args.resource_mode, project_mode=args.mode)
+            if target.exists():
+                raise FileExistsError(f"refusing to overwrite existing project: {target}")
+            stage_dir.rename(target)
+            print(f"Created compact planning workspace: {target}")
+            print("Next: python tools/handoff.py <project-directory> --resume")
+            print("Planning context only; full P7–P9 gates and external-action permissions remain separate.")
+            return 0
         shutil.copytree(template, stage_dir, dirs_exist_ok=True)
         project = json.loads((stage_dir / "project.json").read_text(encoding="utf-8"))
         state = json.loads((stage_dir / "state.json").read_text(encoding="utf-8"))

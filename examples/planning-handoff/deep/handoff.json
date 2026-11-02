@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0.0",
+  "project_id": "synthetic-deep",
+  "project_version": "0.1.0",
+  "updated_at": "2026-11-02T00:00:00Z",
+  "workflow_stage": "P5",
+  "resource_mode": "deep",
+  "disposition": "blocked",
+  "authority": "planning-context-only",
+  "evidence_context": "synthetic",
+  "summary": "A clinic reminder concept is blocked pending privacy/domain review. Explore a synthetic-only storyboard; do not ingest patient data or infer clinical benefit.",
+  "constraints": [
+    "Synthetic scenario only; no patient data, consent, clinical workflow observation or domain sign-off."
+  ],
+  "dossier": {
+    "path": "PROJECT_DOSSIER.md",
+    "sha256": "ca3c3471ccdaf616b2cc34463d6708169e57c575dae90a550c428f753e99d3b6"
+  },
+  "sources": [
+    {
+      "id": "SRC-0001",
+      "reference": "Authored fixture scenario; not an external source or real participant report.",
+      "status": "synthetic"
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-0001",
+      "text": "Synthetic scenario only; no patient data, consent, clinical workflow observation or domain sign-off.",
+      "basis": "synthetic",
+      "source_ids": [
+        "SRC-0001"
+      ],
+      "limitations": "Invented fixture context."
+    },
+    {
+      "id": "CLM-0002",
+      "text": "Unauthorized patient data processing or messaging could expose sensitive information.",
+      "basis": "assumption",
+      "source_ids": [],
+      "limitations": "Not tested with real users or domain evidence."
+    }
+  ],
+  "decisions": [
+    {
+      "id": "DEC-0001",
+      "text": "Compare a synthetic storyboard with a live reminder integration. Retain only the storyboard for investigation; live messaging introduces privacy, safety and delivery obligations not yet reviewed.",
+      "status": "proposed",
+      "approval_evidence": ""
+    }
+  ],
+  "risks": [
+    {
+      "id": "RISK-0001",
+      "description": "Unauthorized patient data processing or messaging could expose sensitive information.",
+      "severity": "critical",
+      "status": "open",
+      "test_or_mitigation": "Obtain qualified privacy/domain review and document permitted data/consent boundaries before any real-data experiment.",
+      "evidence": ""
+    }
+  ],
+  "blockers": [
+    "Unauthorized patient data processing or messaging could expose sensitive information."
+  ],
+  "unavailable_checks": [
+    "External research NOT RUN.",
+    "Direct user evidence NOT RUN.",
+    "Implementation/demo verification NOT RUN."
+  ],
+  "next_action": {
+    "description": "Ask the accountable clinic/privacy lead which data, consent and review requirements apply; keep all artifacts synthetic until that is resolved.",
+    "owner": "fixture owner",
+    "required_tools": []
+  },
+  "project_mode": "MODE-RESEARCH"
+}

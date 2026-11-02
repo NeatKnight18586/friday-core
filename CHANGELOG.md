@@ -1,3 +1,18 @@
+## [0.16.0-rc.1] - 2026-11-02 — Compact Peanuts planning
+
+### Added
+- Compact two-file planning layout, Project Dossier/handoff templates, portable planning schema and safe validation/recovery helper.
+- Fast alias with legacy quick storage compatibility; selective context profiles and three synthetic mode examples.
+- Thirty-one regressions covering initialization, recovery, missing tools, integrity/traceability failures and existing host resource exports.
+
+### Changed
+- Condensed the canonical skill into a method-routing entrypoint; retained formal evidence, permission and P7–P9 gates.
+- Made root engineering references conditional and reduced duplicate method/record requirements for early planning.
+- Included new handoff resources in generated Skills and the existing five-file Project bundles. Default full workspace initialization is unchanged.
+
+### Limits
+- Static context reduction and deterministic recovery do not establish token savings, model behavior or user usefulness. Full behavioral/consumer-host validation remains Stage 4.
+
 ## [0.15.0-rc.3] - 2026-11-02 — Windows verification fixes
 
 ### Fixed

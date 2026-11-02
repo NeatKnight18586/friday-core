@@ -316,3 +316,17 @@ A status records the scope of approval. “Owner-selected direction” does not 
 **Decision:** Include the MIT LICENSE already present in `NeatKnight18586/Friday`, verbatim with its existing copyright holder.  
 **Reason:** Connected-source inspection reveals an existing owner decision that was absent from the uploaded source ZIP. Asking the owner to choose again or replacing that license would create unnecessary inconsistency.  
 **Consequence:** Stage 1's unset-license statement describes that earlier ZIP only. Third-party content/rights review remains required; this does not license material the owner does not own. Remote main/source are not modified by this local preservation.
+
+
+## ADR-052 — Selective Peanuts context and compact planning exports
+**Status:** Accepted for owner-approved Stage 3 (2026-11-02)  
+**Decision:** Keep a concise skill entrypoint with conditional method references; add an explicit compact initializer producing only Project Dossier and handoff.json. Preserve the existing full initializer default, record schemas and P7–P9 approval gates.  
+**Reason:** Early discovery and cross-chat continuation need a coherent explanation and state without compulsory full-ledger duplication. More files or shorter prompts do not establish better outcomes.  
+**Guardrails:** Export authority is planning-context-only. Preserve inspected/synthetic evidence boundaries, actual approval scope, critical blockers, unavailable checks and the next action. Digest/schema checks establish integrity, not truth or human/model validation. Fresh-process recovery is tested separately from Stage 4 fresh-chat behavior.  
+**Consequence:** Existing source contracts remain compatible; the new planning-handoff schema is version 1.0.0. Full deliverables are linked rather than duplicated. Chat-only drafts leave unverified digests null and report NOT RUN.
+
+## ADR-053 — Fast is a boundary alias for stored quick
+**Status:** Accepted for Stage 3  
+**Decision:** Display Fast/Standard/Deep; accept fast and legacy quick at the manager/compact initializer boundaries and persist quick.  
+**Reason:** Matches the owner's naming while preserving existing registries, records and integrations.  
+**Consequence:** No bulk migration or weakening of resource/evidence rules. A caller declaring a tool or permission still does not grant authority or prove its use.

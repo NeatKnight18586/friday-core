@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0.0",
+  "project_id": "synthetic-standard",
+  "project_version": "0.1.0",
+  "updated_at": "2026-11-02T00:00:00Z",
+  "workflow_stage": "P2",
+  "resource_mode": "standard",
+  "disposition": "provisional",
+  "authority": "planning-context-only",
+  "evidence_context": "synthetic",
+  "summary": "Compare a campus-status board, accessibility route notes and a FAQ prototype; defer track selection until official rules and affected-user evidence are inspected.",
+  "constraints": [
+    "Synthetic event brief only; no official rules, rubric, eligibility or sponsor API access."
+  ],
+  "dossier": {
+    "path": "PROJECT_DOSSIER.md",
+    "sha256": "83717dfd719a90640d20d114f079d6169746f5c858f39da3a795e6077157988c"
+  },
+  "sources": [
+    {
+      "id": "SRC-0001",
+      "reference": "Authored fixture scenario; not an external source or real participant report.",
+      "status": "synthetic"
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-0001",
+      "text": "Synthetic event brief only; no official rules, rubric, eligibility or sponsor API access.",
+      "basis": "synthetic",
+      "source_ids": [
+        "SRC-0001"
+      ],
+      "limitations": "Invented fixture context."
+    },
+    {
+      "id": "CLM-0002",
+      "text": "Unknown official eligibility/rules may invalidate every candidate.",
+      "basis": "assumption",
+      "source_ids": [],
+      "limitations": "Not tested with real users or domain evidence."
+    }
+  ],
+  "decisions": [
+    {
+      "id": "DEC-0001",
+      "text": "The status board has the simplest illustrative demo; accessibility notes need route/data access and a FAQ prototype needs reliable source retrieval. No event fit or winning probability is established.",
+      "status": "proposed",
+      "approval_evidence": ""
+    }
+  ],
+  "risks": [
+    {
+      "id": "RISK-0001",
+      "description": "Unknown official eligibility/rules may invalidate every candidate.",
+      "severity": "high",
+      "status": "open",
+      "test_or_mitigation": "Compare each proposed track to an inspected official rulebook; remove disallowed candidates and keep inaccessible rules explicitly unverified.",
+      "evidence": ""
+    }
+  ],
+  "blockers": [],
+  "unavailable_checks": [
+    "External research NOT RUN.",
+    "Direct user evidence NOT RUN.",
+    "Implementation/demo verification NOT RUN."
+  ],
+  "next_action": {
+    "description": "Inspect the official event rulebook and judging rubric; record hard exclusions before ranking track fit.",
+    "owner": "fixture owner",
+    "required_tools": [
+      "web-research"
+    ]
+  },
+  "project_mode": "MODE-EVENT"
+}

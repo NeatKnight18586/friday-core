@@ -4,15 +4,14 @@ This is the concise, repository-wide instruction map for Codex-compatible agents
 
 For Friday selection/intake requests, read `FRIDAY.md` first and use `tools/capability_manager.py` when a terminal is available. It does not execute capabilities or grant tool permissions.
 
-## Read first
+## Read by task
 
-- `README.md`
-- `docs/architecture/ARCHITECTURE.md`
-- `docs/architecture/DECISIONS.md`
-- `docs/plans/BUILD_ROADMAP.md`
-- `CONTRIBUTING.md`
+- Peanuts workflow: selected skill first; its relevant method references next.
+- Repository edits: `README.md` and `CONTRIBUTING.md`; relevant decisions in `docs/architecture/DECISIONS.md`.
+- Boundary/interface changes: relevant sections of `docs/architecture/ARCHITECTURE.md`.
+- Milestone sequencing: `docs/plans/REVISION_STAGES.md`; historical detail in `docs/plans/BUILD_ROADMAP.md` only when needed.
 
-For Peanuts-specific work, read `docs/product/PEANUTS_CONSTITUTION.md` and only the method/governance references relevant to the task. Use `capabilities/registry.json` as the metadata catalog for actual capability boundaries; it is not an automatic router. Friday is currently the repository umbrella; the Stage 2 read-only selector/intake helper and `FRIDAY.md` provide minimal host-mediated management; autonomous orchestration is not implemented.
+For changes to Peanuts methods, read `docs/product/PEANUTS_CONSTITUTION.md` and only the method/governance references relevant to the task. Use `capabilities/registry.json` as the metadata catalog for actual capability boundaries; it is not an automatic router. Friday is currently the repository umbrella; the Stage 2 read-only selector/intake helper and `FRIDAY.md` provide minimal host-mediated management; autonomous orchestration is not implemented.
 
 ## Rules
 

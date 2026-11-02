@@ -1,0 +1,347 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://friday.local/schemas/planning-handoff.schema.json",
+  "title": "Peanuts portable planning handoff",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "project_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "project_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "workflow_stage": {
+      "enum": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5",
+        "P6",
+        "P7",
+        "P8",
+        "P9",
+        "P10"
+      ]
+    },
+    "resource_mode": {
+      "enum": [
+        "quick",
+        "standard",
+        "deep"
+      ]
+    },
+    "disposition": {
+      "enum": [
+        "draft",
+        "provisional",
+        "blocked"
+      ]
+    },
+    "authority": {
+      "const": "planning-context-only"
+    },
+    "evidence_context": {
+      "enum": [
+        "real",
+        "synthetic",
+        "mixed"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 2000
+    },
+    "constraints": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2000
+      }
+    },
+    "dossier": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^SRC-[0-9]{4,6}$"
+          },
+          "reference": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "status": {
+            "enum": [
+              "inspected",
+              "supplied_not_checked",
+              "synthetic"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "reference",
+          "status"
+        ]
+      }
+    },
+    "claims": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^CLM-[0-9]{4,6}$"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "basis": {
+            "enum": [
+              "sourced",
+              "user_report",
+              "assumption",
+              "synthetic",
+              "unknown"
+            ]
+          },
+          "source_ids": {
+            "type": "array",
+            "maxItems": 100,
+            "items": {
+              "type": "string",
+              "pattern": "^SRC-[0-9]{4,6}$"
+            },
+            "uniqueItems": true
+          },
+          "limitations": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "basis",
+          "source_ids",
+          "limitations"
+        ]
+      }
+    },
+    "decisions": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^DEC-[0-9]{4,6}$"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "status": {
+            "enum": [
+              "proposed",
+              "approved",
+              "rejected",
+              "superseded"
+            ]
+          },
+          "approval_evidence": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "status",
+          "approval_evidence"
+        ]
+      }
+    },
+    "risks": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^RISK-[0-9]{4,6}$"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "severity": {
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "critical"
+            ]
+          },
+          "status": {
+            "enum": [
+              "open",
+              "mitigated"
+            ]
+          },
+          "test_or_mitigation": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "id",
+          "description",
+          "severity",
+          "status",
+          "test_or_mitigation",
+          "evidence"
+        ]
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2000
+      }
+    },
+    "unavailable_checks": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2000
+      }
+    },
+    "next_action": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 2000
+        },
+        "owner": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "required_tools": {
+          "type": "array",
+          "maxItems": 100,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "description",
+        "owner",
+        "required_tools"
+      ]
+    },
+    "project_mode": {
+      "enum": [
+        "MODE-EVENT",
+        "MODE-PROBLEM",
+        "MODE-IDEA",
+        "MODE-EXISTING",
+        "MODE-RESEARCH"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "project_id",
+    "project_version",
+    "updated_at",
+    "workflow_stage",
+    "resource_mode",
+    "disposition",
+    "authority",
+    "evidence_context",
+    "summary",
+    "constraints",
+    "dossier",
+    "sources",
+    "claims",
+    "decisions",
+    "risks",
+    "blockers",
+    "unavailable_checks",
+    "next_action",
+    "project_mode"
+  ]
+}

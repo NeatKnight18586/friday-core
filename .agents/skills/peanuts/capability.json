@@ -29,6 +29,6 @@
     "web-research"
   ],
   "failure_behavior": "Without research tools, mark external facts NOT CHECKED and return a research plan or work from supplied evidence. Without file writes, return an exportable handoff. Stop at missing material prerequisites.",
-  "handoff": "Preserve objective, current stage, sources, approved decisions, unresolved assumptions, artifacts, next action and unavailable checks. Do not require original chat history.",
+  "handoff": "Use the compact Project Dossier and handoff.json when continuity matters; preserve sources/claims, decisions and approval scope, risks, unavailable checks and the next action. Full P7\u2013P9 records/gates remain authoritative; planning context does not grant execution permission.",
   "execution_policy": "host-mediated-no-auto-execution"
 }

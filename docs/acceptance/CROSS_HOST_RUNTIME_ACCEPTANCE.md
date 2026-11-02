@@ -3,7 +3,7 @@
 **Status:** Package/install simulation passed; actual Codex, Claude Code and ordinary Claude Chat runtime tests are `NOT RUN` in the managed build environment.  
 **Acceptance owner:** Friday / Peanuts owner  
 **Review date:** 2026-11-02  
-**Applies to:** Current `0.14.1-rc.1` package structure and canonical `skills/peanuts/` source. Earlier run records retain their original version/scope; this update is not a runtime rerun.
+**Applies to:** Current `0.16.0-rc.1` package structure and canonical `skills/peanuts/` source. Earlier run records retain their original version/scope; this update is not a runtime rerun.
 
 ## 1. Purpose
 
@@ -31,7 +31,7 @@ Important distinctions:
 
 ## 3. Installation — Codex
 
-1. Extract `Friday-Stage-1-Source.zip` into a local folder. This is the full repository and includes `AGENTS.md`, schemas, templates, validators, tests, and the canonical Peanuts source.
+1. Extract `Friday-Stage-3-Source.zip` into a local folder. This is the full repository and includes `AGENTS.md`, schemas, templates, validators, tests, and the canonical Peanuts source.
 2. From the repository root, build the host packages:
 
    ```bash
@@ -45,7 +45,7 @@ Important distinctions:
 
 ## 4. Installation — Claude Code
 
-1. Extract `Friday-Stage-1-Source.zip` into a local folder. Keep `CLAUDE.md` at the repository root.
+1. Extract `Friday-Stage-3-Source.zip` into a local folder. Keep `CLAUDE.md` at the repository root.
 2. From the repository root, build the host packages:
 
    ```bash

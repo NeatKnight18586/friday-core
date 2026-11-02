@@ -1,18 +1,19 @@
 # Friday / Peanuts — Release Status
 
-**Version:** 0.15.0-rc.3  
-**Release class:** `STAGE_2_CHECKPOINT` — minimal capability selection/intake and CI/host preflight.  
+**Version:** 0.16.0-rc.1  
+**Release class:** `STAGE_3_CHECKPOINT` — selective Peanuts context, Fast compatibility and portable planning handoff.  
 **Intended audience:** people building projects and reusable AI capabilities across supported hosts, including iPad users.
 
 ## Implemented
 
-- Peanuts prototype: evidence-led discovery, selective NUTS inspiration, Four-Council critique, Quick/Standard/Deep guidance, project records and planning handoffs.
+- Peanuts prototype: evidence-led discovery, selective NUTS inspiration, Four-Council critique, Fast/Standard/Deep guidance (legacy quick preserved), project records and planning handoffs.
 - Read-only capability selector, dry-run intake validation, per-package contract and manual `Friday-Manager.txt` adapter; metadata catalog, schemas, project initialization, validators/tests and source manifest.
 - Repository-local Codex/Claude Code discovery snapshots, Claude consumer export and ChatGPT Project manual export.
 
+- Compact two-file planning initializer, dossier/handoff templates, structural integrity/recovery helper and synthetic mode examples. Full record initialization and P7–P9 gates remain unchanged.
+
 ## Planned, not implemented
 
-- Stage 3: simpler Peanuts context/output and portable dossier handoff.
 - Stage 4: actual cross-host behavior and comparative method evaluation.
 - Stage 5: optional user-reviewed private profile import, correction/export/deletion.
 - Stage 6: public release acceptance, third-party rights review, focused onboarding and community/security files.

@@ -25,6 +25,7 @@ VALIDATORS = (
     ("B6 NUTS", "tools/validate_b6.py"),
     ("Capability registry", "tools/validate_capabilities.py"),
     ("Manager contracts", "tools/validate_manager.py"),
+    ("Portable planning", "tools/validate_planning.py"),
     ("Context budget", "tools/inspect_context.py"),
     ("B7 Four-Council", "tools/validate_b7.py"),
     ("B8 delivery", "tools/validate_b8.py"),
@@ -39,6 +40,7 @@ VALIDATORS = (
 PYTEST_GROUPS = (
     ("Project initializer", ("tests/test_init_project.py",)),
     ("Capability manager", ("tests/test_capability_manager.py",)),
+    ("Planning handoff", ("tests/test_planning_handoff.py",)),
     ("B5 research", ("tests/test_b5_research.py",)),
     ("B6 NUTS", ("tests/test_b6_nuts.py",)),
     ("B7 Four-Council", ("tests/test_b7_four_council.py",)),

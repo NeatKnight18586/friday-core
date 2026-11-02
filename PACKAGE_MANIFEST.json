@@ -1,15 +1,15 @@
 {
   "project": "Friday / Peanuts",
-  "version": "0.15.0-rc.3",
-  "milestone": "Stage 2 — Minimal manager and CI/host preflight",
-  "status": "STAGE_2_CHECKPOINT: public-release preparation with a provider-neutral canonical Peanuts core. Read-only Friday selection/intake and a manual manager adapter are implemented; no autonomous execution. Deterministic verification evidence is in RELEASE_VERIFICATION.md. Live host acceptance, method effectiveness, and measured savings remain unverified. Hosted CI status is recorded per commit in GitHub Actions. Existing MIT license preserved; owner selected friday-core for clean source publication; third-party rights and public-release acceptance remain pending; no universal compatibility claim.",
+  "version": "0.16.0-rc.1",
+  "milestone": "Stage 3 — Selective Peanuts context and portable planning handoff",
+  "status": "STAGE_3_CHECKPOINT: public-release preparation with a provider-neutral canonical Peanuts core. Read-only Friday management, Fast/quick compatibility and compact planning handoff are implemented; no autonomous execution. Deterministic verification evidence is in RELEASE_VERIFICATION.md. Live host acceptance, method effectiveness, and measured savings remain unverified. Hosted CI status is recorded per commit in GitHub Actions. Existing MIT license preserved; owner selected friday-core for clean source publication; third-party rights and public-release acceptance remain pending; no universal compatibility claim.",
   "generated_date": "2026-11-02",
   "schema_version": "1.0.0",
   "files": [
     {
       "path": ".agents/skills/peanuts/SKILL.md",
-      "bytes": 14991,
-      "sha256": "ca43e6dfa8f2d41be7f1175eff8bb1724bbe86dc1c608f579328457fd78e3061"
+      "bytes": 6589,
+      "sha256": "8225e198dde8926968293ce929cbafbc0af6c46b85076f69ee375acd53f92e73"
     },
     {
       "path": ".agents/skills/peanuts/assets/templates/analogy-card.md",
@@ -37,6 +37,11 @@
       "sha256": "f7a260706e987df1672fc76ca2114c95744a3e65c08ed24a3a49028be3548aaf"
     },
     {
+      "path": ".agents/skills/peanuts/assets/templates/handoff.json",
+      "bytes": 827,
+      "sha256": "c5bfa565c0e2bd54177583ab49847b7f740ebc093220422c46a104902756913a"
+    },
+    {
       "path": ".agents/skills/peanuts/assets/templates/interview-guide.md",
       "bytes": 1616,
       "sha256": "e75c58c67988789c37f1aeff5809207f3875647e63fd0ec722c70756762d1f62"
@@ -55,6 +60,11 @@
       "path": ".agents/skills/peanuts/assets/templates/problem-brief.md",
       "bytes": 524,
       "sha256": "7e4805463092d57f692ac0f1773b91aeb55700393f7e4678683723507315162c"
+    },
+    {
+      "path": ".agents/skills/peanuts/assets/templates/project-dossier.md",
+      "bytes": 2743,
+      "sha256": "af21e1c75b370006486ecb96769f2f1fb4b2543f8967706368cc6dd8d3564122"
     },
     {
       "path": ".agents/skills/peanuts/assets/templates/quick-council-review.md",
@@ -88,8 +98,8 @@
     },
     {
       "path": ".agents/skills/peanuts/capability.json",
-      "bytes": 1062,
-      "sha256": "0a94bd88d3993aee2b68fcbdf08e4549d2ca847506783bc6b886f29e3ada067b"
+      "bytes": 1171,
+      "sha256": "045555178de271f6b5d1de97686039130c99672c6194bc01a7326954d6c62a36"
     },
     {
       "path": ".agents/skills/peanuts/docs/architecture/CAPABILITY_SYSTEM_AND_ROUTING.md",
@@ -108,8 +118,8 @@
     },
     {
       "path": ".agents/skills/peanuts/docs/architecture/PROJECT_RECORDS_AND_STATE.md",
-      "bytes": 11187,
-      "sha256": "f8118938e3696b25423b593020db98d0e9cad27bde2267c6cb8323144a01b082"
+      "bytes": 11443,
+      "sha256": "294535ad944dd3cb50e9aeaf15acab1a825e111259c0a71bcfabc3ef0fb84a71"
     },
     {
       "path": ".agents/skills/peanuts/docs/architecture/VERTICAL_SLICE_AND_STAGE_CONTRACTS.md",
@@ -143,8 +153,8 @@
     },
     {
       "path": ".agents/skills/peanuts/docs/governance/RESOURCE_BUDGETS.md",
-      "bytes": 8565,
-      "sha256": "b06025c9a2b4d0f93c2894c5dc19360f4d17664929572c41376e89542e978341"
+      "bytes": 8887,
+      "sha256": "ebbbb46bd908481c28199effc1d9772de6516cbc863be9b71bd013a9629e03e6"
     },
     {
       "path": ".agents/skills/peanuts/docs/governance/TOOL_KNOWLEDGE_REGISTRY.md",
@@ -198,8 +208,8 @@
     },
     {
       "path": ".agents/skills/peanuts/docs/product/PEANUTS_CONSTITUTION.md",
-      "bytes": 12731,
-      "sha256": "22dda40b21ee5208e44dd490f126928c11d6d673e426a96d888fe07389befad6"
+      "bytes": 13031,
+      "sha256": "3362141e8013ef2f7dd6f6bed308cfc85a270f453f4e12e9f5be074c2226f8bb"
     },
     {
       "path": ".agents/skills/peanuts/docs/product/PRODUCT_DISCOVERY.md",
@@ -213,13 +223,13 @@
     },
     {
       "path": ".agents/skills/peanuts/references/context-efficiency.md",
-      "bytes": 3543,
-      "sha256": "973ad096ff4abcd6d3aee3c7cf6e7b38447e8ef1a581f2e1458a3416b50071ee"
+      "bytes": 3865,
+      "sha256": "bc70799d5c294264b7d23cf9815fe66f34e2c20c00a846032f8d7434e9745a20"
     },
     {
       "path": ".agents/skills/peanuts/references/delivery-handoff.md",
-      "bytes": 3449,
-      "sha256": "0679a76fe59fd3ddd83ee3ea88abdc58b0677a3fbfffce06d508ddd17c1e99db"
+      "bytes": 3774,
+      "sha256": "da398cfb74066a74c3b0371076a7aadbdf3f47a8ab9124c7637673879583de1f"
     },
     {
       "path": ".agents/skills/peanuts/references/event-intelligence.md",
@@ -257,6 +267,11 @@
       "sha256": "eaf5d585ddc73f53fcf4abda4e6d0160693ba18cae74274a63574ce91e9d56e7"
     },
     {
+      "path": ".agents/skills/peanuts/references/planning-handoff.md",
+      "bytes": 4972,
+      "sha256": "5abc4cda516a67cd3d10910a1a1907efc587004432b0950502297de7fc308a7e"
+    },
+    {
       "path": ".agents/skills/peanuts/references/prd-and-requirements.md",
       "bytes": 5052,
       "sha256": "21110d2f9f7d47bf3d24e5caa425e1d97a47d5d5c5a5553adeae0e45a6660f3b"
@@ -288,8 +303,8 @@
     },
     {
       "path": ".agents/skills/peanuts/schemas/README.md",
-      "bytes": 3504,
-      "sha256": "fe34e97314fc27065121819d36c1c94c0f1d4990c0126762f64358d1a08af021"
+      "bytes": 3932,
+      "sha256": "886fc75215abfc7db884bb74c6c9ddb0b02dfb88c36e528ee2782a29cea4e25a"
     },
     {
       "path": ".agents/skills/peanuts/schemas/acceptance-test.schema.json",
@@ -370,6 +385,11 @@
       "path": ".agents/skills/peanuts/schemas/opportunity-record.schema.json",
       "bytes": 1828,
       "sha256": "086fe53a489a0c63c3c1b6c7257ed1c9d032443ea84bcdbc0913d8708cc7b5a6"
+    },
+    {
+      "path": ".agents/skills/peanuts/schemas/planning-handoff.schema.json",
+      "bytes": 7256,
+      "sha256": "c6ddf6f5e77c4a55899b717eb7eed87202f6648231a8a5a8f72bfb104247d34b"
     },
     {
       "path": ".agents/skills/peanuts/schemas/project-state.schema.json",
@@ -543,8 +563,8 @@
     },
     {
       "path": ".claude/skills/peanuts/SKILL.md",
-      "bytes": 14991,
-      "sha256": "ca43e6dfa8f2d41be7f1175eff8bb1724bbe86dc1c608f579328457fd78e3061"
+      "bytes": 6589,
+      "sha256": "8225e198dde8926968293ce929cbafbc0af6c46b85076f69ee375acd53f92e73"
     },
     {
       "path": ".claude/skills/peanuts/assets/templates/analogy-card.md",
@@ -572,6 +592,11 @@
       "sha256": "f7a260706e987df1672fc76ca2114c95744a3e65c08ed24a3a49028be3548aaf"
     },
     {
+      "path": ".claude/skills/peanuts/assets/templates/handoff.json",
+      "bytes": 827,
+      "sha256": "c5bfa565c0e2bd54177583ab49847b7f740ebc093220422c46a104902756913a"
+    },
+    {
       "path": ".claude/skills/peanuts/assets/templates/interview-guide.md",
       "bytes": 1616,
       "sha256": "e75c58c67988789c37f1aeff5809207f3875647e63fd0ec722c70756762d1f62"
@@ -590,6 +615,11 @@
       "path": ".claude/skills/peanuts/assets/templates/problem-brief.md",
       "bytes": 524,
       "sha256": "7e4805463092d57f692ac0f1773b91aeb55700393f7e4678683723507315162c"
+    },
+    {
+      "path": ".claude/skills/peanuts/assets/templates/project-dossier.md",
+      "bytes": 2743,
+      "sha256": "af21e1c75b370006486ecb96769f2f1fb4b2543f8967706368cc6dd8d3564122"
     },
     {
       "path": ".claude/skills/peanuts/assets/templates/quick-council-review.md",
@@ -623,8 +653,8 @@
     },
     {
       "path": ".claude/skills/peanuts/capability.json",
-      "bytes": 1062,
-      "sha256": "0a94bd88d3993aee2b68fcbdf08e4549d2ca847506783bc6b886f29e3ada067b"
+      "bytes": 1171,
+      "sha256": "045555178de271f6b5d1de97686039130c99672c6194bc01a7326954d6c62a36"
     },
     {
       "path": ".claude/skills/peanuts/docs/architecture/CAPABILITY_SYSTEM_AND_ROUTING.md",
@@ -643,8 +673,8 @@
     },
     {
       "path": ".claude/skills/peanuts/docs/architecture/PROJECT_RECORDS_AND_STATE.md",
-      "bytes": 11187,
-      "sha256": "f8118938e3696b25423b593020db98d0e9cad27bde2267c6cb8323144a01b082"
+      "bytes": 11443,
+      "sha256": "294535ad944dd3cb50e9aeaf15acab1a825e111259c0a71bcfabc3ef0fb84a71"
     },
     {
       "path": ".claude/skills/peanuts/docs/architecture/VERTICAL_SLICE_AND_STAGE_CONTRACTS.md",
@@ -678,8 +708,8 @@
     },
     {
       "path": ".claude/skills/peanuts/docs/governance/RESOURCE_BUDGETS.md",
-      "bytes": 8565,
-      "sha256": "b06025c9a2b4d0f93c2894c5dc19360f4d17664929572c41376e89542e978341"
+      "bytes": 8887,
+      "sha256": "ebbbb46bd908481c28199effc1d9772de6516cbc863be9b71bd013a9629e03e6"
     },
     {
       "path": ".claude/skills/peanuts/docs/governance/TOOL_KNOWLEDGE_REGISTRY.md",
@@ -733,8 +763,8 @@
     },
     {
       "path": ".claude/skills/peanuts/docs/product/PEANUTS_CONSTITUTION.md",
-      "bytes": 12731,
-      "sha256": "22dda40b21ee5208e44dd490f126928c11d6d673e426a96d888fe07389befad6"
+      "bytes": 13031,
+      "sha256": "3362141e8013ef2f7dd6f6bed308cfc85a270f453f4e12e9f5be074c2226f8bb"
     },
     {
       "path": ".claude/skills/peanuts/docs/product/PRODUCT_DISCOVERY.md",
@@ -748,13 +778,13 @@
     },
     {
       "path": ".claude/skills/peanuts/references/context-efficiency.md",
-      "bytes": 3543,
-      "sha256": "973ad096ff4abcd6d3aee3c7cf6e7b38447e8ef1a581f2e1458a3416b50071ee"
+      "bytes": 3865,
+      "sha256": "bc70799d5c294264b7d23cf9815fe66f34e2c20c00a846032f8d7434e9745a20"
     },
     {
       "path": ".claude/skills/peanuts/references/delivery-handoff.md",
-      "bytes": 3449,
-      "sha256": "0679a76fe59fd3ddd83ee3ea88abdc58b0677a3fbfffce06d508ddd17c1e99db"
+      "bytes": 3774,
+      "sha256": "da398cfb74066a74c3b0371076a7aadbdf3f47a8ab9124c7637673879583de1f"
     },
     {
       "path": ".claude/skills/peanuts/references/event-intelligence.md",
@@ -792,6 +822,11 @@
       "sha256": "eaf5d585ddc73f53fcf4abda4e6d0160693ba18cae74274a63574ce91e9d56e7"
     },
     {
+      "path": ".claude/skills/peanuts/references/planning-handoff.md",
+      "bytes": 4972,
+      "sha256": "5abc4cda516a67cd3d10910a1a1907efc587004432b0950502297de7fc308a7e"
+    },
+    {
       "path": ".claude/skills/peanuts/references/prd-and-requirements.md",
       "bytes": 5052,
       "sha256": "21110d2f9f7d47bf3d24e5caa425e1d97a47d5d5c5a5553adeae0e45a6660f3b"
@@ -823,8 +858,8 @@
     },
     {
       "path": ".claude/skills/peanuts/schemas/README.md",
-      "bytes": 3504,
-      "sha256": "fe34e97314fc27065121819d36c1c94c0f1d4990c0126762f64358d1a08af021"
+      "bytes": 3932,
+      "sha256": "886fc75215abfc7db884bb74c6c9ddb0b02dfb88c36e528ee2782a29cea4e25a"
     },
     {
       "path": ".claude/skills/peanuts/schemas/acceptance-test.schema.json",
@@ -905,6 +940,11 @@
       "path": ".claude/skills/peanuts/schemas/opportunity-record.schema.json",
       "bytes": 1828,
       "sha256": "086fe53a489a0c63c3c1b6c7257ed1c9d032443ea84bcdbc0913d8708cc7b5a6"
+    },
+    {
+      "path": ".claude/skills/peanuts/schemas/planning-handoff.schema.json",
+      "bytes": 7256,
+      "sha256": "c6ddf6f5e77c4a55899b717eb7eed87202f6648231a8a5a8f72bfb104247d34b"
     },
     {
       "path": ".claude/skills/peanuts/schemas/project-state.schema.json",
@@ -1113,18 +1153,18 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 4262,
-      "sha256": "0d2994438d88adf9e045b8cc9f56d90c9a03a20f15d134b33eedb8ce93089d0e"
+      "bytes": 4534,
+      "sha256": "97ef0f71280aff2bfa85c46e9f49538c75050933525bd3fec9d211c1ca746e79"
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 28188,
-      "sha256": "197e6a3c40de654f6832504a7b541dcd7f4e4c453e45e2025484c04e4dd9fd00"
+      "bytes": 29242,
+      "sha256": "4a8c4542d8170238f60147b216c4f540bd8b5bdb260a37ca4b3cdcdae812b6c8"
     },
     {
       "path": "CLAUDE.md",
-      "bytes": 5151,
-      "sha256": "e4152c71084d55a3a1cb59ddfb0cf74756f329a90737f450a6669385ef39ba07"
+      "bytes": 3165,
+      "sha256": "c3db035299da365716025a0fda3cc317ffcc1f48b06cfefcb6420fb8769ee32a"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -1133,8 +1173,8 @@
     },
     {
       "path": "FRIDAY.md",
-      "bytes": 4041,
-      "sha256": "7ec4369f07ed1fc7d66ec2abc3cef70bcfb260b388793ed6061e8a4e9592d0ea"
+      "bytes": 4106,
+      "sha256": "76650ebc8955df207a48def497085dd74388d241d7c124124d3e54dc92a0aefd"
     },
     {
       "path": "LICENSE",
@@ -1143,23 +1183,23 @@
     },
     {
       "path": "README.md",
-      "bytes": 6414,
-      "sha256": "40c72892791997295634d10eb7682e70c230a3a278aca98204d6aeaed42c9e7a"
+      "bytes": 7335,
+      "sha256": "9fd3a6a1407300d8c702f9389d831ddb34570af52f30956c38583d60c59c1468"
     },
     {
       "path": "RELEASE_STATUS.md",
-      "bytes": 2659,
-      "sha256": "0628a3aa3980bcc833e5969fab2a4950e1fc0372b161b741bc6815386efa3d5a"
+      "bytes": 2827,
+      "sha256": "149da31fb571106476fd1c6a26186dfeae42af426a81010a5e0541c5c577c3cb"
     },
     {
       "path": "RELEASE_VERIFICATION.md",
-      "bytes": 5882,
-      "sha256": "f9d9413924fa1b68ae4503055d9ed1312f37ec938f86e2013444ce87f2f0b230"
+      "bytes": 5275,
+      "sha256": "ed3f2f3712479417de17cf2d4593c691abddd494d7a1ddbf718b9c881d0b1366"
     },
     {
       "path": "START_HERE_IPAD.md",
-      "bytes": 4826,
-      "sha256": "e2cf3e9b0486eb453f7b380d86c008d2544684f1d7165bc093914abee5b99014"
+      "bytes": 5165,
+      "sha256": "bb991ecfa2f4e1e416a4c4f7ce47d2a44db385a803f0b5a916856bd9dd10a0be"
     },
     {
       "path": "adapters/chatgpt/PROJECT_INSTRUCTIONS.md",
@@ -1173,8 +1213,8 @@
     },
     {
       "path": "adapters/claude-chat/PROJECT_INSTRUCTIONS.md",
-      "bytes": 4791,
-      "sha256": "dbadaaf11ac79e815dd1620483a77bb546fc46050be1154652b63ee9ca5a4942"
+      "bytes": 4951,
+      "sha256": "30d513e2bdbd830d0623600aa1b5982dd67aa7cb071e89cc20294fc07c31e38c"
     },
     {
       "path": "adapters/claude-chat/README.md",
@@ -1314,7 +1354,7 @@
     {
       "path": "docs/acceptance/CROSS_HOST_RUNTIME_ACCEPTANCE.md",
       "bytes": 16203,
-      "sha256": "cf8075195d888786c0fa7799b6301c42967706c506e3ba07406f506065fb055c"
+      "sha256": "7b12a919fdcce70e3a38e9c17c1e38309b0b7aa348a85061b618e4b9999f955b"
     },
     {
       "path": "docs/acceptance/CROSS_HOST_RUN_RECORD_TEMPLATE.md",
@@ -1343,8 +1383,8 @@
     },
     {
       "path": "docs/architecture/DECISIONS.md",
-      "bytes": 30047,
-      "sha256": "657d90a814804afb5935655c6dd437aba5cd55721f6a7e6d7fe2102ccb9f57cb"
+      "bytes": 31729,
+      "sha256": "af2e47935398ca0180ed2f41f0a617b6936cb8b687edb9f546c8cb2d339c5b35"
     },
     {
       "path": "docs/architecture/DECISION_GATES_AND_REVIEW_RECORDS.md",
@@ -1363,8 +1403,8 @@
     },
     {
       "path": "docs/architecture/PROJECT_RECORDS_AND_STATE.md",
-      "bytes": 11187,
-      "sha256": "f8118938e3696b25423b593020db98d0e9cad27bde2267c6cb8323144a01b082"
+      "bytes": 11443,
+      "sha256": "294535ad944dd3cb50e9aeaf15acab1a825e111259c0a71bcfabc3ef0fb84a71"
     },
     {
       "path": "docs/architecture/REPRODUCIBLE_DEVELOPMENT.md",
@@ -1403,8 +1443,8 @@
     },
     {
       "path": "docs/governance/RESOURCE_BUDGETS.md",
-      "bytes": 8565,
-      "sha256": "b06025c9a2b4d0f93c2894c5dc19360f4d17664929572c41376e89542e978341"
+      "bytes": 8887,
+      "sha256": "ebbbb46bd908481c28199effc1d9772de6516cbc863be9b71bd013a9629e03e6"
     },
     {
       "path": "docs/governance/TOOL_KNOWLEDGE_REGISTRY.md",
@@ -1478,13 +1518,13 @@
     },
     {
       "path": "docs/plans/REVISION_STAGES.md",
-      "bytes": 3267,
-      "sha256": "d1783fff633689828e52b01ba539fd3b4f704be6178d3881a04ade1945aa6c84"
+      "bytes": 3530,
+      "sha256": "fd86d7924c08070f401f53725e899f04a879406d329c43e48eb213997c4c122b"
     },
     {
       "path": "docs/product/PEANUTS_CONSTITUTION.md",
-      "bytes": 12731,
-      "sha256": "22dda40b21ee5208e44dd490f126928c11d6d673e426a96d888fe07389befad6"
+      "bytes": 13031,
+      "sha256": "3362141e8013ef2f7dd6f6bed308cfc85a270f453f4e12e9f5be074c2226f8bb"
     },
     {
       "path": "docs/product/PRODUCT_DISCOVERY.md",
@@ -1565,6 +1605,11 @@
       "path": "docs/reviews/REVISION_STAGE_2_REVIEW.md",
       "bytes": 5221,
       "sha256": "92a500e95da5710abcdcf2e4865056af9da8796f8b41b7f3f7a31d8685167698"
+    },
+    {
+      "path": "docs/reviews/REVISION_STAGE_3_REVIEW.md",
+      "bytes": 3894,
+      "sha256": "6560f7ed0d97563341144364162ccf6e99c7c21ff6790f60324093ee319e66a1"
     },
     {
       "path": "docs/reviews/STAGE_0_5_COUNCIL_REVIEW.md",
@@ -2437,6 +2482,41 @@
       "sha256": "28d423b81b914a7e2253231c113416bced2814e8536aadfe5c796e36426a991b"
     },
     {
+      "path": "examples/planning-handoff/README.md",
+      "bytes": 1043,
+      "sha256": "cea16342dc5cf21bfcaa42565e8ae229fd4927bebcacaeb86ad783d1482fe72c"
+    },
+    {
+      "path": "examples/planning-handoff/deep/PROJECT_DOSSIER.md",
+      "bytes": 2953,
+      "sha256": "ca3c3471ccdaf616b2cc34463d6708169e57c575dae90a550c428f753e99d3b6"
+    },
+    {
+      "path": "examples/planning-handoff/deep/handoff.json",
+      "bytes": 2742,
+      "sha256": "ca72a3aef955e3575980371bbf72f086f2bb22eaafc20f23668b7cc677c6c32e"
+    },
+    {
+      "path": "examples/planning-handoff/fast/PROJECT_DOSSIER.md",
+      "bytes": 2874,
+      "sha256": "a299b9003714d7ebae1ee006c43ba8008c5733dcf1998a0011590415e67fda86"
+    },
+    {
+      "path": "examples/planning-handoff/fast/handoff.json",
+      "bytes": 2500,
+      "sha256": "8d1562a0074b63b0a461f69ed51da79fc55b9bcf41afbcde168bbb00578edea5"
+    },
+    {
+      "path": "examples/planning-handoff/standard/PROJECT_DOSSIER.md",
+      "bytes": 2823,
+      "sha256": "83717dfd719a90640d20d114f079d6169746f5c858f39da3a795e6077157988c"
+    },
+    {
+      "path": "examples/planning-handoff/standard/handoff.json",
+      "bytes": 2612,
+      "sha256": "ea9d1c942748673e15604edb00fd2c44d483587abdea91ff678006b8baad9549"
+    },
+    {
       "path": "examples/vertical-slice-synthetic/campus-service-status/README.md",
       "bytes": 730,
       "sha256": "2f93c810f1c47b75e47b7a03c4bde96cd72c244eeefb3588d94ec6eeab7b5272"
@@ -2528,8 +2608,8 @@
     },
     {
       "path": "schemas/README.md",
-      "bytes": 3504,
-      "sha256": "fe34e97314fc27065121819d36c1c94c0f1d4990c0126762f64358d1a08af021"
+      "bytes": 3932,
+      "sha256": "886fc75215abfc7db884bb74c6c9ddb0b02dfb88c36e528ee2782a29cea4e25a"
     },
     {
       "path": "schemas/acceptance-test.schema.json",
@@ -2612,6 +2692,11 @@
       "sha256": "086fe53a489a0c63c3c1b6c7257ed1c9d032443ea84bcdbc0913d8708cc7b5a6"
     },
     {
+      "path": "schemas/planning-handoff.schema.json",
+      "bytes": 7256,
+      "sha256": "c6ddf6f5e77c4a55899b717eb7eed87202f6648231a8a5a8f72bfb104247d34b"
+    },
+    {
       "path": "schemas/project-state.schema.json",
       "bytes": 3144,
       "sha256": "bcb5b813a1fd0065d787d1cfc260ffe1b8cfa9416cdd3117c65f4de92b443670"
@@ -2658,8 +2743,8 @@
     },
     {
       "path": "skills/peanuts/SKILL.md",
-      "bytes": 14991,
-      "sha256": "ca43e6dfa8f2d41be7f1175eff8bb1724bbe86dc1c608f579328457fd78e3061"
+      "bytes": 6589,
+      "sha256": "8225e198dde8926968293ce929cbafbc0af6c46b85076f69ee375acd53f92e73"
     },
     {
       "path": "skills/peanuts/assets/templates/analogy-card.md",
@@ -2687,6 +2772,11 @@
       "sha256": "f7a260706e987df1672fc76ca2114c95744a3e65c08ed24a3a49028be3548aaf"
     },
     {
+      "path": "skills/peanuts/assets/templates/handoff.json",
+      "bytes": 827,
+      "sha256": "c5bfa565c0e2bd54177583ab49847b7f740ebc093220422c46a104902756913a"
+    },
+    {
       "path": "skills/peanuts/assets/templates/interview-guide.md",
       "bytes": 1616,
       "sha256": "e75c58c67988789c37f1aeff5809207f3875647e63fd0ec722c70756762d1f62"
@@ -2705,6 +2795,11 @@
       "path": "skills/peanuts/assets/templates/problem-brief.md",
       "bytes": 524,
       "sha256": "7e4805463092d57f692ac0f1773b91aeb55700393f7e4678683723507315162c"
+    },
+    {
+      "path": "skills/peanuts/assets/templates/project-dossier.md",
+      "bytes": 2743,
+      "sha256": "af21e1c75b370006486ecb96769f2f1fb4b2543f8967706368cc6dd8d3564122"
     },
     {
       "path": "skills/peanuts/assets/templates/quick-council-review.md",
@@ -2738,8 +2833,8 @@
     },
     {
       "path": "skills/peanuts/capability.json",
-      "bytes": 1062,
-      "sha256": "0a94bd88d3993aee2b68fcbdf08e4549d2ca847506783bc6b886f29e3ada067b"
+      "bytes": 1171,
+      "sha256": "045555178de271f6b5d1de97686039130c99672c6194bc01a7326954d6c62a36"
     },
     {
       "path": "skills/peanuts/references/assumption-validation.md",
@@ -2748,13 +2843,13 @@
     },
     {
       "path": "skills/peanuts/references/context-efficiency.md",
-      "bytes": 3543,
-      "sha256": "973ad096ff4abcd6d3aee3c7cf6e7b38447e8ef1a581f2e1458a3416b50071ee"
+      "bytes": 3865,
+      "sha256": "bc70799d5c294264b7d23cf9815fe66f34e2c20c00a846032f8d7434e9745a20"
     },
     {
       "path": "skills/peanuts/references/delivery-handoff.md",
-      "bytes": 3449,
-      "sha256": "0679a76fe59fd3ddd83ee3ea88abdc58b0677a3fbfffce06d508ddd17c1e99db"
+      "bytes": 3774,
+      "sha256": "da398cfb74066a74c3b0371076a7aadbdf3f47a8ab9124c7637673879583de1f"
     },
     {
       "path": "skills/peanuts/references/event-intelligence.md",
@@ -2790,6 +2885,11 @@
       "path": "skills/peanuts/references/nuts-source-domain-playbook.md",
       "bytes": 6366,
       "sha256": "eaf5d585ddc73f53fcf4abda4e6d0160693ba18cae74274a63574ce91e9d56e7"
+    },
+    {
+      "path": "skills/peanuts/references/planning-handoff.md",
+      "bytes": 4972,
+      "sha256": "5abc4cda516a67cd3d10910a1a1907efc587004432b0950502297de7fc308a7e"
     },
     {
       "path": "skills/peanuts/references/prd-and-requirements.md",
@@ -3137,6 +3237,11 @@
       "sha256": "7298e5b560cf70fbca1a963764b77032fd65d2fca407624791f2095d160e4bf6"
     },
     {
+      "path": "tests/test_planning_handoff.py",
+      "bytes": 8913,
+      "sha256": "1edc33e717a570cb6fa2fc83b59afbe44be632d9a44ea309ba3083e58a4eae65"
+    },
+    {
       "path": "tests/test_validation.py",
       "bytes": 1664,
       "sha256": "7fb9c86bf002c68e3480a700f8f1bfd43234e08275533d6a7e226b41dceb3501"
@@ -3153,8 +3258,8 @@
     },
     {
       "path": "tools/README.md",
-      "bytes": 3890,
-      "sha256": "e70750e47d90ae8ecefd468424137f5a3baa1a4d7cdeb9c8d87ceccd3d7aa35f"
+      "bytes": 4421,
+      "sha256": "154471b3391cb4ea6b98dd508a17decc8758c631a8166c1a4e5b732a7d450b04"
     },
     {
       "path": "tools/__init__.py",
@@ -3173,8 +3278,8 @@
     },
     {
       "path": "tools/build_claude_chat_companion.py",
-      "bytes": 9882,
-      "sha256": "55ce979bd030eaa8cf34670d580d880d12e36f1a87981622e4d2a1d311efd5bd"
+      "bytes": 10105,
+      "sha256": "cd2faa94afda9fe2044540c00ed5fe978d837c49d014e51e4f435ba4d3fc6b53"
     },
     {
       "path": "tools/build_manager_adapter.py",
@@ -3183,23 +3288,28 @@
     },
     {
       "path": "tools/build_skill_packages.py",
-      "bytes": 25582,
-      "sha256": "a878c7faeba0e122880afaf7c5c281dc498fcce38b780cd795a28c6ccbef5f29"
+      "bytes": 25861,
+      "sha256": "cb65ec2ac863c3d5cec319824b0a4fcb1b766bb2797fd927646a1de07d147920"
     },
     {
       "path": "tools/capability_manager.py",
-      "bytes": 12297,
-      "sha256": "60f35c1ad2cb59edb5b3a4cf5d6770506dad1bdb5a72e65bd3f5d7927488f476"
+      "bytes": 12604,
+      "sha256": "3974d59bd0ed0d74fdf33b9d3cc3d72e798c94c3a9d42378047bc888221b4d62"
+    },
+    {
+      "path": "tools/handoff.py",
+      "bytes": 7881,
+      "sha256": "3f8236eb5ea4764e16ede5a910c64975171e0d0dca8aee16588b94232f22d767"
     },
     {
       "path": "tools/init_project.py",
-      "bytes": 7724,
-      "sha256": "abae76884ebfbf2496325242e0507fe614a2bca50c7330f1fa8ad834d099dd2c"
+      "bytes": 9456,
+      "sha256": "93f7ae798e89844daf06b9680fbe00e7b29848801b557ad749ba820e4b0b31d7"
     },
     {
       "path": "tools/inspect_context.py",
-      "bytes": 4585,
-      "sha256": "50c618ec8d310a4d5aaabae37b331dbb0b7374c765f28886f1fb11774dad2071"
+      "bytes": 4788,
+      "sha256": "c5240589a2c11f9f7eaae5476fb89b429453912641dedfdd992a925891ceb1ee"
     },
     {
       "path": "tools/package_manifest.py",
@@ -3212,14 +3322,19 @@
       "sha256": "ee2c69d3ecb3f20a6b572d44887a22b5bcc28280d018b348048c6aed4a9cb271"
     },
     {
+      "path": "tools/resource_modes.py",
+      "bytes": 567,
+      "sha256": "9685673000eda3f38429357aee1a16d51056ed23a634f12bdf5aeb2ea86e1835"
+    },
+    {
       "path": "tools/sync_host_entrypoints.py",
       "bytes": 3823,
       "sha256": "9dfc9cf872abda92bd3710e6b27fc8161188e1a5489775e86a4e12299c68e96a"
     },
     {
       "path": "tools/update_manifest.py",
-      "bytes": 2901,
-      "sha256": "cd09178200f7d005e8e90a4b33eca5967cdb169faa74c8f7cb2d148ff586ab34"
+      "bytes": 2939,
+      "sha256": "c05b35e0a9de9243ed5455823b00f4545399e88bb6c3fa0943086c443bd02aa2"
     },
     {
       "path": "tools/validate_b10.py",
@@ -3277,6 +3392,11 @@
       "sha256": "523d0314380d40aa447d52588dd100e32285f48a12c2c257bf6b6eeca13e9fa3"
     },
     {
+      "path": "tools/validate_planning.py",
+      "bytes": 726,
+      "sha256": "5720359ff13c6dfaa4d4af6cfeb074ece164eab884cf236340539e5c3286b839"
+    },
+    {
       "path": "tools/validate_project.py",
       "bytes": 20041,
       "sha256": "d073a650b654d1f1c4b731732d3dcf05fb5ba45b0a0833da1822bbff14b5a9fb"
@@ -3293,8 +3413,8 @@
     },
     {
       "path": "tools/verify.py",
-      "bytes": 5373,
-      "sha256": "d989056de8de1711ca15b03fd83b3c6a4391d148a02b57ca25a69f510809bc21"
+      "bytes": 5493,
+      "sha256": "fed2f7cb76548db843b285fb78b3f612d6f5227e8441e71fa54656965a869d12"
     }
   ]
 }

@@ -39,3 +39,7 @@ Project ledgers: `council-reviews.jsonl` and `assumption-tests.jsonl`. Templates
 - `demo-plan.schema.json` — structured walkthrough, requirement links, demo-claim strength/evidence, data controls, failure fallback, and limitations.
 
 Project JSONL ledgers: `requirements.jsonl`, `acceptance-tests.jsonl`, `build-tasks.jsonl`, and `artifacts.jsonl`; the project root also contains `demo-plan.json`. `tools/validate_project.py` runs B8 semantic checks after schema checks, including cross-document traceability and P7–P9 completion gates.
+
+## Portable planning handoff
+
+`planning-handoff.schema.json` defines a separate planning snapshot, not a replacement for project/state or full P7–P9 records. `tools/handoff.py` checks dossier integrity, references, evidence labels and blockers. A null digest discloses a chat-only NOT RUN check and cannot pass deterministic integrity validation. Source truth, actual approvals and model behavior require their own evidence.

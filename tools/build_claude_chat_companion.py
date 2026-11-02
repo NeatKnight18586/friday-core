@@ -56,6 +56,10 @@ PROJECT_KNOWLEDGE: dict[str, list[str]] = {
         "docs/acceptance/B10_1_C_OWNER_SMOKE_AND_COST_LOG.md",
         "docs/acceptance/B10_RELEASE_CHECKLIST.md",
         "templates/project/STATUS_AND_HANDOFF.md",
+        "skills/peanuts/references/planning-handoff.md",
+        "skills/peanuts/assets/templates/project-dossier.md",
+        "skills/peanuts/assets/templates/handoff.json",
+        "schemas/planning-handoff.schema.json",
     ],
 }
 

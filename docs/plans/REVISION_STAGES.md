@@ -1,6 +1,6 @@
 # Friday revision stages
 
-**Current checkpoint:** 0.15.0-rc.3, Stage 2. **Authority:** ADR-046–048 in [current decisions](../architecture/DECISIONS.md). These stages supersede conflicting historical host priorities and optional-manager directions in the [build roadmap](BUILD_ROADMAP.md).
+**Current checkpoint:** 0.16.0-rc.1, Stage 3. **Authority:** ADR-046–048 in [current decisions](../architecture/DECISIONS.md). These stages supersede conflicting historical host priorities and optional-manager directions in the [build roadmap](BUILD_ROADMAP.md).
 
 | Stage | Scope | Exit gate |
 |---|---|---|
@@ -11,7 +11,7 @@
 | 5 — Optional profile import | Candidate extraction, approval, provenance, private export, correction and deletion | No unapproved persistence or imported instruction execution; private context absent from public artifacts; can ship later |
 | 6 — Public release | Consolidate docs, newcomer example/demo, preserve existing MIT license and review third-party rights, security/community files and release assets | Clean-source verification; runtime evidence for supported claims or explicit alpha scope; privacy review; concrete artifact reviewed before publication |
 
-Stages 1–2 are implemented locally by this checkpoint. Stage 2 adds the read-only selector, dry-run intake and manual manager adapter; actual host/model execution is a separate gate. At the owner’s request, CI/host preflight has been pulled forward from Stage 4; see [the evidence method](../acceptance/CI_AND_HOST_PREFLIGHT.md). Stages 3–6 remain planned. Work one stage at a time when the owner says “go” or “next”; complete authorized local work independently, with exact results and a checkpoint handoff.
+Stages 1–3 are implemented locally by this checkpoint. Stage 2 adds the read-only selector, dry-run intake and manual manager adapter; actual host/model execution is a separate gate. At the owner’s request, CI/host preflight has been pulled forward from Stage 4; see [the evidence method](../acceptance/CI_AND_HOST_PREFLIGHT.md). Stage 3 adds selective skill routing, Fast/quick compatibility, two-file provisional planning, safe integrity/recovery checks and authored synthetic mode examples. Stages 4–6 remain planned. Deterministic fresh-process recovery is distinct from actual model/consumer fresh-chat acceptance. Work one stage at a time when the owner says “go” or “next”; complete authorized local work independently, with exact results and a checkpoint handoff.
 
 For Stage 4, start with a proposed 12 representative tasks and repeat nondeterministic cases. Compare ordinary prompted chat, Peanuts without NUTS, and full Peanuts; compare Four-Council with a simpler critique. Assess source accuracy, useful completion, unsupported claims, requirements/demo quality, recovery, elapsed time and actual usage where available. Randomize grading order and disclose same-model grading; involve human reviewers where available. A small pilot supports descriptive findings, not population-wide claims.
 

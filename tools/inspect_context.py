@@ -14,13 +14,15 @@ PROFILES = {
     "codex": ["AGENTS.md", "skills/peanuts/SKILL.md"],
     "peanuts-skill-only": ["skills/peanuts/SKILL.md"],
     "host-maps": ["CLAUDE.md", "AGENTS.md"],
+    "compact-handoff": ["skills/peanuts/SKILL.md", "skills/peanuts/references/planning-handoff.md"],
+    "fast-event-start": ["skills/peanuts/SKILL.md", "skills/peanuts/references/hackathon-sprint.md"],
 }
 
 # Soft maintainability ceilings, not model-token budgets or host-enforced limits.
 WORD_TARGETS = {
     "CLAUDE.md": 600,
     "AGENTS.md": 600,
-    "skills/peanuts/SKILL.md": 2500,
+    "skills/peanuts/SKILL.md": 1100,
 }
 
 

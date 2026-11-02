@@ -66,3 +66,7 @@ Checks B8 requirement, acceptance-test, build-task, artifact, and demo-plan sche
 ## Stage 2 manager
 
 `python tools/capability_manager.py list` shows validated metadata. Use `select --capability peanuts --host codex --input request --grant read-project-data` to identify instructions subject to prerequisite gates; grants report existing permission, not system authority. `intake --candidate candidate.json` is a dry run and never edits the catalog or executes package code. See `docs/architecture/MINIMAL_MANAGER.md`. Build the manual consumer adapter with `python tools/build_manager_adapter.py --out build/manager`.
+
+## Compact planning
+
+Use `python tools/init_project.py --id my-idea --title "My idea" --layout compact --resource-mode fast` for a private two-file planning workspace. The default full layout and its gates remain unchanged. `python tools/handoff.py <project-dir> --resume` validates and returns context without executing the recorded action; pass `--available-tool` only for tools actually present. `python tools/validate_planning.py` checks authored synthetic examples. Fast is stored as quick through `tools/resource_modes.py`.

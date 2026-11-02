@@ -34,7 +34,7 @@ SCHEMA_GROUPS: dict[str, list[str]] = {
     "03_PRODUCT_AND_ENGINEERING.txt": [
         "project.schema.json", "project-state.schema.json", "requirement-record.schema.json",
         "acceptance-test.schema.json", "build-task.schema.json", "artifact-record.schema.json",
-        "demo-plan.schema.json", "vertical-slice-run.schema.json",
+        "demo-plan.schema.json", "vertical-slice-run.schema.json", "planning-handoff.schema.json",
     ],
     "04_GOVERNANCE_AND_RECORDS.txt": [
         "decision-record.schema.json", "capability-registry.schema.json",
@@ -120,6 +120,9 @@ CHATGPT_FILES: dict[str, list[str]] = {
         "skills/peanuts/references/prd-and-requirements.md",
         "skills/peanuts/references/technical-design.md",
         "skills/peanuts/references/delivery-handoff.md",
+        "skills/peanuts/references/planning-handoff.md",
+        "skills/peanuts/assets/templates/project-dossier.md",
+        "skills/peanuts/assets/templates/handoff.json",
         "skills/peanuts/assets/templates/problem-brief.md",
         "skills/peanuts/assets/templates/hackathon-shortlist.md",
         "skills/peanuts/assets/templates/concept-brief.md",
@@ -210,6 +213,7 @@ REFERENCE_TO_CHATGPT_FILE = {
     "references/prd-and-requirements.md": "03_PRODUCT_AND_ENGINEERING.txt",
     "references/technical-design.md": "03_PRODUCT_AND_ENGINEERING.txt",
     "references/delivery-handoff.md": "03_PRODUCT_AND_ENGINEERING.txt",
+    "references/planning-handoff.md": "03_PRODUCT_AND_ENGINEERING.txt",
     "references/context-efficiency.md": "04_GOVERNANCE_AND_RECORDS.txt",
 }
 

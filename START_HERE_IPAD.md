@@ -1,6 +1,6 @@
 # Start here — iPad and source checkpoint
 
-**Release:** 0.15.0-rc.3 · Stage 2. **Purpose:** prepare a public, provider-neutral capability manager; Peanuts is the current prototype. The read-only selector/intake helper and manual manager adapter are implemented; actual host behavior remains separately gated. The main branch is the source development branch; [Actions](https://github.com/NeatKnight18586/friday-core/actions/workflows/ci.yml) shows checks for each uploaded commit.
+**Release:** 0.16.0-rc.1 · Stage 3. **Purpose:** prepare a public, provider-neutral capability manager; Peanuts is the current prototype. The read-only selector/intake helper and manual manager adapter are implemented; actual host behavior remains separately gated. The main branch is the source development branch; [Actions](https://github.com/NeatKnight18586/friday-core/actions/workflows/ci.yml) shows checks for each uploaded commit.
 
 To use Friday in a consumer chat, attach the generated `Friday-Manager.txt` alongside the selected capability route. It contains instructions/catalog/contracts, not the Peanuts method files or an executable native manager. If Peanuts is missing, Friday must report the missing package.
 
@@ -8,13 +8,15 @@ To use Friday in a consumer chat, attach the generated `Friday-Manager.txt` alon
 
 | Destination | Use | Boundary |
 |---|---|---|
-| Source repository / engineering workspace | Extract `Friday-Stage-2-Source.zip` at the repository root | Includes source, tests, schemas and generated Codex/Claude Code snapshots |
+| Source repository / engineering workspace | Extract `Friday-Stage-3-Source.zip` at the repository root | Includes source, tests, schemas and generated Codex/Claude Code snapshots |
 | Ordinary Claude chat | Upload `peanuts-claude-chat-skill.zip` as a Skill ZIP using the supported account UI | Separate consumer adapter, not the whole repository |
 | Claude Project | Extract `friday-peanuts-claude-project-knowledge.zip`; upload the five text documents and paste `CLAUDE_PROJECT_INSTRUCTIONS.md` | Background and handoffs; no automatic source synchronization |
 | ChatGPT Project | Extract `peanuts-chatgpt-project-files.zip`; upload its five text documents and paste the separate Project instructions | Manual reference adapter, not an executable native Skill |
 | Codex / Claude Code | Open the source workspace in the actual host | Generated discovery paths exist; real invocation still needs testing |
 
 This checkpoint does not require a particular provider. Check actual account/device eligibility, upload limits and tool access during setup. A successful upload is not proof of useful behavior. Use the [cross-host acceptance guide](docs/acceptance/CROSS_HOST_RUNTIME_ACCEPTANCE.md) and [smoke prompts](docs/acceptance/CROSS_HOST_SMOKE_TEST_PROMPTS.md).
+
+For portable planning, use the dossier/handoff templates from the selected Peanuts package. Export two files when continuity is needed; do not create the full ledger set for a quick early question. On hosts without digest/validation tools, leave the digest null and label verification NOT RUN. Full formal approval gates remain separate.
 
 ## Work from an iPad
 
@@ -32,7 +34,7 @@ These commands assume a clean disposable directory containing the source ZIP. Ex
 
 ```bash
 mkdir friday-stage2
-unzip -q Friday-Stage-2-Source.zip -d friday-stage2
+unzip -q Friday-Stage-3-Source.zip -d friday-stage2
 cd friday-stage2
 python -m pip install -r requirements-dev.txt
 python tools/verify.py

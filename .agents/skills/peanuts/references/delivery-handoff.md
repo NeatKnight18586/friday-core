@@ -34,3 +34,7 @@ Update `state.json`, `STATUS_AND_HANDOFF.md`, and `PROJECT_BRIEF.md` with the ex
 ## P9 exit gate
 
 P9 can be marked complete only when the PRD and applicable technical design are approved, the build plan has a coherent dependency graph and requirement coverage, acceptance tests are linked and honestly status-labelled, the demo plan has evidence boundaries and fallback, artifacts resolve to real files, material risks/owners are visible, and the owner approves the handoff. The owner still separately authorizes actual execution and publication.
+
+## Portable planning summary
+
+Use [planning-handoff.md](planning-handoff.md) to export a concise dossier and handoff snapshot from existing deliverables. Link approved formal records rather than duplicating them. The portable snapshot is planning context; it does not replace the P9 exit gate or authorize external actions.

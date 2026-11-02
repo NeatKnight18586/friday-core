@@ -12,8 +12,10 @@ from jsonschema import Draft202012Validator
 
 try:
     from .validate_capabilities import validate_registry
+    from .resource_modes import normalize_mode, mode_label
 except ImportError:
     from validate_capabilities import validate_registry
+    from resource_modes import normalize_mode, mode_label
 
 ROOT = Path(__file__).resolve().parents[1]
 MAX_JSON_BYTES = 131072
@@ -179,7 +181,10 @@ def select(
             "reason": "Ask one question to distinguish the desired outcome.",
         }
     chosen = candidates[0]
-    requested_mode = mode or chosen["default_mode"]
+    try:
+        requested_mode = normalize_mode(mode or chosen["default_mode"])
+    except ValueError as exc:
+        return {**base, "status": "invalid_request", "reason": str(exc)}
     ordered: list[str] = []
 
     def visit(cid):
@@ -235,6 +240,7 @@ def select(
         "status": "selected",
         "capability": chosen["id"],
         "mode": requested_mode,
+        "mode_label": mode_label(requested_mode),
         "load_order": selected,
         "permissions_are": "caller-reported, not an authority grant",
         "runtime_evidence": "not established by selection",
@@ -272,7 +278,7 @@ def main() -> int:
     source.add_argument("--capability")
     source.add_argument("--intent")
     choose.add_argument("--host", required=True)
-    choose.add_argument("--mode", choices=["quick", "standard", "deep"])
+    choose.add_argument("--mode", choices=["fast", "quick", "standard", "deep"])
     choose.add_argument(
         "--input",
         action="append",

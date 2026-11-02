@@ -1,5 +1,8 @@
 # Context, Token and Resource Budgets
 
+Stage 3 names the quick profile **Fast**: `fast` is accepted at user/CLI boundaries and stored as legacy `quick`. Standard/Deep and all evidence/permission gates are unchanged. Compact planning loads only the selected method and exports two files when useful; formal P7–P9 records remain conditional on that workflow.
+
+
 **Status:** B6.5 operating policy; hard enforcement depends on host/runtime  
 **Version:** 0.2.0-draft  
 **Last reviewed:** 2026-11-01

@@ -111,7 +111,7 @@ A minimal input should be enough to begin. Peanuts should research the provided 
 
 Possible inputs include event names/URLs, challenge statements, user ideas, notes, sketches, existing files, prototypes, constraints, and requests to critique or pivot.
 
-The **Project Brief** is the primary summary artifact. Supporting outputs are conditional:
+The **Project Dossier** is the primary compact planning export, accompanied by `handoff.json` when continuity is needed. In the existing full workspace, retain the Project Brief and detailed PRD/design/records as their own authorities; link them instead of maintaining competing copies. Compact exports do not approve P7–P9 or grant action permissions. Supporting outputs are conditional:
 
 - Event Dossier.
 - Research and Claims Register.

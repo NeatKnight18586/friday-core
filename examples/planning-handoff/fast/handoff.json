@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "project_id": "synthetic-fast",
+  "project_version": "0.1.0",
+  "updated_at": "2026-11-02T00:00:00Z",
+  "workflow_stage": "P2",
+  "resource_mode": "quick",
+  "disposition": "provisional",
+  "authority": "planning-context-only",
+  "evidence_context": "synthetic",
+  "summary": "Provisional campus-status concept: manually maintained hours/status with an expiry label; actual student pain and data ownership are unverified.",
+  "constraints": [
+    "Synthetic scenario: two builders, 48 hours, zero paid API budget."
+  ],
+  "dossier": {
+    "path": "PROJECT_DOSSIER.md",
+    "sha256": "a299b9003714d7ebae1ee006c43ba8008c5733dcf1998a0011590415e67fda86"
+  },
+  "sources": [
+    {
+      "id": "SRC-0001",
+      "reference": "Authored fixture scenario; not an external source or real participant report.",
+      "status": "synthetic"
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-0001",
+      "text": "Synthetic scenario: two builders, 48 hours, zero paid API budget.",
+      "basis": "synthetic",
+      "source_ids": [
+        "SRC-0001"
+      ],
+      "limitations": "Invented fixture context."
+    },
+    {
+      "id": "CLM-0002",
+      "text": "Students may not experience a consequential enough problem to use this.",
+      "basis": "assumption",
+      "source_ids": [],
+      "limitations": "Not tested with real users or domain evidence."
+    }
+  ],
+  "decisions": [
+    {
+      "id": "DEC-0001",
+      "text": "Compare a status board with a FAQ bot. Prefer a manual status board for a small test; a bot adds retrieval uncertainty without evidence of need.",
+      "status": "proposed",
+      "approval_evidence": ""
+    }
+  ],
+  "risks": [
+    {
+      "id": "RISK-0001",
+      "description": "Students may not experience a consequential enough problem to use this.",
+      "severity": "high",
+      "status": "open",
+      "test_or_mitigation": "Observe or interview actual affected users; record real examples and reject the concept if status access is not a meaningful cause of wasted trips.",
+      "evidence": ""
+    }
+  ],
+  "blockers": [],
+  "unavailable_checks": [
+    "External research NOT RUN.",
+    "Direct user evidence NOT RUN.",
+    "Implementation/demo verification NOT RUN."
+  ],
+  "next_action": {
+    "description": "Interview or observe affected students with appropriate consent; determine whether avoidable trips occur and who owns status updates.",
+    "owner": "fixture owner",
+    "required_tools": []
+  },
+  "project_mode": "MODE-IDEA"
+}

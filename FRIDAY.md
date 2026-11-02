@@ -18,4 +18,4 @@ Stage the reviewed package in a disposable workspace. Prepare metadata matching 
 
 ## Status and modes
 
-Peanuts is the only registered capability in this checkpoint. Its `quick`, `standard`, `deep` modes vary depth; Standard is default. A native manager Skill/plugin is not installed by this document. Filesystem host guidance can direct users here; consumer users may attach the generated `Friday-Manager.txt` alongside an installed/attached Peanuts route. Runtime behavior and private memory persistence require separate evidence.
+Peanuts is the only registered capability in this checkpoint. Its Fast/Standard/Deep modes vary depth; `fast` and legacy `quick` normalize to the stored `quick` identifier, and Standard is default. A native manager Skill/plugin is not installed by this document. Filesystem host guidance can direct users here; consumer users may attach the generated `Friday-Manager.txt` alongside an installed/attached Peanuts route. Runtime behavior and private memory persistence require separate evidence.

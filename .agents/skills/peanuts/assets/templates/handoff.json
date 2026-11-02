@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "project_id": "project-id",
+  "project_version": "0.1.0",
+  "updated_at": "2026-01-01T00:00:00Z",
+  "workflow_stage": "P1",
+  "resource_mode": "standard",
+  "disposition": "draft",
+  "authority": "planning-context-only",
+  "evidence_context": "real",
+  "summary": "Desired outcome to be clarified with the owner.",
+  "constraints": [],
+  "dossier": {
+    "path": "PROJECT_DOSSIER.md",
+    "sha256": null
+  },
+  "sources": [],
+  "claims": [],
+  "decisions": [],
+  "risks": [],
+  "blockers": [],
+  "unavailable_checks": [
+    "External research and direct user evidence not yet collected."
+  ],
+  "next_action": {
+    "description": "Clarify the target problem and the highest-impact missing evidence.",
+    "owner": "project owner",
+    "required_tools": []
+  },
+  "project_mode": "MODE-IDEA"
+}

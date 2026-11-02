@@ -6,7 +6,7 @@
 
 ## 1. Purpose
 
-This document defines the minimum persistent record set needed to create, inspect, pause, resume, and evaluate a Peanuts project without relying on chat history as the only source of truth.
+This document defines the full-workspace record model for creating, inspecting, pausing, resuming and evaluating a Peanuts project without relying on chat history alone. Stage 3 also provides a separate two-file, planning-only compact layout under `skills/peanuts/references/planning-handoff.md`. The initializer default remains full; compact must be selected explicitly and does not replace formal P7–P9 records, state or approval gates.
 
 The model is deliberately file-centered. It uses JSON for one current project record and state snapshot, JSONL for append-oriented evidence/decision records, Markdown for human-readable project summaries, and versioned JSON Schemas for structural validation.
 
@@ -20,7 +20,7 @@ The repository contains only generic templates, schemas, synthetic evaluation ca
 
 Do not put credentials, personal-memory exports, identifiable participant records, confidential documents, or raw interview recordings in project JSON/Markdown/JSONL files. Store sensitive material in an appropriately protected location and link to it only when permitted.
 
-## 3. Canonical project layout
+## 3. Canonical full project layout
 
 ```text
 local-workspace/

@@ -13,7 +13,7 @@
 
 ## Modes
 
-- `quick`: exploration; selected skill plus normally no more than one supporting reference. Label preliminary or unverified findings.
+- **Fast** (`fast`, stored as `quick`): exploration; selected skill plus normally no more than one supporting reference. Label preliminary or unverified findings.
 - `standard`: default; decision-led research and selective references. Use the normal evidence/quality gates.
 - `deep`: for consequential decisions or explicit requests; load all relevant evidence and methods, use deeper review and testing. Do not load unrelated project or capability files.
 
@@ -25,12 +25,16 @@ Reuse inspected findings and approved decisions. Begin with the smallest decisio
 
 ## Friday capability boundary
 
-Peanuts is one independent capability in Friday's catalog. Friday is currently the repository umbrella and shared governance layer; an active manager/router is optional future work, not an implemented feature or a fixed commitment. Do not assume Peanuts owns general writing, coding, or unrelated tasks. If another capability is registered, host-available, and genuinely needed, use its declared interface and pass a compact handoff rather than loading every capability. If no suitable capability exists, state the gap or help directly without pretending a tool exists.
+Peanuts is one independent capability in Friday's catalog. Friday provides the Stage 2 read-only selector/intake helper and host-mediated instructions; it does not execute capabilities autonomously. Do not assume Peanuts owns general writing, coding, or unrelated tasks. If another capability is registered, host-available, and genuinely needed, use its declared interface and pass a compact handoff rather than loading every capability. If no suitable capability exists, state the gap or help directly without pretending a tool exists.
 
 ## Growth and metadata discipline
 
-Do not install or auto-discover every future Friday capability by default. Keep host skill metadata curated. The registry is a small catalog and source of truth; it is not the full knowledge base and must not be pasted wholesale into every task. If capability count grows, filter metadata before reading any skill body. Friday's manager remains a future option to be justified by real routing/handoff friction.
+Do not install or auto-discover every future Friday capability by default. Keep host skill metadata curated. The registry is a small catalog and source of truth; it is not the full knowledge base and must not be pasted wholesale into every task. If capability count grows, filter metadata before reading any skill body. Autonomous coordination remains deferred; the explicit selector loads only the chosen capability.
 
 ## Measurement honesty
 
 Record exact token usage only when the host exposes it. Word/character counts, number of files read, and tool calls are proxies, not token counts. Do not promise a fixed percentage of provider-credit savings.
+
+## Compact continuation
+
+Use planning-handoff.md only when delivering/resuming the dossier. It defines two files instead of duplicating a full ledger set for early exploration. Formal P7–P9 records and approvals remain unchanged. A shorter entrypoint reduces static words/characters, not proven host tokens or cost.
