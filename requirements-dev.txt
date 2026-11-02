@@ -2,7 +2,7 @@
 # This improves version repeatability but does not enforce artifact hashes.
 # Regenerate and review this complete list when updating dependencies.
 attrs==26.1.0
-iniconfig==2.3.0
+iniconfig==2.3.1
 jsonschema==4.26.0
 jsonschema-specifications==2025.9.1
 packaging==25.0
