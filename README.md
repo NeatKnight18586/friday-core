@@ -2,7 +2,7 @@
 
 A portable capability manager in development, with **Peanuts** as its first project-discovery and planning capability.
 
-**Checkpoint:** `0.16.0-rc.1` · Stage 3 · Public-release preparation. Friday now provides a read-only capability selector and dry-run intake helper, portable host-mediated manager instructions, a capability catalog, records, packaging and validation. Peanuts is an installable prototype whose live behavior still needs testing on each target host.
+**Checkpoint:** `0.17.0-rc.1` · Stage 4 evaluation checkpoint · Public-release preparation. Friday now provides a read-only capability selector and dry-run intake helper, portable host-mediated manager instructions, a capability catalog, records, packaging and validation. Peanuts is an installable prototype whose live behavior still needs testing on each target host.
 
 ## Use Friday to select or add capabilities
 
@@ -21,6 +21,10 @@ The grant flag reports authorization already given; it grants no system access. 
 Start with an idea, a problem, an existing project, or a hackathon. Peanuts guides evidence-led research, user/problem discovery, selective inspiration from nature/history/other domains, concept comparison, Four-Council critique, assumption testing, and a documented handoff for building.
 
 NUTS (“Nothing New Under the Sun”) studies and transforms existing mechanisms with attribution. NUTS and Four-Council are experimental methods; they do not guarantee novelty, validated demand, or competition wins. Fast/Standard/Deep guide work depth, with Standard as the default. Both `fast` and legacy `quick` select Fast; stored mode IDs remain `quick` for compatibility.
+
+## Behavioral evidence
+
+The [twelve-case comparison suite](evals/behavior/README.md) prepares matched prompts for ordinary chat, Peanuts without NUTS, Peanuts with simple critique and full Four-Council. These are authored test inputs, not model passes. The actual Codex preflight is authentication-blocked; no new comparative model results or savings are established. See [current host routes and recovery options](docs/acceptance/STAGE_4_HOST_ROUTES.md).
 
 ## Try the prototype
 

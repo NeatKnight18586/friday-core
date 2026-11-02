@@ -1,3 +1,13 @@
+## [0.17.0-rc.1] - 2026-11-02 — Behavioral evaluation checkpoint
+
+### Added
+- Twelve authored tasks, four matched instruction conditions, counterbalanced order and repeated critical cases; 60 planned runs, not executed results.
+- Private-by-default prompt preparation and ungraded evidence recording with integrity, error, overwrite and telemetry checks.
+- Current official host-route research, sanitized actual runtime-preflight failure and predeclared grading/critical-failure gates.
+
+### Limits
+- Codex token refresh failed before inference; Claude Code and provider credentials are unavailable. No new comparative behavior, native activation, usefulness or savings is established. Stage 4's runtime gate stays open.
+
 ## [0.16.0-rc.1] - 2026-11-02 — Compact Peanuts planning
 
 ### Added

@@ -15,13 +15,13 @@ except ImportError:  # Support direct execution as `python tools/update_manifest
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "PACKAGE_MANIFEST.json"
-DEFAULT_VERSION = "0.16.0-rc.1"
-DEFAULT_MILESTONE = "Stage 3 — Selective Peanuts context and portable planning handoff"
+DEFAULT_VERSION = "0.17.0-rc.1"
+DEFAULT_MILESTONE = "Stage 4 — Behavioral evaluation infrastructure; runtime gate open"
 DEFAULT_STATUS = (
-    "STAGE_3_CHECKPOINT: public-release preparation with a provider-neutral canonical Peanuts core. "
-    "Read-only Friday management, Fast/quick compatibility and compact planning handoff are implemented; no autonomous execution. "
+    "STAGE_4_EVALUATION_CHECKPOINT: public-release preparation with a provider-neutral canonical Peanuts core. "
+    "Read-only management, compact planning and matched behavioral evaluation preparation/recording are implemented; no autonomous execution.  "
     "Deterministic verification evidence is in RELEASE_VERIFICATION.md. "
-    "Live host acceptance, method effectiveness, and measured savings remain unverified. Hosted CI status is recorded per commit in GitHub Actions. "
+    "Actual Stage 4 Codex preflight failed authentication before inference; comparative model results, live host acceptance, method effectiveness and measured savings remain unverified. Hosted CI status is recorded per commit in GitHub Actions. "
     "Existing MIT license preserved; owner selected friday-core for clean source publication; third-party rights and public-release acceptance remain pending; no universal compatibility claim."
 )
 

@@ -26,6 +26,7 @@ VALIDATORS = (
     ("Capability registry", "tools/validate_capabilities.py"),
     ("Manager contracts", "tools/validate_manager.py"),
     ("Portable planning", "tools/validate_planning.py"),
+    ("Behavior evaluation inputs", "tools/behavior_eval.py"),
     ("Context budget", "tools/inspect_context.py"),
     ("B7 Four-Council", "tools/validate_b7.py"),
     ("B8 delivery", "tools/validate_b8.py"),
@@ -41,6 +42,7 @@ PYTEST_GROUPS = (
     ("Project initializer", ("tests/test_init_project.py",)),
     ("Capability manager", ("tests/test_capability_manager.py",)),
     ("Planning handoff", ("tests/test_planning_handoff.py",)),
+    ("Behavior evidence", ("tests/test_behavior_eval.py",)),
     ("B5 research", ("tests/test_b5_research.py",)),
     ("B6 NUTS", ("tests/test_b6_nuts.py",)),
     ("B7 Four-Council", ("tests/test_b7_four_council.py",)),
@@ -105,7 +107,8 @@ def main() -> int:
         return 1
     failures: list[str] = []
     for label, script in VALIDATORS:
-        if not run_step(label, [script]):
+        script_args = [script, "check"] if script == "tools/behavior_eval.py" else [script]
+        if not run_step(label, script_args):
             failures.append(label)
     if args.skip_lint:
         print("NOT RUN: Ruff (--skip-lint).", flush=True)

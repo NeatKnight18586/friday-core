@@ -1,0 +1,30 @@
+{
+  "kind": "actual-runtime-preflight",
+  "date": "2026-11-02",
+  "host": "Codex CLI 0.163.0 on managed Linux",
+  "model": "unknown-no-model-response",
+  "status": "blocked-before-inference",
+  "prompt": "Bounded host preflight. Do not use tools, read files, change anything or delegate. Return exactly HOST_OK. No other work is requested.\n",
+  "command": "codex exec --ephemeral --skip-git-repo-check --sandbox read-only --json -C /workspace/friday-core -o [external-answer-path] - < [external-prompt-path]",
+  "exit_code": 1,
+  "assistant_response": null,
+  "usage": null,
+  "primary_error": "Your access token could not be refreshed because you have since logged out or signed in to another account. Please sign in again.",
+  "other_observed_errors": [
+    "401 Unauthorized on models/backend calls",
+    "MCP transport HTTP 451 no_biscuit_no_service"
+  ],
+  "raw_evidence_sha256": {
+    "probe-prompt.txt": "a37056696ac3ffdab4d6326c1db845ba8738ae9e9bf3ab3566f35226d4b908ce",
+    "probe-events.jsonl": "0bea5bdbd63bd36cdfa687553877e169d8e54dadd90354bbd1da2a410c8bfa2e",
+    "probe-stderr.log": "2c0ea6911a40ed9b8ee0e526eea3fc60b4954b1d93989564a7049d6ee256543b"
+  },
+  "evidence_note": "Sanitized summary of actual external logs; raw logs retained outside public source. No credentials inspected or published.",
+  "behavioral_cases_executed": 0,
+  "behavioral_cases_passed": null,
+  "limitations": [
+    "No actual discovery, model inference or fresh-chat recovery established",
+    "No efficacy, cost or token-saving result",
+    "Native consumer UIs are inaccessible to this runtime"
+  ]
+}

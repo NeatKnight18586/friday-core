@@ -1,8 +1,8 @@
 {
   "project": "Friday / Peanuts",
-  "version": "0.16.0-rc.1",
-  "milestone": "Stage 3 — Selective Peanuts context and portable planning handoff",
-  "status": "STAGE_3_CHECKPOINT: public-release preparation with a provider-neutral canonical Peanuts core. Read-only Friday management, Fast/quick compatibility and compact planning handoff are implemented; no autonomous execution. Deterministic verification evidence is in RELEASE_VERIFICATION.md. Live host acceptance, method effectiveness, and measured savings remain unverified. Hosted CI status is recorded per commit in GitHub Actions. Existing MIT license preserved; owner selected friday-core for clean source publication; third-party rights and public-release acceptance remain pending; no universal compatibility claim.",
+  "version": "0.17.0-rc.1",
+  "milestone": "Stage 4 — Behavioral evaluation infrastructure; runtime gate open",
+  "status": "STAGE_4_EVALUATION_CHECKPOINT: public-release preparation with a provider-neutral canonical Peanuts core. Read-only management, compact planning and matched behavioral evaluation preparation/recording are implemented; no autonomous execution.  Deterministic verification evidence is in RELEASE_VERIFICATION.md. Actual Stage 4 Codex preflight failed authentication before inference; comparative model results, live host acceptance, method effectiveness and measured savings remain unverified. Hosted CI status is recorded per commit in GitHub Actions. Existing MIT license preserved; owner selected friday-core for clean source publication; third-party rights and public-release acceptance remain pending; no universal compatibility claim.",
   "generated_date": "2026-11-02",
   "schema_version": "1.0.0",
   "files": [
@@ -1158,8 +1158,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 29242,
-      "sha256": "4a8c4542d8170238f60147b216c4f540bd8b5bdb260a37ca4b3cdcdae812b6c8"
+      "bytes": 29965,
+      "sha256": "e99d7a634f897e7b5c4e77f6a99b342ca1df9ff294d4105f2d03d08e91703427"
     },
     {
       "path": "CLAUDE.md",
@@ -1183,23 +1183,23 @@
     },
     {
       "path": "README.md",
-      "bytes": 7335,
-      "sha256": "9fd3a6a1407300d8c702f9389d831ddb34570af52f30956c38583d60c59c1468"
+      "bytes": 7814,
+      "sha256": "a2e928f8173c5e11764f58e9575154efdb00856482f199b1ba91ecb42ffe0919"
     },
     {
       "path": "RELEASE_STATUS.md",
-      "bytes": 2827,
-      "sha256": "149da31fb571106476fd1c6a26186dfeae42af426a81010a5e0541c5c577c3cb"
+      "bytes": 3066,
+      "sha256": "ed0b90eb59660a1ab8d8f94bbb51612b02f5ccf964afad35ba9306968f861043"
     },
     {
       "path": "RELEASE_VERIFICATION.md",
-      "bytes": 5275,
-      "sha256": "ed3f2f3712479417de17cf2d4593c691abddd494d7a1ddbf718b9c881d0b1366"
+      "bytes": 5402,
+      "sha256": "fae469cae346ea1c95cafdcdd43fbbd4090b0461024a8b77050905e711cd1d8e"
     },
     {
       "path": "START_HERE_IPAD.md",
-      "bytes": 5165,
-      "sha256": "bb991ecfa2f4e1e416a4c4f7ce47d2a44db385a803f0b5a916856bd9dd10a0be"
+      "bytes": 5393,
+      "sha256": "491086f2841292e108558f289eee0b89e6170bb6ba000e49fec1ac2f916f4bdf"
     },
     {
       "path": "adapters/chatgpt/PROJECT_INSTRUCTIONS.md",
@@ -1367,6 +1367,11 @@
       "sha256": "796c9f88b372613f8d191c888f3dbfbd4a9cdd43e36172006710dbe5fbeccc5b"
     },
     {
+      "path": "docs/acceptance/STAGE_4_HOST_ROUTES.md",
+      "bytes": 5062,
+      "sha256": "00dd74ae30e1161a616828ec9f3a5265e3920b8de02fbba8857c0e9c20ce17dd"
+    },
+    {
       "path": "docs/architecture/ARCHITECTURE.md",
       "bytes": 12962,
       "sha256": "c0090400cbe1a534efce25fb1ca6457ee7cc9c580f106546ad10ffe7dee63fea"
@@ -1383,8 +1388,8 @@
     },
     {
       "path": "docs/architecture/DECISIONS.md",
-      "bytes": 31729,
-      "sha256": "af2e47935398ca0180ed2f41f0a617b6936cb8b687edb9f546c8cb2d339c5b35"
+      "bytes": 33110,
+      "sha256": "789fa9451a72c4e0ab7d53c5f77a8236926c7d1becf5f55354ed18f15ca73f43"
     },
     {
       "path": "docs/architecture/DECISION_GATES_AND_REVIEW_RECORDS.md",
@@ -1518,8 +1523,8 @@
     },
     {
       "path": "docs/plans/REVISION_STAGES.md",
-      "bytes": 3530,
-      "sha256": "fd86d7924c08070f401f53725e899f04a879406d329c43e48eb213997c4c122b"
+      "bytes": 4035,
+      "sha256": "a2d2908ef88befbf1530693f5704ce7658bf45e5fdff8545adbd885821c3c323"
     },
     {
       "path": "docs/product/PEANUTS_CONSTITUTION.md",
@@ -1612,6 +1617,11 @@
       "sha256": "6560f7ed0d97563341144364162ccf6e99c7c21ff6790f60324093ee319e66a1"
     },
     {
+      "path": "docs/reviews/REVISION_STAGE_4_REVIEW.md",
+      "bytes": 4865,
+      "sha256": "83717e20b4c3711486a2650060de65abd947daa96d1ed02f15067196f66573cd"
+    },
+    {
       "path": "docs/reviews/STAGE_0_5_COUNCIL_REVIEW.md",
       "bytes": 8024,
       "sha256": "443fd777747d36f827717f1b5f3bb296e44324cea9904812131ffdc79adad772"
@@ -1638,13 +1648,28 @@
     },
     {
       "path": "evals/README.md",
-      "bytes": 6557,
-      "sha256": "5c8374f10ab286eddcefa800fb8dafba6c62b8798266a6449248ae55d9c18add"
+      "bytes": 6874,
+      "sha256": "bc4f06e573525005feb1f91518d7178d822e354b5f3f293858f07c4d43089fb1"
     },
     {
       "path": "evals/baselines/README.md",
       "bytes": 506,
       "sha256": "08b5d3789f54c99e0e2c5886bcc0218d52ee8789d6449b1e7fc0ecebb76d8814"
+    },
+    {
+      "path": "evals/behavior/README.md",
+      "bytes": 7634,
+      "sha256": "132d42bde74801d612333b1e85c65d7594af50e1a3aa7b1408167a395f7b93e0"
+    },
+    {
+      "path": "evals/behavior/cases.json",
+      "bytes": 10650,
+      "sha256": "fa991a048b9d3c27c115d7cacea94edd74c53e55b8af3fbac8dd8544a3c2b933"
+    },
+    {
+      "path": "evals/behavior/preflight.json",
+      "bytes": 1595,
+      "sha256": "a6d6824c3f2e82ed9feb40c8eb7ccdaa8a65b4c9804179168eebafa53219c372"
     },
     {
       "path": "evals/cases/EVAL-001.json",
@@ -3187,6 +3212,11 @@
       "sha256": "4a773a538eb3dc9361828296be29a96ceb9689a453adc82878db6f3e3e3f08ce"
     },
     {
+      "path": "tests/test_behavior_eval.py",
+      "bytes": 6462,
+      "sha256": "c8c33a7ec05b60c3fc3eda42b2ea5b0799b7604356830491d4ddb001069b6deb"
+    },
+    {
       "path": "tests/test_capability_manager.py",
       "bytes": 12115,
       "sha256": "3f5d0684dee9aefe9a03f6a22ce4f1dd7efa181d59eec64c714fc4a78adc9b07"
@@ -3277,6 +3307,11 @@
       "sha256": "0352663d6ce2f1999b96547363e055cdc337f494a6167ba4430891864b7ebc74"
     },
     {
+      "path": "tools/behavior_eval.py",
+      "bytes": 12113,
+      "sha256": "b02d84d683bbbabf1d573f400ebf796f654e30aaa8708683635cb06c750144a9"
+    },
+    {
       "path": "tools/build_claude_chat_companion.py",
       "bytes": 10105,
       "sha256": "cd2faa94afda9fe2044540c00ed5fe978d837c49d014e51e4f435ba4d3fc6b53"
@@ -3333,8 +3368,8 @@
     },
     {
       "path": "tools/update_manifest.py",
-      "bytes": 2939,
-      "sha256": "c05b35e0a9de9243ed5455823b00f4545399e88bb6c3fa0943086c443bd02aa2"
+      "bytes": 3060,
+      "sha256": "7db1911d532fc5e8d8526632555dc80565bacad0c40b7809968b4d26778914fb"
     },
     {
       "path": "tools/validate_b10.py",
@@ -3413,8 +3448,8 @@
     },
     {
       "path": "tools/verify.py",
-      "bytes": 5493,
-      "sha256": "fed2f7cb76548db843b285fb78b3f612d6f5227e8441e71fa54656965a869d12"
+      "bytes": 5711,
+      "sha256": "978a28664adae30daa6c2fdb2a3dd1692ff12a55e6e035edb11d413793991b01"
     }
   ]
 }

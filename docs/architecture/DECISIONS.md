@@ -330,3 +330,10 @@ A status records the scope of approval. “Owner-selected direction” does not 
 **Decision:** Display Fast/Standard/Deep; accept fast and legacy quick at the manager/compact initializer boundaries and persist quick.  
 **Reason:** Matches the owner's naming while preserving existing registries, records and integrations.  
 **Consequence:** No bulk migration or weakening of resource/evidence rules. A caller declaring a tool or permission still does not grant authority or prove its use.
+
+## ADR-054 — Separate behavioral evaluation readiness from runtime evidence
+**Status:** Accepted for owner-approved Stage 4 (2026-11-02); live evidence gate open
+**Decision:** Predeclare twelve synthetic tasks, four instruction conditions, critical-case repeats, criterion-based grading and immutable-by-default local evidence records. Add the full-NUTS/simple-critique condition to separate council and NUTS comparisons. Publish the actual blocked preflight rather than authored outcomes.
+**Reason:** Package correctness, model behavior and user usefulness require distinct evidence. The available Codex CLI failed authentication before inference; no other model runtime is configured. A seeded suite and recorder enable genuine trials without inventing them.
+**Guardrails:** No provider calls or spending from the collector, no automatic quality grades, no secret publication, no credential replacement, no native discovery inference from rendered prompts. Actual token telemetry or null; critical failures cannot be averaged away. Small public synthetic cases are development evidence, not a reliability guarantee.
+**Consequence:** Stage 4 infrastructure can be published as an experimental checkpoint while actual comparative/native-host acceptance remains open. Optional profile import and broad public-release claims do not become approved or verified by this checkpoint.

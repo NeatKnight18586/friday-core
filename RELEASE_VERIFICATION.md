@@ -1,23 +1,23 @@
-# Release verification — Friday 0.16.0-rc.1
+# Release verification — Friday 0.17.0-rc.1
 
-**Classification:** `STAGE_3_CHECKPOINT` — selective skill context, Fast compatibility and portable planning handoff.  
+**Classification:** `STAGE_4_EVALUATION_CHECKPOINT` — behavioral comparison infrastructure; real-model gate open.
 **Date:** 2026-11-02. **Managed environment:** Linux / Python 3.12.14.
 
-## Observed local verification
+## Observed verification
 
-An actual complete Stage 3 `python tools/verify.py` run passed **258 tests**, **15 validator steps**, Python compilation, configured test-module coverage and Ruff. This retains the previous 227 tests and adds 31 portable planning cases. The canonical skill entrypoint changed from 1,949 to 831 words (14,955 to 6,581 characters); those are whitespace word/character measurements, not token or quality results.
+The actual full Stage 4 `python tools/verify.py` run passed **278 tests**, **16 validator steps**, Python compilation, configured test-module coverage and Ruff. Twenty new tests check evaluation-packet integrity, condition setup, repeat/order reproducibility, blocked execution handling, missing/modified outputs, incompatible routes/tools, telemetry metadata and bounded/no-overwrite operations. They use explicit fixtures, not model inference.
 
-| Check | Evidence scope |
+| Check | Observed evidence and scope |
 |---|---|
-| Complete local Stage 3 verifier | PASS: 258 tests, 15 validators, Ruff |
-| Compact planning | PASS: two-file initialization, integrity/traceability gates and fresh-process recovery; not actual model behavior |
-| Generated host/consumer resources | Source parity/resource closure and deterministic package checks; ChatGPT remains five reference files |
-| Hosted Stage 2 Windows fix | PASS: all 12 jobs at `10bbd13`; [run](https://github.com/NeatKnight18586/friday-core/actions/runs/41419736151) |
-| Stage 3 hosted OS/Python matrix | Commit-specific results in [Actions](https://github.com/NeatKnight18586/friday-core/actions/workflows/ci.yml); local success alone is insufficient |
-| Actual Codex CLI/model and configured consumer recovery | Not established by Stage 3 structural tests; prior Codex attempt was authentication-blocked |
+| Full local Stage 4 verifier | PASS: 278 tests, 16 validators, Ruff |
+| Prior Stage 3 hosted matrix | PASS: all 12 jobs at `59568ca`; [actual run](https://github.com/NeatKnight18586/friday-core/actions/runs/41424796031) |
+| Stage 4 hosted matrix | Check exact published commit in [Actions](https://github.com/NeatKnight18586/friday-core/actions/workflows/ci.yml); results are retained in the delivery evidence. Local success is not a remote pass. |
+| Actual current Codex preflight | BLOCKED before inference: token refresh failed, exit 1, no assistant response; [sanitized actual evidence](evals/behavior/preflight.json) |
+| Comparison packets | 60 prepared (48 primary plus 12 critical repeats), zero behavioral executions; preparation is not a model result |
+| Native host discovery, consumer UI and fresh-chat acceptance | NOT ESTABLISHED |
 | Independent usefulness, method advantage, token/credit savings | NOT ESTABLISHED |
 
-The Stage 1 count correction remains: the original full lint diagnostics contained 21 findings, not the initial truncated-output count of nine. Stage 1 fixed them without weakening lint. Historical evaluation records retain their original scope; no new consumer/model pass is inferred here.
+The prior Stage 3 skill reduction (1,949 to 831 words) remains only a text-size measurement. No additional skill-method changes or efficacy claims are inferred from the new evaluation infrastructure. The earlier lint-count correction remains historical: Stage 1 fixed all 21 findings, not the initial truncated count of nine.
 
 ## Reproduce
 
@@ -26,19 +26,19 @@ python -m pip install -r requirements-dev.txt
 python tools/sync_host_entrypoints.py --check
 python tools/update_manifest.py --check
 python tools/verify.py
-python tools/handoff.py examples/planning-handoff/fast --resume
+python tools/behavior_eval.py check
+python tools/behavior_eval.py prepare
 python tools/build_manager_adapter.py --out build/manager
 python tools/build_skill_packages.py --out build/skill-packages
 python tools/build_claude_chat_companion.py --out build/claude-chat
-python tools/package_release.py --output build/Friday-Stage-3-Source.zip
+python tools/package_release.py --output build/Friday-Stage-4-Source.zip
 ```
 
-For canonical changes, regenerate with `python tools/sync_host_entrypoints.py --sync`, then update the manifest before checking it. Build the source ZIP twice and compare bytes; extract into a fresh directory and run full verification. The source manifest excludes itself and private/build/cache data; external checksums cover the archive without self-reference. Heuristic secret scans do not prove absence of every sensitive item.
+Generated evaluation packets and collected responses default to ignored local storage. The tool does not call a provider or assign grades. To reproduce delivery checks, build the source ZIP twice and compare bytes, then extract into a new directory and run full verification. Archive hashes and exact-commit hosted CI results belong in the external delivery evidence to avoid circular source checksums. The source manifest excludes itself, archives and private/build/cache data.
 
 ## Boundaries
 
-The owner selected `NeatKnight18586/friday-core` for a clean initial source commit, with no tracked source ZIP. The older repository remains separate. Hosted checks must be assessed for their exact commit in GitHub Actions; the earlier Stage 2 preflight findings remain historical evidence. The existing owner-authored MIT license was recovered from that repository and is preserved in this source; third-party rights review remains a release gate. Source installation and CI success do not establish native host model behavior, autonomous execution or persistent private memory. Follow [the preflight method](docs/acceptance/CI_AND_HOST_PREFLIGHT.md) and [revision stages](docs/plans/REVISION_STAGES.md).
-
+Publication to the owner-authorized `NeatKnight18586/friday-core` main branch is distinct from actual model runtime acceptance. The older repository is untouched. Existing MIT license remains preserved; third-party rights review, personal profile import and final public-release acceptance remain later gates. No credentials, private profile or actual participant data are introduced. Managed-runtime authentication must be repaired through supported controls; do not replace injected credentials or paste secret caches into chat. See [host routes](docs/acceptance/STAGE_4_HOST_ROUTES.md), [pilot protocol](evals/behavior/README.md) and [Stage 4 review](docs/reviews/REVISION_STAGE_4_REVIEW.md).
 
 ## INC-002 — Windows source verification
 

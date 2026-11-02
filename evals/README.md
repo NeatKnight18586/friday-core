@@ -1,7 +1,9 @@
 # Peanuts Evaluation Starter Set
 
-**Status:** 134 synthetic evaluation cases across B2–B10; structurally validated. B10 includes one live ChatGPT conversation run record set, four deterministic Codex/Claude Code install/package checks plus three malicious-archive rejection checks, and blocked real-host runtime cases; self-evaluation is not independent human adjudication.
-**Version:** 1.6.1-rc.1
+**Status:** 146 synthetic evaluation cases across B2–B10; structurally validated. B10 includes one live ChatGPT conversation run record set, four deterministic Codex/Claude Code install/package checks plus three malicious-archive rejection checks, and blocked real-host runtime cases; self-evaluation is not independent human adjudication.
+**Current checkpoint:** 0.17.0-rc.1
+
+The separate [Stage 4 behavioral pilot](behavior/README.md) adds twelve synthetic task inputs, matched prompt generation and ungraded evidence collection. Its real preflight is authentication-blocked; it adds no live-model passes. Legacy EVAL-135–146 cover later resource/context and hackathon checks.
 
 ## Purpose
 

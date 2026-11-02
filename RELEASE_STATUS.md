@@ -1,7 +1,7 @@
 # Friday / Peanuts — Release Status
 
-**Version:** 0.16.0-rc.1  
-**Release class:** `STAGE_3_CHECKPOINT` — selective Peanuts context, Fast compatibility and portable planning handoff.  
+**Version:** 0.17.0-rc.1
+**Release class:** `STAGE_4_EVALUATION_CHECKPOINT` — comparison infrastructure implemented; actual behavior gate remains open.
 **Intended audience:** people building projects and reusable AI capabilities across supported hosts, including iPad users.
 
 ## Implemented
@@ -12,9 +12,11 @@
 
 - Compact two-file planning initializer, dossier/handoff templates, structural integrity/recovery helper and synthetic mode examples. Full record initialization and P7–P9 gates remain unchanged.
 
-## Planned, not implemented
+- Stage 4: twelve-case/four-condition prompt preparation, evidence collection and predeclared grading, with real authentication-blocked preflight evidence. No actual comparative model results.
 
-- Stage 4: actual cross-host behavior and comparative method evaluation.
+## Pending
+
+- Stage 4 runtime gate: actual cross-host behavior, independent grading and comparative method outcomes remain blocked/unverified.
 - Stage 5: optional user-reviewed private profile import, correction/export/deletion.
 - Stage 6: public release acceptance, third-party rights review, focused onboarding and community/security files.
 
