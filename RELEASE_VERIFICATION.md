@@ -17,7 +17,7 @@ An actual complete `python tools/verify.py` run passed after Stage 2 implementat
 | Clean offline Linux Python 3.11–3.14 installations/full verification | Version-specific verified-download wheel sets, offline installs, exact outcomes and image digests in delivery evidence; not GitHub-hosted CI |
 | Actual Codex CLI Peanuts smoke attempt | BLOCKED: unrefreshable authentication token/401 before model completion |
 | Actual Claude Code/consumer activation and configured ChatGPT Project recovery | NOT RUN |
-| GitHub-hosted CI, including macOS/Windows | Run-specific: see [Actions](https://github.com/NeatKnight18586/friday-core/actions/workflows/ci.yml) for the exact commit; Linux containers alone do not establish these results |
+| GitHub-hosted Ubuntu/macOS/Windows, Python 3.11–3.14 | PASS: all 12 jobs at `10bbd13`; [hosted run](https://github.com/NeatKnight18586/friday-core/actions/runs/41419736151). Current-commit results remain visible in Actions |
 | Independent user usefulness, NUTS/Four-Council advantage, credit/token savings | NOT ESTABLISHED |
 
 The Stage 1 count correction remains: the original full lint diagnostics contained 21 findings, not the initial truncated-output count of nine. Stage 1 fixed them without weakening lint. Historical evaluation records retain their original scope; no new consumer/model pass is inferred here.
@@ -44,7 +44,7 @@ The owner selected `NeatKnight18586/friday-core` for a clean initial source comm
 
 ## INC-002 — Windows source verification
 
-**Date/stage:** 2026-11-02, Stage 2 source publication. **Severity:** High. **Status:** Fix prepared; hosted verification tracked by commit in Actions.
+**Date/stage:** 2026-11-02, Stage 2 source publication. **Severity:** High. **Status:** Resolved at `10bbd13`; all 12 jobs in the [fix run](https://github.com/NeatKnight18586/friday-core/actions/runs/41419736151) passed.
 
 **Trigger/evidence:** [Initial hosted run](https://github.com/NeatKnight18586/friday-core/actions/runs/41418737423) at `37816d2` passed Ubuntu/macOS but failed Windows. `python tools/verify.py` reported 18 manifest size/hash errors across nine files and two hackathon-test failures on Windows/Python 3.13. Other Windows jobs showed the same failure class.
 
@@ -52,4 +52,4 @@ The owner selected `NeatKnight18586/friday-core` for a clean initial source comm
 
 **Recovery:** Set default text checkout to LF, preserve existing binary/batch overrides, specify UTF-8 on remaining test text I/O, and pin the observed Windows-only colorama dependency. No manifest comparisons, test assertions or matrix entries were removed. New regression creates a real Git fixture and clones it with core.autocrlf=true, comparing original bytes including binary data. It detects the original attributes and passes after correction.
 
-**Acceptance/residual risk:** Run the full local verifier and all 12 hosted OS/Python jobs on the fix commit. Actual model/consumer runtime behavior remains separate. The failed first run remains visible; source upload alone is not a CI pass.
+**Acceptance/residual risk:** Full local verification passed 227 tests, 14 validators and lint. All 12 hosted OS/Python jobs passed on the fix commit `10bbd13`. Actual model/consumer runtime behavior remains separate. The failed first run remains visible; source upload alone is not a CI pass.
