@@ -4,6 +4,16 @@
 
 ## Setup
 
+**Download without a ZIP:** the five ready-to-upload text files are in [files/](files/). Open each file on GitHub and use **Download raw file** (the downward arrow in the file toolbar). Upload the saved `.txt` files to your ChatGPT Project's files/sources area. The separate [Project instructions](PROJECT_INSTRUCTIONS.md) must be copied into the Project's instructions field.
+
+- [00_PEANUTS_CORE_SKILL.txt](files/00_PEANUTS_CORE_SKILL.txt)
+- [01_RESEARCH_AND_EVIDENCE.txt](files/01_RESEARCH_AND_EVIDENCE.txt)
+- [02_NUTS_AND_REVIEW.txt](files/02_NUTS_AND_REVIEW.txt)
+- [03_PRODUCT_AND_ENGINEERING.txt](files/03_PRODUCT_AND_ENGINEERING.txt)
+- [04_GOVERNANCE_AND_RECORDS.txt](files/04_GOVERNANCE_AND_RECORDS.txt)
+
+These are generated distribution snapshots, not separately authored methods. Maintainers refresh them with `python tools/sync_host_entrypoints.py --sync`; verification checks exact package parity. Do not upload the repository ZIP instead of these files. Remove the earlier ZIP from Project sources if it was uploaded there, confirm all five filenames appear, and start a new Project chat for an uncontaminated smoke test.
+
 1. Create a dedicated ChatGPT Project named **Friday — Peanuts** (or use an existing project only if it has room for five reference files and is not already overloaded).
 2. Open Project settings and paste the complete contents of `PROJECT_INSTRUCTIONS.md` into Project instructions. These instructions are separate from the five reference files.
 3. Upload the five plain-text `.txt` files (their contents use Markdown headings and tables) from `chatgpt-project-files/`:

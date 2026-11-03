@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate or check repo-local Claude Code/Codex skill folders from canonical Peanuts.
+"""Generate or check coding-host skills and downloadable ChatGPT Project files.
 
 The checked-in host directories are generated distribution snapshots, NOT second
 sources of truth. Use --sync after canonical changes; CI uses --check to catch drift.
@@ -26,6 +26,9 @@ def expected_host_files(root: Path) -> dict[str, bytes]:
         scratch = Path(temporary)
         outputs = scratch / "packages"
         build_all(outputs, root=root)
+        chatgpt_files = outputs / "chatgpt-project" / "chatgpt-project-files"
+        for path in sorted(chatgpt_files.glob("*.txt")):
+            expected[f"adapters/chatgpt/files/{path.name}"] = path.read_bytes()
         for host, settings in HOSTS.items():
             dest = scratch / f"unpack-{host}"
             names = _safe_extract(outputs / settings["archive"], dest)
@@ -48,8 +51,10 @@ def validate(root: Path = ROOT) -> list[str]:
             errors.append(f"missing generated host path: {name}")
         elif path.read_bytes() != data:
             errors.append(f"generated host source drift: {name}")
-    for settings in HOSTS.values():
-        base = root / settings["prefix"]
+    prefixes = [settings["prefix"] for settings in HOSTS.values()]
+    prefixes.append("adapters/chatgpt/files")
+    for prefix in prefixes:
+        base = root / prefix
         if base.is_dir():
             for path in base.rglob("*"):
                 if path.is_symlink():
@@ -72,7 +77,7 @@ def sync(root: Path = ROOT) -> int:
         for error in errors:
             print(f"FAIL: {error}")
         return 1
-    print(f"PASS: generated {len(expected)} host files from canonical Peanuts, both paths checked.")
+    print(f"PASS: generated {len(expected)} distribution files; coding-host and ChatGPT paths checked.")
     return 0
 
 
@@ -91,7 +96,7 @@ def main() -> int:
         if len(errors) > 12:
             print(f"... and {len(errors)-12} further issues")
         return 1
-    print("PASS: repo-local Codex/Claude Code skill files match generated canonical adapters.")
+    print("PASS: coding-host skills and ChatGPT files match generated canonical adapters.")
     return 0
 
 

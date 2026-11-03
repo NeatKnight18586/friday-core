@@ -3,7 +3,7 @@
   "version": "0.17.0-rc.1",
   "milestone": "Stage 4 — Behavioral evaluation infrastructure; runtime gate open",
   "status": "STAGE_4_EVALUATION_CHECKPOINT: public-release preparation with a provider-neutral canonical Peanuts core. Read-only management, compact planning and matched behavioral evaluation preparation/recording are implemented; no autonomous execution.  Deterministic verification evidence is in RELEASE_VERIFICATION.md. Actual Stage 4 Codex preflight failed authentication before inference; comparative model results, live host acceptance, method effectiveness and measured savings remain unverified. Hosted CI status is recorded per commit in GitHub Actions. Existing MIT license preserved; owner selected friday-core for clean source publication; third-party rights and public-release acceptance remain pending; no universal compatibility claim.",
-  "generated_date": "2026-11-02",
+  "generated_date": "2026-11-03",
   "schema_version": "1.0.0",
   "files": [
     {
@@ -1183,8 +1183,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7814,
-      "sha256": "a2e928f8173c5e11764f58e9575154efdb00856482f199b1ba91ecb42ffe0919"
+      "bytes": 8192,
+      "sha256": "a2d1b7d55ccc76ecbfe224e93738aa4866181554a96ecb94165a9c78d45386bc"
     },
     {
       "path": "RELEASE_STATUS.md",
@@ -1208,8 +1208,33 @@
     },
     {
       "path": "adapters/chatgpt/SETUP.md",
-      "bytes": 4352,
-      "sha256": "18e536bfda5598e4489b5d21586972d6bb3060fdb63e48c4b1b0d132c62522ea"
+      "bytes": 5487,
+      "sha256": "943a826804984e40258d323e27186aba62c49df96b48b9f699d7db826ab3bcc1"
+    },
+    {
+      "path": "adapters/chatgpt/files/00_PEANUTS_CORE_SKILL.txt",
+      "bytes": 9382,
+      "sha256": "bd8330206006fb857363b7e2fab079af73cfaf498c9f5d9bec9cc4a8e4d2107b"
+    },
+    {
+      "path": "adapters/chatgpt/files/01_RESEARCH_AND_EVIDENCE.txt",
+      "bytes": 87803,
+      "sha256": "2b2c1c7167fcc4228ff79575b1dd39c913aef5bcf44a60f4dc1fcec1a9715e22"
+    },
+    {
+      "path": "adapters/chatgpt/files/02_NUTS_AND_REVIEW.txt",
+      "bytes": 198051,
+      "sha256": "a152b32bab03118fd3e910bff34801eea69e79578c8f554d5d22a0a11fa4fc9b"
+    },
+    {
+      "path": "adapters/chatgpt/files/03_PRODUCT_AND_ENGINEERING.txt",
+      "bytes": 130938,
+      "sha256": "8d9cce8fa6da23170112e7aa68c62753eebc05b9731f34f77724c09895a7d9fd"
+    },
+    {
+      "path": "adapters/chatgpt/files/04_GOVERNANCE_AND_RECORDS.txt",
+      "bytes": 145343,
+      "sha256": "354eb89d16750d4bd7f42032288d17b144044cde49bff745b380b327aaa5cc32"
     },
     {
       "path": "adapters/claude-chat/PROJECT_INSTRUCTIONS.md",
@@ -3363,8 +3388,8 @@
     },
     {
       "path": "tools/sync_host_entrypoints.py",
-      "bytes": 3823,
-      "sha256": "9dfc9cf872abda92bd3710e6b27fc8161188e1a5489775e86a4e12299c68e96a"
+      "bytes": 4123,
+      "sha256": "7333a7590d9ce4d99bbaa88818160f62631acfa7c9308773ad7055813c0af6ee"
     },
     {
       "path": "tools/update_manifest.py",

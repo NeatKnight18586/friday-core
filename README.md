@@ -28,6 +28,8 @@ The [twelve-case comparison suite](evals/behavior/README.md) prepares matched pr
 
 ## Try the prototype
 
+**Using ChatGPT?** Download the five individual text files from [adapters/chatgpt/files/](adapters/chatgpt/files/), then follow [Project setup](adapters/chatgpt/SETUP.md). No ZIP extraction is needed. Paste the separate [Project instructions](adapters/chatgpt/PROJECT_INSTRUCTIONS.md) into Project settings, upload the five text files to Project sources, and start a new chat.
+
 Choose a host route below. For an iPad, follow [Start here](START_HERE_IPAD.md). Packages must be generated from this source tree; an entire repository ZIP is not a consumer Skill upload.
 
 | Route | Entry point / package | Evidence at this checkpoint |
